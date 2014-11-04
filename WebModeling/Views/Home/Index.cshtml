@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Web Modeling";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                To learn more about ASP.NET MVC visit
+                <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET MVC.
+                If you have any questions about ASP.NET MVC visit
+                <a href="http://forums.asp.net/1146.aspx/1?MVC" title="ASP.NET MVC Forum">our forums</a>.
+            </p>
+        </div>
+    </section>
+}
+@section scripts {
+    <script type="text/javascript" src="~/scripts/mine/simulations.js"></script>
+    <script type="text/javascript">
+        xpan.webModeling.simulations.init();
+    </script>
+}
+<a href="#" id="showsimulations">Simulations</a>
+<br/>
+
+<div id="all-simulation-form" title="Simulations">
+    <form>
+        <ul id ="allsimulations">
+        </ul>
+        <fieldset>
+            <legend></legend>
+            <input type="button" name="createSimulation" id="createSimulationButton" value="createSimulation" />
+        </fieldset>
+    </form>
+</div>
