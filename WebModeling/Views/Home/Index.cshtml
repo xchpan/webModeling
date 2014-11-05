@@ -19,18 +19,33 @@
     </section>
 }
 @section scripts {
-    <script type="text/javascript" src="~/scripts/mine/simulations.js"></script>
+    @*    <script type="text/javascript" src="~/scripts/mine/simulations.js"></script>
     <script type="text/javascript">
         xpan.webModeling.simulations.init();
-    </script>
+    </script>*@
+    <script type="text/javascript" src="~/Scripts/mine/angularModules.js"></script>
+    <script type="text/javascript" src="~/Scripts/mine/allSimulationController.js"></script>
+}
+@section styles {
+    <link rel="stylesheet" href="~/Content/Mine/all-plants.css"/>
 }
 <a href="#" id="showsimulations">Simulations</a>
 <br/>
 
-<div id="all-simulation-form" title="Simulations">
-    <form>
-        <ul id ="allsimulations">
-        </ul>
+<div id="all-simulation-form" title="Simulations" ng-app="allSimulation">
+    <form ng-controller="AllSimulationController">
+        <table class="all-plants">
+            <thead>
+                <tr><th>Name</th><th>Creator</th><th>Created Time</th><th>Description</th><th></th></tr>
+            </thead>
+            <tr ng-repeat="s in simulations">
+                <td>{{s.Name}}</td>
+                <td>{{s.Creator}}</td>
+                <td>{{s.CreateDatetime}}</td>
+                <td>{{s.Description}}</td>
+                <td><button key="{{s.Name}}">&#x2718</button></td>
+            </tr>
+        </table>
         <fieldset>
             <legend></legend>
             <input type="button" name="createSimulation" id="createSimulationButton" value="createSimulation" />
