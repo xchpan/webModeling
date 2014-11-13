@@ -24,6 +24,7 @@
         xpan.webModeling.simulations.init();
     </script>*@
     <script type="text/javascript" src="~/Scripts/mine/angularModules.js"></script>
+    <script type="text/javascript" src="~/Scripts/mine/allSimulationService.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/allSimulationController.js"></script>
 }
 @section styles {
@@ -39,16 +40,16 @@
                 <tr><th>Name</th><th>Creator</th><th>Created Time</th><th>Description</th><th></th></tr>
             </thead>
             <tr ng-repeat="s in simulations">
-                <td>{{s.Name}}</td>
+                <td><input type="text" ng-model="s.Name" ng-change="updateSimlation(s.Id)"/></td>
                 <td>{{s.Creator}}</td>
                 <td>{{s.CreateDatetime}}</td>
-                <td>{{s.Description}}</td>
-                <td><button key="{{s.Name}}">&#x2718</button></td>
+                <td><input type="text" ng-model="s.Description" ng-change="updateSimlation(s.Id)" /></td>
+                <td><button ng-click="deleteSimulation(s.Id)">&#x2718</button></td>
             </tr>
         </table>
         <fieldset>
             <legend></legend>
-            <input type="button" name="createSimulation" id="createSimulationButton" value="createSimulation" />
+            <input type="button" value="createSimulation" ng-click="createSimulation()" />
         </fieldset>
     </form>
 </div>

@@ -1,1 +1,2 @@
-﻿var allSimulations = angular.module("allSimulation", []);
+﻿var allSimulationService = angular.module('allSimulationService', []);
+var allSimulations = angular.module("allSimulation", ['allSimulationService']);

@@ -286,6 +286,7 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\mine\allSimulationController.js" />
+    <Content Include="Scripts\mine\allSimulationService.js" />
     <Content Include="Scripts\mine\angularModules.js" />
     <Content Include="Scripts\mine\simulations.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
