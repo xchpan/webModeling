@@ -11,7 +11,7 @@ namespace WebModeling.Controllers
 {
     public class SimulationsController : ApiController
     {
-        private static int id = 4;
+        private static int nextId = 4;
 
         private static readonly List<Simulation> simulations = new List<Simulation>()
         {
@@ -67,14 +67,14 @@ namespace WebModeling.Controllers
         }
 
         // POST api/simulations
-        public Simulation Post([FromBody]string value)
+        public Simulation Post()
         {
             var simulation = new Simulation()
             {
-                Id = Interlocked.Increment(ref id),
+                Id = Interlocked.Increment(ref nextId),
                 CreateDatetime = DateTime.UtcNow,
                 Creator = "Xiuchuan Pan",
-                Name = "Sim " + id,
+                Name = "Sim " + nextId,
                 Description = string.Empty,
                 LastModifiedDateTime = DateTime.UtcNow
             };

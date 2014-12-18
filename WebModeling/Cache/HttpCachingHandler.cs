@@ -57,13 +57,6 @@ namespace WebModeling.Cache
                     }
                 }
             }
-            try {
-                await base.SendAsync(request, cancellationToken);
-            }
-            catch (Exception ex) {
-                return request.CreateErrorResponse(
-                    HttpStatusCode.InternalServerError, ex);
-            }
 
             // After the action method is executed, put the cache from the response object
             HttpResponseMessage response;
