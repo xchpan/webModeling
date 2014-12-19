@@ -2,10 +2,9 @@
  //   ViewBag.Title = "Web Modeling";
 }
 @section scripts {
-    @*    <script type="text/javascript" src="~/scripts/mine/simulations.js"></script>
     <script type="text/javascript">
-        xpan.webModeling.simulations.init();
-    </script>*@
+        $("#libraryList").accordion();
+    </script>
     <script type="text/javascript" src="~/Scripts/mine/angularModules.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/allSimulationService.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/allSimulationController.js"></script>
@@ -18,7 +17,23 @@
 </header>
 
 <main>
-    <section id="libraries">zxc</section>
+    <section id="libraries">
+        <h3>Libraries</h3>
+        <div id="libraryList">
+            <h3>Fluid</h3>
+            <div>
+                <p>This is all fluids</p>
+            </div>
+            <h3>Flare Lib</h3>
+            <div>
+                <p>This is all flarelib models</p>
+            </div>
+            <h3>Steam Lib</h3>
+            <div>
+                <p>This is all steam lib models</p>
+            </div>
+        </div>
+    </section>
     <section id="flowsheets">zxC</section>
     <section id="trees">XZVC</section>
 </main>
