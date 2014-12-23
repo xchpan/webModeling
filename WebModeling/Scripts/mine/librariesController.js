@@ -1,9 +1,9 @@
 ﻿libraries.controller("librariesController", ['$scope', 'librariesService', function ($scope, librariesService) {
     $(document).ready(function () {
-        //librariesService.getAllLibraries().success(function (data) {
-        //    $scope.libraries = data;
-        //    //$("#libraryList").accordion();
-        //});
+        librariesService.getAllLibraries().success(function (data) {
+            $scope.libraries = data;
+            //$("#libraryList").accordion();
+        });
     });
 
     $scope.deleteLibrary = function (libraryId) {

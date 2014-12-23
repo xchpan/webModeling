@@ -3,13 +3,16 @@
 }
 @section scripts {
     <script type="text/javascript">
-        $("#libraryList").accordion();
+        //$("#libraryList").accordion();
     </script>
     <script type="text/javascript" src="~/Scripts/mine/angularModules.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/allSimulationService.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/allSimulationController.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/librariesService.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/librariesController.js"></script>
+    <script type="text/javascript">
+        angular.bootstrap(document.getElementById("all-simulation-form"), ['allSimulations']);
+    </script>
 }
 @section styles {
     <link rel="stylesheet" href="~/Content/Mine/all-plants.css"/>
@@ -19,9 +22,9 @@
 </header>
 
 <main>
-    <section id="libraries">
+    <section id="librariesSection" ng-app="libraries">
         <h3>Libraries</h3>
-        <div id="libraryList">
+        <div id="libraryList" ng-controller="librariesController">
             <h3>Fluid</h3>
             <div>
                 <p>This is all fluids</p>
@@ -44,7 +47,7 @@
     czxv
 </footer>
 
-<div id="all-simulation-form" title="Simulations" ng-app="allSimulation">
+<div id="all-simulation-form" title="Simulations" ng-app="allSimulations">
     <form ng-controller="AllSimulationController">
         <table class="all-plants">
             <thead>
