@@ -2,9 +2,9 @@
  //   ViewBag.Title = "Web Modeling";
 }
 @section scripts {
-    <script type="text/javascript">
-        //$("#libraryList").accordion();
-    </script>
+    @*<script type="text/javascript">
+        $("#libraryList").accordion();
+    </script>*@
     <script type="text/javascript" src="~/Scripts/mine/angularModules.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/allSimulationService.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/allSimulationController.js"></script>
@@ -25,17 +25,12 @@
     <section id="librariesSection" ng-app="libraries">
         <h3>Libraries</h3>
         <div id="libraryList" ng-controller="librariesController">
-            <h3>Fluid</h3>
-            <div>
-                <p>This is all fluids</p>
-            </div>
-            <h3>Flare Lib</h3>
-            <div>
-                <p>This is all flarelib models</p>
-            </div>
-            <h3>Steam Lib</h3>
-            <div>
-                <p>This is all steam lib models</p>
+            <h3 ng-repeat-start="library in libraries">{{library.Name}}</h3>
+            <div ng-repeat-end class="librayContainer">
+                <span ng-repeat="item in library.Items" class="libraryItem">
+                    <img src="{{item.Icon}}" class="modelTypeIcon"/>
+                    <div>{{item.Name}}</div>
+                </span>
             </div>
         </div>
     </section>
