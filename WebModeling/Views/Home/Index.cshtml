@@ -25,13 +25,7 @@
     <section id="librariesSection" ng-app="libraries">
         <h3>Libraries</h3>
         <div id="libraryList" ng-controller="librariesController">
-            <h3 ng-repeat-start="library in libraries">{{library.Name}}</h3>
-            <div ng-repeat-end class="librayContainer">
-                <span ng-repeat="item in library.Items" class="libraryItem">
-                    <img src="{{item.Icon}}" class="modelTypeIcon"/>
-                    <div>{{item.Name}}</div>
-                </span>
-            </div>
+            <div library-accordion="libraries"></div>
         </div>
     </section>
     <section id="flowsheets">zxC</section>
