@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Web.WebPages.OAuth;
-using WebModeling.Models;
-
-namespace WebModeling
+﻿namespace xpan.plantDesign.WebHost
 {
     public static class AuthConfig
     {

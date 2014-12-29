@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebModeling</RootNamespace>
-    <AssemblyName>WebModeling</AssemblyName>
+    <RootNamespace>xpan.plantDesign.WebHost</RootNamespace>
+    <AssemblyName>xpan.plantDesign.WebHost</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -207,9 +207,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Library.cs" />
-    <Compile Include="Models\LibraryItem.cs" />
-    <Compile Include="Models\Simulation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -320,9 +317,24 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApplicationServiceContracts\ApplicationServiceContracts.csproj">
+      <Project>{060c0a86-19bf-4566-9c49-fa3daf1fa29c}</Project>
+      <Name>ApplicationServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApplicationServices\ApplicationServices.csproj">
+      <Project>{2fd88395-33a7-4b61-a746-000441d482f4}</Project>
+      <Name>ApplicationServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModels\ViewModels.csproj">
+      <Project>{7c0c3d3e-3927-4bb9-b63f-7ca60190a6d0}</Project>
+      <Name>ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
