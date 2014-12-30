@@ -203,7 +203,7 @@
     <Compile Include="Cache\HttpCachingHandler.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibrariesController.cs" />
-    <Compile Include="Controllers\SimulationsController.cs" />
+    <Compile Include="Controllers\PlantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,12 +277,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-3.2.0.debug.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
-    <Content Include="Scripts\mine\allSimulationController.js" />
-    <Content Include="Scripts\mine\allSimulationService.js" />
+    <Content Include="Scripts\mine\allPlantController.js" />
+    <Content Include="Scripts\mine\allPlantService.js" />
     <Content Include="Scripts\mine\angularModules.js" />
     <Content Include="Scripts\mine\librariesController.js" />
     <Content Include="Scripts\mine\librariesService.js" />
-    <Content Include="Scripts\mine\simulations.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Web.config" />

@@ -2,7 +2,7 @@
 
 namespace xpan.plantDesign.ViewModels
 {
-    public class Simulation
+    public class PlantSummary
     {
         public int Id { get; set; }
         public string Name { get; set; }

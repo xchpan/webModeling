@@ -2,23 +2,20 @@
  //   ViewBag.Title = "Web Modeling";
 }
 @section scripts {
-    @*<script type="text/javascript">
-        $("#libraryList").accordion();
-    </script>*@
     <script type="text/javascript" src="~/Scripts/mine/angularModules.js"></script>
-    <script type="text/javascript" src="~/Scripts/mine/allSimulationService.js"></script>
-    <script type="text/javascript" src="~/Scripts/mine/allSimulationController.js"></script>
+    <script type="text/javascript" src="~/Scripts/mine/allPlantService.js"></script>
+    <script type="text/javascript" src="~/Scripts/mine/allPlantController.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/librariesService.js"></script>
     <script type="text/javascript" src="~/Scripts/mine/librariesController.js"></script>
     <script type="text/javascript">
-        angular.bootstrap(document.getElementById("all-simulation-form"), ['allSimulations']);
+        angular.bootstrap(document.getElementById("all-plants-form"), ['allPlants']);
     </script>
 }
 @section styles {
     <link rel="stylesheet" href="~/Content/Mine/all-plants.css"/>
 }
 <header>
-    <a href="#" id="showsimulations">Simulations</a>
+    <a href="#" id="showplants">Plants</a>
 </header>
 
 <main>
@@ -36,23 +33,23 @@
     czxv
 </footer>
 
-<div id="all-simulation-form" title="Simulations" ng-app="allSimulations">
-    <form ng-controller="AllSimulationController">
+<div id="all-plants-form" title="All Plants" ng-app="allPlants">
+    <form ng-controller="AllPlantController">
         <table class="all-plants">
             <thead>
                 <tr><th>Name</th><th>Creator</th><th>Created Time</th><th>Description</th><th></th></tr>
             </thead>
-            <tr ng-repeat="s in simulations">
-                <td><input type="text" ng-model="s.Name" ng-change="updateSimlation(s.Id)"/></td>
+            <tr ng-repeat="s in plants">
+                <td><input type="text" ng-model="s.Name" ng-change="updatePlant(s.Id)"/></td>
                 <td>{{s.Creator}}</td>
                 <td>{{s.CreateDatetime}}</td>
-                <td><input type="text" ng-model="s.Description" ng-change="updateSimlation(s.Id)" /></td>
-                <td><button ng-click="deleteSimulation(s.Id)">&#x2718</button></td>
+                <td><input type="text" ng-model="s.Description" ng-change="updatePlant(s.Id)" /></td>
+                <td><button ng-click="deletePlant(s.Id)">&#x2718</button></td>
             </tr>
         </table>
         <fieldset>
             <legend></legend>
-            <input type="button" value="createSimulation" ng-click="createSimulation()" />
+            <input type="button" value="createPlant" ng-click="createPlant()" />
         </fieldset>
     </form>
 </div>

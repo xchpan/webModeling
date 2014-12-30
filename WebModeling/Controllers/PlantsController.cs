@@ -7,105 +7,105 @@ using xpan.plantDesign.ViewModels;
 
 namespace xpan.plantDesign.WebHost.Controllers
 {
-    public class SimulationsController : ApiController
+    public class PlantsController : ApiController
     {
         private static int nextId = 4;
 
-        private static readonly List<Simulation> simulations = new List<Simulation>()
+        private static readonly List<PlantSummary> PlantSummaries = new List<PlantSummary>()
         {
-            new Simulation()
+            new PlantSummary()
             {
                 Id = 1,
                 CreateDatetime = DateTime.UtcNow,
                 Creator = "Xiuchuan Pan",
-                Name = "Sim 1",
+                Name = "Plant 1",
                 Description = string.Empty,
                 LastModifiedDateTime = DateTime.UtcNow
             },
-            new Simulation()
+            new PlantSummary()
             {
                 Id = 2,
                 CreateDatetime = DateTime.UtcNow,
                 Creator = "Weiwei Li",
-                Name = "Sim 2",
+                Name = "Plant 2",
                 Description = string.Empty,
                 LastModifiedDateTime = DateTime.UtcNow
             },
-            new Simulation()
+            new PlantSummary()
             {
                 Id = 3,
                 CreateDatetime = DateTime.UtcNow,
                 Creator = "Max Pan",
-                Name = "Sim 3",
+                Name = "Plant 3",
                 Description = string.Empty,
                 LastModifiedDateTime = DateTime.UtcNow
             },
-            new Simulation()
+            new PlantSummary()
             {
                 Id = 4,
                 CreateDatetime = DateTime.UtcNow,
                 Creator = "Anita Pan",
-                Name = "Sim 4",
+                Name = "Plant 4",
                 Description = string.Empty,
                 LastModifiedDateTime = DateTime.UtcNow
             },
         };
 
 
-        // GET api/simulations
-        public IEnumerable<Simulation> GetAllSimulations()
+        // GET api/Plants
+        public IEnumerable<PlantSummary> GetAllPlants()
         {
-            return simulations;
+            return PlantSummaries;
         }
 
-        // GET api/simulations/
-        public Simulation GetSimulation(int id)
+        // GET api/Plants/
+        public PlantSummary GetPlant(int id)
         {
-            return simulations.SingleOrDefault(s => s.Id == id);
+            return PlantSummaries.SingleOrDefault(s => s.Id == id);
         }
 
-        // POST api/simulations
-        public Simulation Post()
+        // POST api/Plants
+        public PlantSummary Post()
         {
-            var simulation = new Simulation()
+            var plant = new PlantSummary()
             {
                 Id = Interlocked.Increment(ref nextId),
                 CreateDatetime = DateTime.UtcNow,
                 Creator = "Xiuchuan Pan",
-                Name = "Sim " + nextId,
+                Name = "Plant " + nextId,
                 Description = string.Empty,
                 LastModifiedDateTime = DateTime.UtcNow
             };
-            simulations.Add(simulation);
+            PlantSummaries.Add(plant);
 
-            return simulation;
+            return plant;
         }
 
-        // PUT api/simulations/1
+        // PUT api/Plants/1
         //public void Put(int id, [FromBody]string value)
         //{
         //}
-        public void Put(int id, Simulation simulation)
+        public void Put(int id, PlantSummary plantSummary)
         {
-            for (int i = 0; i < simulations.Count; i++)
+            for (int i = 0; i < PlantSummaries.Count; i++)
             {
-                if (simulations[i].Id == id)
+                if (PlantSummaries[i].Id == id)
                 {
-                    simulations[i] = simulation;
+                    PlantSummaries[i] = plantSummary;
                     return;
                 }
             }
 
-            throw new ArgumentException("Simulation id doesn't exist.");
+            throw new ArgumentException("PlantSummary id doesn't exist.");
         }
 
-        // DELETE api/simulations/1
+        // DELETE api/Plants/1
         public void Delete(int id)
         {
-            var simulation = GetSimulation(id);
-            if (simulation != null)
+            var plant = GetPlant(id);
+            if (plant != null)
             {
-                simulations.Remove(simulation);
+                PlantSummaries.Remove(plant);
             }
         }
     }
