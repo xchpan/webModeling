@@ -24,7 +24,7 @@ namespace xpan.plantDesign.WebHost
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
-            config.MessageHandlers.Insert(0, new HttpCachingHandler("Accept", "Accept-Charset"));
+            //config.MessageHandlers.Insert(0, new HttpCachingHandler("Accept", "Accept-Charset"));
         }
     }
 }
