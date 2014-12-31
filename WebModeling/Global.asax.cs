@@ -4,6 +4,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using WebModeling;
 using WebModeling.Cache;
+using xpan.plantDesign.WebApi.Config;
 
 namespace xpan.plantDesign.WebHost
 {
@@ -15,12 +16,14 @@ namespace xpan.plantDesign.WebHost
         protected void Application_Start()
         {
             HttpConfiguration config = GlobalConfiguration.Configuration;
+            RouteConfig.RegisterRoutes(config.Routes);
+            WebApiConfig.Configure(config);
+            AutofacWebApi.Initialize(config);
 
             AreaRegistration.RegisterAllAreas();
 
-            GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            MvcRouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 

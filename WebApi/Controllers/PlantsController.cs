@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using xpan.plantDesign.ApplicationServices;
 using xpan.plantDesign.ViewModels;
 
-namespace xpan.plantDesign.WebHost.Controllers
+namespace xpan.plantDesign.WebApi.Controllers
 {
     public class PlantsController : ApiController
     {
-        private readonly IPlantSummaryService plantSummaryService = new PlantSummaryService();
+        private readonly IPlantSummaryService plantSummaryService;
+
+        public PlantsController(IPlantSummaryService plantSummaryService)
+        {
+            this.plantSummaryService = plantSummaryService;
+        }
         
         // GET api/Plants
         public IEnumerable<PlantSummary> GetAllPlants()
