@@ -1,0 +1,9 @@
+﻿USE plant_building;
+CREATE TABLE plant_summary (
+id uuid,
+name text,
+description text,
+creator text,
+create_dateTime timestamp,
+PRIMARY KEY (id)
+);
