@@ -11,6 +11,9 @@ namespace xpan.plantDesign.Repository
     {
         private readonly Cluster cluster;
         private readonly ISession session;
+        private readonly PreparedStatement insertPlantSummaryStatement;
+        private readonly PreparedStatement updatePlantSummaryStatement;
+        private readonly PreparedStatement deletePlantSummaryStatement;
 
         private readonly Dictionary<Guid, PlantSummary> plants = new Dictionary<Guid, PlantSummary>();
 
@@ -19,6 +22,11 @@ namespace xpan.plantDesign.Repository
             var ip = "192.168.112.129";
             cluster = Cluster.Builder().AddContactPoint(ip).Build();
             session = cluster.Connect("plant_building");
+
+            insertPlantSummaryStatement = session.Prepare(
+                "INSERT INTO plant_summary (id, name, description, creator, create_datetime) VALUES (?, ?, ?, ?, ?);");
+            updatePlantSummaryStatement = session.Prepare("UPDATE plant_summary SET name=?, description=? WHERE id=?;");
+            deletePlantSummaryStatement = session.Prepare("DELETE FROM plant_summary WHERE id = ?");
         }
 
         public System.Collections.Generic.IEnumerable<ViewModels.PlantSummary> GetAllPlants()
@@ -51,25 +59,22 @@ namespace xpan.plantDesign.Repository
 
         public void Add(ViewModels.PlantSummary plantSummary)
         {
-            const string format = "insert into plant_summary (id, name, description, creator, create_datetime) values ({0}, '{1}', '{2}', '{3}', '{4}')";
-            var statement = string.Format(format, plantSummary.Id, plantSummary.Name, plantSummary.Description,
-                plantSummary.Creator, plantSummary.CreateDatetime.ToString("yyyy-MM-dd HH:mm:ss"));
+            var statement = insertPlantSummaryStatement.Bind(plantSummary.Id, plantSummary.Name, plantSummary.Description,
+                plantSummary.Creator, plantSummary.CreateDatetime);
             session.Execute(statement);
             plants.Add(plantSummary.Id, plantSummary);
         }
 
         public void Update(System.Guid id, ViewModels.PlantSummary plantSummary)
         {
-            const string format = "update plant_summary set name='{0}', description='{1}' where id={2}";
-            var statement = string.Format(format, plantSummary.Name, plantSummary.Description, plantSummary.Id);
+            var statement = updatePlantSummaryStatement.Bind(plantSummary.Name, plantSummary.Description, plantSummary.Id);
             session.Execute(statement);
             plants[id] = plantSummary;
         }
 
         public void Delete(System.Guid id)
         {
-            const string format = "delete from plant_summary where id = {0}";
-            var statement = string.Format(format, id);
+            var statement = deletePlantSummaryStatement.Bind(id);
             session.Execute(statement);
             plants.Remove(id);
         }
