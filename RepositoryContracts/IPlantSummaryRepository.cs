@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using xpan.plantDesign.ViewModels;
 
-namespace xpan.plantDesign.ApplicationServices
+namespace xpan.plantDesign.Repository
 {
-    public interface IPlantSummaryService
+    public interface IPlantSummaryRepository
     {
         IEnumerable<PlantSummary> GetAllPlants();
 
         PlantSummary GetPlant(Guid id);
 
-        PlantSummary Create();
+        void Add(PlantSummary plantSummary);
 
         void Update(Guid id, PlantSummary plantSummary);
 

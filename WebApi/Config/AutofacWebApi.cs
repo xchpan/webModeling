@@ -3,6 +3,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using xpan.plantDesign.ApplicationServices;
+using xpan.plantDesign.Repository;
 
 namespace xpan.plantDesign.WebApi.Config
 {
@@ -21,6 +22,7 @@ namespace xpan.plantDesign.WebApi.Config
         private static IContainer RegisterServices(ContainerBuilder builder)
         {
             //Services
+            builder.RegisterType<PlantSummaryRepository>().As<IPlantSummaryRepository>().SingleInstance();
             builder.RegisterType<LibraryService>().As<ILibraryService>().InstancePerRequest();
             builder.RegisterType<PlantSummaryService>().As<IPlantSummaryService>().InstancePerRequest();
 

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2FD88395-33A7-4B61-A746-000441D482F4}</ProjectGuid>
+    <ProjectGuid>{49AAD8AE-C4A9-499B-A9E7-68C3894457E9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>xpan.plantDesign.ApplicationServices</RootNamespace>
-    <AssemblyName>xpan.plantDesign.ApplicationServices</AssemblyName>
+    <RootNamespace>xpan.plantDesign.Repository</RootNamespace>
+    <AssemblyName>xpan.plantDesign.RepositoryContracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,19 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LibraryService.cs" />
-    <Compile Include="PlantSummaryService.cs" />
+    <Compile Include="IPlantSummaryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ApplicationServiceContracts\ApplicationServiceContracts.csproj">
-      <Project>{060c0a86-19bf-4566-9c49-fa3daf1fa29c}</Project>
-      <Name>ApplicationServiceContracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj">
-      <Project>{49aad8ae-c4a9-499b-a9e7-68c3894457e9}</Project>
-      <Name>RepositoryContracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{7c0c3d3e-3927-4bb9-b63f-7ca60190a6d0}</Project>
       <Name>ViewModels</Name>

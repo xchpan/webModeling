@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using xpan.plantDesign.ApplicationServices;
 using xpan.plantDesign.ViewModels;
@@ -21,7 +22,7 @@ namespace xpan.plantDesign.WebApi.Controllers
         }
 
         // GET api/Plants/
-        public PlantSummary GetPlant(int id)
+        public PlantSummary GetPlant(Guid id)
         {
             return plantSummaryService.GetPlant(id);
         }
@@ -33,13 +34,13 @@ namespace xpan.plantDesign.WebApi.Controllers
         }
 
         // PUT api/Plants/1
-        public void Put(int id, PlantSummary plantSummary)
+        public void Put(Guid id, PlantSummary plantSummary)
         {
             plantSummaryService.Update(id, plantSummary);
         }
 
         // DELETE api/Plants/1
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             plantSummaryService.Delete(id);
         }

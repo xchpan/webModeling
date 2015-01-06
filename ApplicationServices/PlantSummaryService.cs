@@ -4,101 +4,57 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using xpan.plantDesign.Repository;
 using xpan.plantDesign.ViewModels;
 
 namespace xpan.plantDesign.ApplicationServices
 {
     public class PlantSummaryService : IPlantSummaryService
     {
-        private static int nextId = 4;
+        private readonly IPlantSummaryRepository repository;
 
-        private static readonly List<PlantSummary> PlantSummaries = new List<PlantSummary>()
+        public PlantSummaryService(IPlantSummaryRepository repository)
         {
-            new PlantSummary()
-            {
-                Id = 1,
-                CreateDatetime = DateTime.UtcNow,
-                Creator = "Xiuchuan Pan",
-                Name = "Plant 1",
-                Description = string.Empty,
-                LastModifiedDateTime = DateTime.UtcNow
-            },
-            new PlantSummary()
-            {
-                Id = 2,
-                CreateDatetime = DateTime.UtcNow,
-                Creator = "Weiwei Li",
-                Name = "Plant 2",
-                Description = string.Empty,
-                LastModifiedDateTime = DateTime.UtcNow
-            },
-            new PlantSummary()
-            {
-                Id = 3,
-                CreateDatetime = DateTime.UtcNow,
-                Creator = "Max Pan",
-                Name = "Plant 3",
-                Description = string.Empty,
-                LastModifiedDateTime = DateTime.UtcNow
-            },
-            new PlantSummary()
-            {
-                Id = 4,
-                CreateDatetime = DateTime.UtcNow,
-                Creator = "Anita Pan",
-                Name = "Plant 4",
-                Description = string.Empty,
-                LastModifiedDateTime = DateTime.UtcNow
-            },
-        };
+            this.repository = repository;
+        }
 
         public IEnumerable<PlantSummary> GetAllPlants()
         {
-            return PlantSummaries;
+            return repository.GetAllPlants();
         }
 
-        public PlantSummary GetPlant(int id)
+        public PlantSummary GetPlant(Guid id)
         {
-            return PlantSummaries.SingleOrDefault(s => s.Id == id);
+            return repository.GetPlant(id);
         }
 
+        private static int count = 2;
+             
         public PlantSummary Create()
         {
+            Guid id = Guid.NewGuid();
             var plant = new PlantSummary()
             {
-                Id = Interlocked.Increment(ref nextId),
+                Id = id,
                 CreateDatetime = DateTime.UtcNow,
                 Creator = "Xiuchuan Pan",
-                Name = "Plant " + nextId,
+                Name = "Plant " + count++,
                 Description = string.Empty,
                 LastModifiedDateTime = DateTime.UtcNow
             };
-            PlantSummaries.Add(plant);
+            repository.Add(plant);
 
             return plant;
         }
 
-        public void Update(int id, PlantSummary plantSummary)
+        public void Update(Guid id, PlantSummary plantSummary)
         {
-            for (int i = 0; i < PlantSummaries.Count; i++)
-            {
-                if (PlantSummaries[i].Id == id)
-                {
-                    PlantSummaries[i] = plantSummary;
-                    return;
-                }
-            }
-
-            throw new ArgumentException("PlantSummary id doesn't exist.");
+            repository.Update(id, plantSummary);
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
-            var plant = GetPlant(id);
-            if (plant != null)
-            {
-                PlantSummaries.Remove(plant);
-            }
+           repository.Delete(id);
         }
     }
 }
