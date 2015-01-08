@@ -10,5 +10,7 @@ namespace xpan.plantDesign.ApplicationServices
     public interface ILibraryService
     {
         IEnumerable<Library> GetLibraries();
+
+        Library CreateLibrary();
     }
 }

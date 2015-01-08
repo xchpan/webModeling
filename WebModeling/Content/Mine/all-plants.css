@@ -1,4 +1,4 @@
-﻿table.all-plants >tbody >tr > td {
+﻿table.all-plants > tbody > tr > td {
     padding: 10px 50px 10px 10px;
 }
 
@@ -14,18 +14,19 @@ html, body {
 header {
     height: 30px;
     background-color: lightcyan;
-        margin: 4px;
-   padding: 5px;
-   border: 1px solid #8888bb;
-   border-radius: 7pt;
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
 }
+
 footer {
-        height: 30px;
+    height: 30px;
     background-color: lightcyan;
-        margin: 4px;
-   padding: 5px;
-   border: 1px solid #8888bb;
-   border-radius: 7pt;
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
 }
 
 main {
@@ -35,39 +36,39 @@ main {
 }
 
 #libraries {
-       margin: 4px;
-   padding: 5px;
-   border: 1px solid #8888bb;
-   border-radius: 7pt;
-   background: #ccccff;
-   -webkit-flex: 1 6 20%;
-           flex: 1 6 20%;
-   -webkit-order: 1;
-           order: 1;
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
+    background: #ccccff;
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 20%;
+    -webkit-order: 1;
+    order: 1;
 }
 
 #flowsheets {
-margin: 4px;
-   padding: 5px;
-   border: 1px solid #cccc33;
-   border-radius: 7pt;
-   background: #dddd88;
-   -webkit-flex: 3 1 60%;
-           flex: 3 1 60%;
-   -webkit-order: 2;
-           order: 2;
+    margin: 4px;
+    padding: 5px;
+    border: 1px solid #cccc33;
+    border-radius: 7pt;
+    background: #dddd88;
+    -webkit-flex: 3 1 60%;
+    flex: 3 1 60%;
+    -webkit-order: 2;
+    order: 2;
 }
 
 #trees {
     margin: 4px;
-   padding: 5px;
-   border: 1px solid #8888bb;
-   border-radius: 7pt;
-   background: #ccccff;
-   -webkit-flex: 1 6 20%;
-           flex: 1 6 20%;
-   -webkit-order: 3;
-           order: 3;
+    padding: 5px;
+    border: 1px solid #8888bb;
+    border-radius: 7pt;
+    background: #ccccff;
+    -webkit-flex: 1 6 20%;
+    flex: 1 6 20%;
+    -webkit-order: 3;
+    order: 3;
 }
 
 img.modelTypeIcon {
@@ -83,4 +84,32 @@ img.modelTypeIcon {
     flex: 1;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.twoEndRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.twoEndLeft {
+    align-self: flex-start;
+}
+
+.twoEndRight {
+    margin-left: auto;
+}
+
+.centarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border-radius: 5px;
+}
+
+.smallButton {
+    width: 25px;
+    height: 25px;
 }

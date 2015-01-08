@@ -19,9 +19,9 @@
 </header>
 
 <main>
-    <section id="librariesSection" ng-app="libraries">
-        <h3>Libraries</h3>
-        <div id="libraryList" ng-controller="librariesController">
+    <section id="librariesSection" ng-app="libraries" ng-controller="librariesController">
+        <div id="librariesHeader" class="twoEndRow"><h3 class="twoEndLeft">Libraries</h3><div class="twoEndRight centarContainer"><button ng-click="createLibrary()" class="smallButton">+</button></div></div>
+        <div id="libraryList">
             <div library-accordion="libraries"></div>
         </div>
     </section>

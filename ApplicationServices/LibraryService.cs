@@ -30,5 +30,13 @@ namespace xpan.plantDesign.ApplicationServices
         {
             return libraries.AsEnumerable();
         }
+
+        public Library CreateLibrary()
+        {
+            var name = "Lib " + (libraries.Count + 1);
+            var lib = new Library(name: name, items: Enumerable.Empty<LibraryItem>());
+            libraries.Add(lib);
+            return lib;
+        }
     }
 }

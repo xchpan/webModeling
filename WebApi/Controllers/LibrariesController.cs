@@ -18,5 +18,11 @@ namespace xpan.plantDesign.WebApi.Controllers
         {
             return libraryService.GetLibraries();
         }
+
+        [HttpPost]
+        public Library CreateLibrary()
+        {
+            return libraryService.CreateLibrary();
+        }
     }
 }
