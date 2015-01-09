@@ -1,0 +1,11 @@
+﻿USE plant_building;
+CREATE TABLE parameter_in_template (
+owner_id uuid,
+owner_type text,
+id uuid,
+name text,
+parameter_type text,
+is_private bool,  // a private parameter is not exposed, and essentially fixed.
+default_value text,  // it is not clear what is the best way to define thie yet.
+PRIMARY KEY (id)
+);

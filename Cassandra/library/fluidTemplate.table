@@ -1,0 +1,17 @@
+﻿USE plant_building;
+CREATE TABLE fluid_template (
+library_id uuid,
+id uuid,
+name text,
+description text,
+thermo_type text,
+starting_pressure_value double,
+starting_pressure_unit text,
+starting_temperature_value double,
+starting_temperature_unit text,
+system_method text,
+phase_method text,
+liquid_density_method text,
+icon text,
+PRIMARY KEY (id)
+);

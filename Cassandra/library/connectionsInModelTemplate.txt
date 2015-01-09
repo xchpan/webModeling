@@ -1,0 +1,21 @@
+﻿// there are multiple kinds of connections. The most complicated consideration is how to connect different type of ports inside a model
+// template.
+// the following are the three categories of connections:
+
+// 1. port connections
+// an in-port to an out-port
+// an in-port to an same type in-port of submodel
+
+// 2. parameter connections
+// a parameter of an in-port to a parameter of an out-port
+// a parameter of an in-port of a parameter of an in-port of a child model
+// a parameter of an in-port to a parameter of a child model
+// a parameter of the model to a parameter of an out-port
+// a parameter of the model to a parameter of an in-port of a child model
+// a parameter of the model to a parameter of a child model
+
+// 3. variable connections
+// a variable of an in-port to a variable of an out-port
+// a variable of an in-port of a variable of an in-port of a child model
+// a variable of the model to a variable of an out-port
+// a variable of the model to a variable of an in-port of a child model

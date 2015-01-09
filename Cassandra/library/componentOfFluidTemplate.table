@@ -1,0 +1,10 @@
+﻿USE plant_building;
+CREATE TABLE component_of_fluid_template (
+fluid_template_id uuid,
+id uuid,
+name text,
+component text,
+starting_value double,
+description text,
+PRIMARY KEY (fluid_template_id, id)
+);

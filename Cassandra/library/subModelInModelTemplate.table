@@ -1,0 +1,9 @@
+﻿USE plant_building;
+CREATE TABLE submodel_in_model_template (
+owner_model_template_id uuid,
+id uuid,
+name text,
+model_template_id uuid,
+condition_id uuid,
+PRIMARY KEY (model_template_id, id)
+);

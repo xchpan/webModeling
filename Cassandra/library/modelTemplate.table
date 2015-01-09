@@ -1,0 +1,9 @@
+﻿USE plant_building;
+CREATE TABLE model_template (
+library_id uuid,
+id uuid,
+name text,
+description text,
+icon text,
+PRIMARY KEY (id)
+);

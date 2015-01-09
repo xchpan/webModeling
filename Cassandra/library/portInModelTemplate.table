@@ -1,0 +1,10 @@
+﻿USE plant_building;
+CREATE TABLE port_in_model_template (
+model_template_id uuid,
+id uuid,
+name text,
+port_template_id uuid,
+is_in_port bool,
+description text,
+PRIMARY KEY (model_template_id, id)
+);

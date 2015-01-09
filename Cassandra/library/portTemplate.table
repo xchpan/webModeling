@@ -1,0 +1,8 @@
+﻿USE plant_building;
+CREATE TABLE port_template (
+library_id uuid,
+id uuid,
+name text,
+description text,
+PRIMARY KEY (id)
+);

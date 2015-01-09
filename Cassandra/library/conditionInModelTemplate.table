@@ -1,0 +1,9 @@
+﻿USE plant_building;
+CREATE TABLE condition_in_model_template (
+model_template_id uuid,
+id uuid,
+name text,
+formula text,
+description text,
+PRIMARY KEY (model_template_id, id)
+);

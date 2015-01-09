@@ -1,0 +1,6 @@
+﻿USE plant_building;
+CREATE TABLE shared_library (
+library_id uuid,
+library_name text,
+PRIMARY KEY (library_id)
+);

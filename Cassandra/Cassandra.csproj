@@ -42,8 +42,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="fluidTemplate.table" />
+    <None Include="modelTemplate.table" />
     <None Include="plantBuilding.keyspace" />
     <None Include="plantSummary.table" />
+    <None Include="portTemplate.table" />
+    <None Include="sharedLibrary.table" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
