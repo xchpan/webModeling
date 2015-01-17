@@ -7,23 +7,13 @@ using System.Threading.Tasks;
 
 namespace xpan.plantDesign.Domain.SharedLibraries
 {
-    public class PortTemplate : IHaveParameters
+    public class PortTemplate : TemplateBase, IHaveParameters
     {
-        private readonly Guid id;
         private readonly ICollection<ParameterDescription> parameters = new List<ParameterDescription>();
         
-        public PortTemplate(Guid id)
+        public PortTemplate(Guid id) : base(id)
         {
-            this.id = id;
         }
-
-        public Guid Id {
-            get { return id; }
-        }
-
-        public string Name { get; set; }
-
-        public string Description { get; set; }
 
         public void AddParameter(string name, Guid parameterType, object defaultValue)
         {
