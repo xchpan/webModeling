@@ -22,7 +22,13 @@
     <section id="librariesSection" ng-app="libraries" ng-controller="librariesController">
         <div id="librariesHeader" class="twoEndRow"><h3 class="twoEndLeft">Libraries</h3><div class="twoEndRight centarContainer"><button ng-click="createLibrary()" class="smallButton">+</button></div></div>
         <div id="libraryList">
-            <div library-accordion="libraries"></div>
+            <h3 ng-repeat-start="library in libraries">{{library.Name}}</h3>
+            <div ng-repeat-end class="librayContainer">
+                <div ng-repeat="item in library.Items" class="libraryItem">
+                    <img src="{{item.Icon}}" class="modelTypeIcon" />
+                    <div>{{item.Name}}</div>
+                </div>
+            </div>
         </div>
     </section>
     <section id="flowsheets">zxC</section>
