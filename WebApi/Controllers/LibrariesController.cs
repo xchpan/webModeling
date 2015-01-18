@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using xpan.plantDesign.ApplicationServices;
 using xpan.plantDesign.ViewModels;
@@ -23,6 +24,11 @@ namespace xpan.plantDesign.WebApi.Controllers
         public Library CreateLibrary()
         {
             return libraryService.CreateLibrary();
+        }
+
+        public void DeleteLibrary(Guid id)
+        {
+            libraryService.DeleteLibrary(id);
         }
     }
 }

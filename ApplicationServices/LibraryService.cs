@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using xpan.plantDesign.ViewModels;
 
@@ -37,6 +38,19 @@ namespace xpan.plantDesign.ApplicationServices
             var lib = new Library(name: name, items: Enumerable.Empty<LibraryItem>());
             libraries.Add(lib);
             return lib;
+        }
+
+        public void DeleteLibrary(Guid id)
+        {
+            var lib = libraries.FirstOrDefault(l => l.Id == id);
+            if (lib != null)
+            {
+                libraries.Remove(lib);
+            }
+            else
+            {
+                throw new ArgumentException("The library id doesn't exist.");
+            }
         }
     }
 }

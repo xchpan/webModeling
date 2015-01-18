@@ -12,5 +12,7 @@ namespace xpan.plantDesign.ApplicationServices
         IEnumerable<Library> GetLibraries();
 
         Library CreateLibrary();
+
+        void DeleteLibrary(Guid id);
     }
 }
