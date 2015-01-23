@@ -10,7 +10,10 @@ namespace InitializeUnits
     {
         static void Main(string[] args)
         {
-            var variableType = new VariableTypesReader().ReadVariableTypes();
+            var variableTypes = new VariableTypesReader().ReadVariableTypes();
+            var mongodb = new MongoDb();
+            mongodb.MapVariableType();
+            mongodb.Save(variableTypes);
         }
     }
 }

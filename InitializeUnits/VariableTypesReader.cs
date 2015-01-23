@@ -11,18 +11,20 @@ namespace InitializeUnits
 {
     public class VariableTypesReader
     {
-        public Dictionary<string, List<VariableType>> ReadVariableTypes()
+        public List<VariableCategory> ReadVariableTypes()
         {
-            var variableTypes = new Dictionary<string, List<VariableType>>();
+            var variableTypes = new List<VariableCategory>();
 
             XDocument document = XDocument.Load("VariableTypes.xml");
 
             foreach (var variableTypeElement in document.Root.XPathSelectElements("VariableType"))
             {
                 var categoryName = variableTypeElement.XPathSelectElement("Category").Value;
-                if (!variableTypes.ContainsKey(categoryName))
+                var category = variableTypes.FirstOrDefault(c => c.Name == categoryName);
+                if (category == null)
                 {
-                    variableTypes.Add(categoryName, new List<VariableType>());
+                    category = new VariableCategory(Guid.NewGuid(), categoryName);
+                    variableTypes.Add(category);
                 }
 
                 var variableType = new VariableType(Guid.NewGuid())
@@ -60,7 +62,7 @@ namespace InitializeUnits
                         conversionFactor: double.Parse(conversionUnitElement.Attribute("MultiplicationConstant").Value));
                 }
 
-                variableTypes[categoryName].Add(variableType);
+                category.Add(variableType);
             }
 
             return variableTypes;

@@ -18,16 +18,19 @@ namespace xpan.plantDesign.Domain.SharedLibraries.VariableTemplate
             primaryUnit = new Unit(primaryUnitName, 0, 1);
         }
 
-        public IEnumerable<Unit> Units
+        public string PrimaryUnitName
         {
-            get
-            {
-                yield return primaryUnit;
-                foreach (var unit in additionalUnits)
-                {
-                    yield return unit;
-                }
-            }
+            get { return primaryUnit.Name; }
+        }
+
+        public IEnumerable<string> AdditionalUnitNames
+        {
+            get { return additionalUnits.Select(u => u.Name); }
+        }
+
+        public IEnumerable<Unit> AdditionalUnits
+        {
+            get { return additionalUnits.AsEnumerable(); }
         }
 
         public void AddUnit(string name, double conversionConstant, double conversionFactor)

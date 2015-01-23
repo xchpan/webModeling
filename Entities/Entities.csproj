@@ -59,6 +59,7 @@
     <Compile Include="VariableTemplate\UnitException.cs" />
     <Compile Include="VariableTemplate\UnitSystem.cs" />
     <Compile Include="VariableTemplate\ValueWithUnit.cs" />
+    <Compile Include="VariableTemplate\VariableCategory.cs" />
     <Compile Include="VariableTemplate\VariableType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
