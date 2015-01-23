@@ -6,24 +6,18 @@ namespace xpan.plantDesign.Domain.SharedLibraries.VariableTemplate
     {
         private double min;
         private double max;
+        private double defaultValue;
 
         public VariableType(Guid id) : base(id)
         {
             min = double.MinValue;
             max = double.MaxValue;
+            defaultValue = 0;
         }
 
         public double MinValue
         {
             get { return min; }
-            set
-            {
-                if (value > max)
-                {
-                    throw new ArgumentException("min is larger than max");
-                }
-                min = value;
-            }
         }
 
         public double MaxVallue
@@ -32,13 +26,24 @@ namespace xpan.plantDesign.Domain.SharedLibraries.VariableTemplate
             {
                 return max;
             }
-            set
+        }
+
+        public double DefaultValue
+        {
+            get { return defaultValue; }
+        }
+
+        public void SetMinMaxDefaultValue(double min, double max, double defaultValue)
+        {
+            if (min <= defaultValue && defaultValue <= max)
             {
-                if (value < min)
-                {
-                    throw new ArgumentException("max is less than min");
-                }
-                max = value;
+                this.min = min;
+                this.max = max;
+                this.defaultValue = defaultValue;
+            }
+            else
+            {
+                throw new ArgumentException("Min must be no greater than default value, and default value must be no greater than max.");
             }
         }
 

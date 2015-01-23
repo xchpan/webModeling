@@ -8,12 +8,13 @@ namespace xpan.plantDesign.Domain.SharedLibraries.VariableTemplate
 {
     public class UnitCollection : TemplateBase
     {
-        private Unit primaryUnit;
+        private readonly Unit primaryUnit;
 
-        private List<Unit> additionalUnits;
+        private readonly List<Unit> additionalUnits;
 
-        public UnitCollection(Guid id, string primaryUnitName) : base(id)
+        public UnitCollection(Guid id, string primaryUnitName, List<Unit> additionalUnits) : base(id)
         {
+            this.additionalUnits = additionalUnits.ToList();
             primaryUnit = new Unit(primaryUnitName, 0, 1);
         }
 

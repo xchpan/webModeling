@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrariesContracts", "SharedLibrariesContracts\SharedLibrariesContracts.csproj", "{CA13B0D9-E8FE-427A-A4A4-190DCE5F66B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitializeUnits", "InitializeUnits\InitializeUnits.csproj", "{325FC430-B2DB-49A6-8EA3-DBA793BCC1C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{CA13B0D9-E8FE-427A-A4A4-190DCE5F66B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA13B0D9-E8FE-427A-A4A4-190DCE5F66B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA13B0D9-E8FE-427A-A4A4-190DCE5F66B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{325FC430-B2DB-49A6-8EA3-DBA793BCC1C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{325FC430-B2DB-49A6-8EA3-DBA793BCC1C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{325FC430-B2DB-49A6-8EA3-DBA793BCC1C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{325FC430-B2DB-49A6-8EA3-DBA793BCC1C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,5 +97,6 @@ Global
 		{1B2603ED-FAAF-4ED6-B0A6-F71E1490837B} = {17380F04-EBCA-45D6-8952-E3A39B74B4E9}
 		{2D6F4AC0-540A-409B-9EB4-D6E26EE6141F} = {1B2603ED-FAAF-4ED6-B0A6-F71E1490837B}
 		{CA13B0D9-E8FE-427A-A4A4-190DCE5F66B7} = {1B2603ED-FAAF-4ED6-B0A6-F71E1490837B}
+		{325FC430-B2DB-49A6-8EA3-DBA793BCC1C8} = {C210DBAA-5634-4583-A259-825BCE827718}
 	EndGlobalSection
 EndGlobal

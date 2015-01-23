@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using xpan.plantDesign.Domain.SharedLibraries.FluidTemplate;
 
 namespace xpan.plantDesign.Domain.SharedLibraries
 {
     public class Library
     {
         private readonly Guid id;
-        private List<FluidTemplate> fluidTemplates = new List<FluidTemplate>();
+        private List<FluidType> fluidTemplates = new List<FluidType>();
         private List<PortTemplate> portTemplates = new List<PortTemplate>();
         private List<ModelTemplate> modelTemplates = new List<ModelTemplate>();
 

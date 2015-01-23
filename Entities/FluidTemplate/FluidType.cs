@@ -7,11 +7,11 @@ using xpan.plantDesign.Domain.SharedLibraries.VariableTemplate;
 
 namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
 {
-    public class FluidTemplate : TemplateBase
+    public class FluidType : TemplateBase
     {
         private readonly List<FluidComponent> components;
 
-        public FluidTemplate(Guid id) : base(id)
+        public FluidType(Guid id) : base(id)
         {
             components = new List<FluidComponent>();
         }

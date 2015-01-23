@@ -1,0 +1,1617 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+  To convert from the internal unit to the display unit, divide by the multiplication constant and subtract the addition constant.
+-->
+<VariableTypes>
+  <VariableType>
+    <Type>Voltage</Type>
+    <DisplayName>Voltage</DisplayName>
+    <SortName>Voltage</SortName>
+    <Category>Electrical</Category>
+    <Units>
+      <Unit>V</Unit>
+      <Unit>kV</Unit>
+      <Unit>MV</Unit>
+      <Unit>mV</Unit>
+      <Unit>µV</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="V" AdditionConstant = "0" MultiplicationConstant = "1">V</ConversionUnit>
+      <ConversionUnit Name ="kV" AdditionConstant = "0" MultiplicationConstant = "1e3">kV</ConversionUnit>
+      <ConversionUnit Name ="MV" AdditionConstant = "0" MultiplicationConstant = "1e6">MV</ConversionUnit>
+      <ConversionUnit Name ="mV" AdditionConstant = "0" MultiplicationConstant = "1e-3">mV</ConversionUnit>
+      <ConversionUnit Name ="µV" AdditionConstant = "0" MultiplicationConstant = "1e-6">µV</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>V</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>0</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Current</Type>
+    <DisplayName>Current</DisplayName>
+    <SortName>Current</SortName>
+    <Category>Electrical</Category>
+    <Units>
+      <Unit>A</Unit>
+      <Unit>kA</Unit>
+      <Unit>mA</Unit>
+      <Unit>µA</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="A" AdditionConstant = "0" MultiplicationConstant = "1">A</ConversionUnit>
+      <ConversionUnit Name ="kA" AdditionConstant = "0" MultiplicationConstant = "1e3">kA</ConversionUnit>
+      <ConversionUnit Name ="mA" AdditionConstant = "0" MultiplicationConstant = "1e-3">mA</ConversionUnit>
+      <ConversionUnit Name ="µA" AdditionConstant = "0" MultiplicationConstant = "1e-6">µA</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>A</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>0</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Resistance</Type>
+    <DisplayName>Resistance</DisplayName>
+    <SortName>Resistance</SortName>
+    <Category>Electrical</Category>
+    <Units>
+      <Unit>Ω</Unit>
+      <Unit>kΩ</Unit>
+      <Unit>MΩ</Unit>
+      <Unit>mΩ</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="Ω" AdditionConstant = "0" MultiplicationConstant = "1">Ω</ConversionUnit>
+      <ConversionUnit Name ="kΩ" AdditionConstant = "0" MultiplicationConstant = "1e3">kΩ</ConversionUnit>
+      <ConversionUnit Name ="MΩ" AdditionConstant = "0" MultiplicationConstant = "1e6">MΩ</ConversionUnit>
+      <ConversionUnit Name ="mΩ" AdditionConstant = "0" MultiplicationConstant = "1e-3">mΩ</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>Ω</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>1e-6</Min>
+    <Max>1e10</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Capacitance</Type>
+    <DisplayName>Capacitance</DisplayName>
+    <SortName>Capacitance</SortName>
+    <Category>Electrical</Category>
+    <Units>
+      <Unit>F</Unit>
+      <Unit>mF</Unit>
+      <Unit>µF</Unit>
+      <Unit>nF</Unit>
+      <Unit>pF</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="F" AdditionConstant = "0" MultiplicationConstant = "1">F</ConversionUnit>
+      <ConversionUnit Name ="mF" AdditionConstant = "0" MultiplicationConstant = "1e-3">mF</ConversionUnit>
+      <ConversionUnit Name ="µF" AdditionConstant = "0" MultiplicationConstant = "1e-6">µF</ConversionUnit>
+      <ConversionUnit Name ="nF" AdditionConstant = "0" MultiplicationConstant = "1e-9">nF</ConversionUnit>
+      <ConversionUnit Name ="pF" AdditionConstant = "0" MultiplicationConstant = "1e-12">pF</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>F</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1e-3</Default>
+    <Min>1e-15</Min>
+    <Max>100</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Inductance</Type>
+    <DisplayName>Inductance</DisplayName>
+    <SortName>Inductance</SortName>
+    <Category>Electrical</Category>
+    <Units>
+      <Unit>H</Unit>
+      <Unit>mH</Unit>
+      <Unit>µH</Unit>
+      <Unit>nH</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="H" AdditionConstant = "0" MultiplicationConstant = "1">H</ConversionUnit>
+      <ConversionUnit Name ="mH" AdditionConstant = "0" MultiplicationConstant = "1e-3">mH</ConversionUnit>
+      <ConversionUnit Name ="µH" AdditionConstant = "0" MultiplicationConstant = "1e-6">µH</ConversionUnit>
+      <ConversionUnit Name ="nH" AdditionConstant = "0" MultiplicationConstant = "1e-9">nH</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>H</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1e-3</Default>
+    <Min>1e-12</Min>
+    <Max>100</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Electrical_Charge</Type>
+    <DisplayName>Electrical Charge</DisplayName>
+    <SortName>Charge_Electrical</SortName>
+    <Category>Electrical</Category>
+    <Units>
+      <Unit>C</Unit>
+      <Unit>mC</Unit>
+      <Unit>µC</Unit>
+      <Unit>nC</Unit>
+      <Unit>mAh</Unit>
+      <Unit>Ah</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="C" AdditionConstant = "0" MultiplicationConstant = "1">C</ConversionUnit>
+      <ConversionUnit Name ="mC" AdditionConstant = "0" MultiplicationConstant = "1e-3">mC</ConversionUnit>
+      <ConversionUnit Name ="µC" AdditionConstant = "0" MultiplicationConstant = "1e-6">µC</ConversionUnit>
+      <ConversionUnit Name ="nC" AdditionConstant = "0" MultiplicationConstant = "1e-9">nC</ConversionUnit>
+      <ConversionUnit Name ="mAh" AdditionConstant = "0" MultiplicationConstant = "3.6">mAh</ConversionUnit>
+      <ConversionUnit Name ="Ah" AdditionConstant = "0" MultiplicationConstant = "3600">Ah</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>C</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1e-3</Default>
+    <Min>0</Min>
+    <Max>0</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Piping_Head_Loss</Type>
+    <DisplayName>Piping Head Loss</DisplayName>
+    <SortName>Pressure_Loss_Piping</SortName>
+    <Category>Hydraulics</Category>
+    <Units>
+      <Unit>kPa/m</Unit>
+      <Unit>kPa/100m</Unit>
+      <Unit>bar/100m</Unit>
+      <Unit>psi/100ft</Unit>
+      <Unit>psi/ft</Unit>
+      <Unit>inH2O/100ft</Unit>
+      <Unit>ftH2O/100ft</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="kPa/m" AdditionConstant = "0" MultiplicationConstant = "1">kPa/m</ConversionUnit>
+      <ConversionUnit Name ="kPa/100m" AdditionConstant = "0" MultiplicationConstant = "0.01">kPa/100m</ConversionUnit>
+      <ConversionUnit Name ="bar/100m" AdditionConstant = "0" MultiplicationConstant = "1">bar/100m</ConversionUnit>
+      <ConversionUnit Name ="psi/ft" AdditionConstant = "0" MultiplicationConstant = "22.6206">psi/ft</ConversionUnit>
+      <ConversionUnit Name ="psi/100ft" AdditionConstant = "0" MultiplicationConstant = "0.226206">psi/100ft</ConversionUnit>
+      <ConversionUnit Name ="inH2O/100ft" AdditionConstant = "0" MultiplicationConstant = "0.008175">inH2O/100ft</ConversionUnit>
+      <ConversionUnit Name ="ftH2O/100ft" AdditionConstant = "0" MultiplicationConstant = "0.0981">ftH2O/100ft</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kPa/m</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>10</Default>
+    <Min>0.000001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Cross_Sectional_Area</Type>
+    <DisplayName>Cross Sectional Area</DisplayName>
+    <SortName>Area_Cross_Section</SortName>
+    <Category>Hydraulics</Category>
+    <Units>
+      <Unit>m2</Unit>
+      <Unit>in2</Unit>
+      <Unit>ft2</Unit>
+      <Unit>cm2</Unit>
+      <Unit>mm2</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="m2" AdditionConstant = "0" MultiplicationConstant = "1">m2</ConversionUnit>
+      <ConversionUnit Name ="in2" AdditionConstant = "0" MultiplicationConstant = "0.00064516">in2</ConversionUnit>
+      <ConversionUnit Name ="ft2" AdditionConstant = "0" MultiplicationConstant = "0.09290304">ft2</ConversionUnit>
+      <ConversionUnit Name ="cm2" AdditionConstant = "0" MultiplicationConstant = "0.0001">cm2</ConversionUnit>
+      <ConversionUnit Name ="mm2" AdditionConstant = "0" MultiplicationConstant = "0.000001">mm2</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m2</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Surface_Area</Type>
+    <DisplayName>Surface Area</DisplayName>
+    <SortName>Area_Surface</SortName>
+    <Category>Heat Transfer</Category>
+    <Units>
+      <Unit>m2</Unit>
+      <Unit>ft2</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="m2" AdditionConstant = "0" MultiplicationConstant = "1">m2</ConversionUnit>
+      <ConversionUnit Name ="ft2" AdditionConstant = "0" MultiplicationConstant = "0.09290304">ft2</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m2</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mechanical_Power</Type>
+    <DisplayName>Mechanical Power</DisplayName>
+    <SortName>Mechanical_Power</SortName>
+    <Category>Mechanical</Category>
+    <Units>
+      <Unit>MW</Unit>
+      <Unit>kW</Unit>
+      <Unit>hp</Unit>
+      <Unit>Btu/s</Unit>
+      <Unit>MMBtu/h</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="MW" AdditionConstant = "0" MultiplicationConstant = "1000">MW</ConversionUnit>
+      <ConversionUnit Name ="kW" AdditionConstant = "0" MultiplicationConstant = "1">kW</ConversionUnit>
+      <ConversionUnit Name ="hp" AdditionConstant = "0" MultiplicationConstant = "0.74569987">hp</ConversionUnit>
+      <ConversionUnit Name ="Btu/s" AdditionConstant = "0" MultiplicationConstant = "1.05506">Btu/s</ConversionUnit>
+      <ConversionUnit Name ="MMBtu/h" AdditionConstant = "0" MultiplicationConstant = "293.071070172">MMBtu/h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kW</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1000</Default>
+    <Min>0</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Rotational_Inertia</Type>
+    <DisplayName>Rotational Inertia</DisplayName>
+    <SortName>Rotational_Inertia</SortName>
+    <Category>Mechanical</Category>
+    <Units>
+      <Unit>lb-ft2</Unit>
+      <Unit>kg-m2</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="lb-ft2" AdditionConstant = "0" MultiplicationConstant = "0.04214">lb-ft2</ConversionUnit>
+      <ConversionUnit Name ="kg-m2" AdditionConstant = "0" MultiplicationConstant = "1">kg-m2</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kg-m2</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>100</Default>
+    <Min>1</Min>
+    <Max>1e6</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Electrical_Power</Type>
+    <DisplayName>Electrical Power</DisplayName>
+    <SortName>Electrical_Power</SortName>
+    <Category>Electrical</Category>
+    <Units>
+      <Unit>W</Unit>
+      <Unit>kW</Unit>
+      <Unit>MW</Unit>
+      <Unit>mW</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="W" AdditionConstant = "0" MultiplicationConstant = "1">W</ConversionUnit>
+      <ConversionUnit Name ="kW" AdditionConstant = "0" MultiplicationConstant = "1e3">kW</ConversionUnit>
+      <ConversionUnit Name ="MW" AdditionConstant = "0" MultiplicationConstant = "1e6">MW</ConversionUnit>
+      <ConversionUnit Name ="mW" AdditionConstant = "0" MultiplicationConstant = "1e-3">mW</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>W</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>1e9</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Speed</Type>
+    <DisplayName>Speed</DisplayName>
+    <SortName>Speed</SortName>
+    <Category>Mechanical</Category>
+    <Units>
+      <Unit>rpm</Unit>
+      <Unit>r/s</Unit>
+      <Unit>r/min</Unit>
+      <Unit>Hz</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="rpm" AdditionConstant = "0" MultiplicationConstant = "1">rpm</ConversionUnit>
+      <ConversionUnit Name ="r/s" AdditionConstant = "0" MultiplicationConstant = "60">r/s</ConversionUnit>
+      <ConversionUnit Name ="r/min" AdditionConstant = "0" MultiplicationConstant = "1">r/min</ConversionUnit>
+      <ConversionUnit Name ="Hz"  AdditionConstant = "0" MultiplicationConstant = "60">Hz</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>rpm</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>3600</Default>
+    <Min>0</Min>
+    <Max>10000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Heat_Duty</Type>
+    <DisplayName>Heat Duty</DisplayName>
+    <SortName>Heat_Duty</SortName>
+    <Category>Heat Transfer</Category>
+    <Units>
+      <Unit>kJ/s</Unit>
+      <Unit>kJ/h</Unit>
+      <Unit>kW</Unit>
+      <Unit>MW</Unit>
+      <Unit>Btu/s</Unit>
+      <Unit>MMBtu/h</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="kJ/s" AdditionConstant = "0" MultiplicationConstant = "1">kJ/s</ConversionUnit>
+      <ConversionUnit Name ="kJ/h" AdditionConstant = "0" MultiplicationConstant = "2.7777777777e-4">kJ/h</ConversionUnit>
+      <ConversionUnit Name ="kW" AdditionConstant = "0" MultiplicationConstant = "1" >kW</ConversionUnit>
+      <ConversionUnit Name ="MW" AdditionConstant = "0" MultiplicationConstant = "1000">MW</ConversionUnit>
+      <ConversionUnit Name ="Btu/s" AdditionConstant = "0" MultiplicationConstant = "1.05506">Btu/s</ConversionUnit>
+      <ConversionUnit Name ="MMBtu/h" AdditionConstant = "0" MultiplicationConstant = "293.071070172">MMBtu/h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ/s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1000</Default>
+    <Min>-1000000</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Heat_Flow</Type>
+    <DisplayName>Heat Flow</DisplayName>
+    <SortName>Flow_Heat</SortName>
+    <Category>Flow Rates</Category>
+    <Units>
+      <Unit>kJ/s</Unit>
+      <Unit>kW</Unit>
+      <Unit>MW</Unit>
+      <Unit>Btu/s</Unit>
+      <Unit>MMBtu/h</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name ="kJ/s" AdditionConstant = "0" MultiplicationConstant = "1">kJ/s</ConversionUnit>
+      <ConversionUnit Name ="kW" AdditionConstant = "0" MultiplicationConstant = "1" >kW</ConversionUnit>
+      <ConversionUnit Name ="MW" AdditionConstant = "0" MultiplicationConstant = "1000">MW</ConversionUnit>
+      <ConversionUnit Name ="Btu/s" AdditionConstant = "0" MultiplicationConstant = "1.055055852">Btu/s</ConversionUnit>
+      <ConversionUnit Name ="MMBtu/h" AdditionConstant = "0" MultiplicationConstant = "293.071070172">MMBtu/h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ/s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1000</Default>
+    <Min>0</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Heat_Transfer_Coefficient</Type>
+    <DisplayName>Heat Transfer Coefficient</DisplayName>
+    <SortName>Heat_Transfer_Coefficient</SortName>
+    <Category>Heat Transfer</Category>
+    <Units>
+      <Unit>kW/m2-K</Unit>
+      <Unit>W/m2-K</Unit>
+      <Unit>Btu/h-ft2-F</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kW/m2-K" AdditionConstant = "0" MultiplicationConstant = "1">kW/m2-K</ConversionUnit>
+      <ConversionUnit Name = "W/m2-K" AdditionConstant = "0" MultiplicationConstant = "0.001">W/m2-K</ConversionUnit>
+      <ConversionUnit Name = "Btu/h-ft2-F" AdditionConstant = "0" MultiplicationConstant = "0.005678263341">Btu/h-ft2-F</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kW/m2-K</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Flow_Coeff</Type>
+    <DisplayName>Flow Coefficient</DisplayName>
+    <SortName>Coeff_Flow</SortName>
+    <Category>Hydraulics</Category>
+    <Units>
+      <Unit>Cv</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "Cv" AdditionConstant = "0" MultiplicationConstant = "1">Cv</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType></DataType>
+    <Dimension></Dimension>
+    <InternalUnit>Cv</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>100</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mass_Composition</Type>
+    <DisplayName>Mass Composition</DisplayName>
+    <SortName>Composition_Mass</SortName>
+    <Category>Mass Fluid Properties</Category>
+    <Units>
+      <Unit>fraction</Unit>
+      <Unit>percent</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "fraction" AdditionConstant = "0" MultiplicationConstant = "1">fraction</ConversionUnit>
+      <ConversionUnit Name = "percent" AdditionConstant = "0" MultiplicationConstant = "0.01">percent</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>fraction</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.5</Default>
+    <Min>0</Min>
+    <Max>1</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mole_Composition</Type>
+    <DisplayName>Molar Composition</DisplayName>
+    <SortName>Composition_Mole</SortName>
+    <Category>Molar Fluid Properties</Category>
+    <Units>
+      <Unit>fraction</Unit>
+      <Unit>percent</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "fraction" AdditionConstant = "0" MultiplicationConstant = "1">fraction</ConversionUnit>
+      <ConversionUnit Name = "percent" AdditionConstant = "0" MultiplicationConstant = "0.01">percent</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>fraction</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.5</Default>
+    <Min>0</Min>
+    <Max>1</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Vol_Composition</Type>
+    <DisplayName>Vol Composition</DisplayName>
+    <SortName>Composition_Vol</SortName>
+    <Category>Volume Fluid Properties</Category>
+    <Units>
+      <Unit>fraction</Unit>
+      <Unit>percent</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "fraction" AdditionConstant = "0" MultiplicationConstant = "1">fraction</ConversionUnit>
+      <ConversionUnit Name = "percent" AdditionConstant = "0" MultiplicationConstant = "0.01">percent</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>fraction</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.5</Default>
+    <Min>0</Min>
+    <Max>1</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mass_Density</Type>
+    <DisplayName>Mass Density</DisplayName>
+    <SortName>Density_Mass</SortName>
+    <Category>Mass Fluid Properties</Category>
+    <Units>
+      <Unit>lb/ft3</Unit>
+      <Unit>kg/m3</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "lb/ft3" AdditionConstant = "0" MultiplicationConstant = "16.018463">lb/ft3</ConversionUnit>
+      <ConversionUnit Name = "kg/m3" AdditionConstant = "0" MultiplicationConstant = "1">kg/m3</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kg/m3</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1000</Default>
+    <Min>1.0E-6</Min>
+    <Max>1.0E6</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mole_Density</Type>
+    <DisplayName>Molar Density</DisplayName>
+    <SortName>Density_Mole</SortName>
+    <Category>Molar Fluid Properties</Category>
+    <Units>
+      <Unit>kmol/m3</Unit>
+      <Unit>lbmol/ft3</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kmol/m3" AdditionConstant = "0" MultiplicationConstant = "1">kmol/m3</ConversionUnit>
+      <ConversionUnit Name = "lbmol/ft3" AdditionConstant = "0" MultiplicationConstant = "16.018463">lbmol/ft3</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kmol/m3</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>55.5</Default>
+    <Min>1.0E-6</Min>
+    <Max>1000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Diameter</Type>
+    <DisplayName>Diameter</DisplayName>
+    <SortName>Diameter</SortName>
+    <Category>Equipment Sizing</Category>
+    <Units>
+      <Unit>mm</Unit>
+      <Unit>cm</Unit>
+      <Unit>in</Unit>
+      <Unit>ft</Unit>
+      <Unit>m</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "mm" AdditionConstant = "0" MultiplicationConstant = "0.001">mm</ConversionUnit>
+      <ConversionUnit Name = "cm" AdditionConstant = "0" MultiplicationConstant = "0.01">cm</ConversionUnit>
+      <ConversionUnit Name = "in" AdditionConstant = "0" MultiplicationConstant = "0.0254">in</ConversionUnit>
+      <ConversionUnit Name = "ft" AdditionConstant = "0" MultiplicationConstant = "0.3048">ft</ConversionUnit>
+      <ConversionUnit Name = "m" AdditionConstant = "0" MultiplicationConstant = "1">m</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.15</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Pipe_Diameter</Type>
+    <DisplayName>Pipe Diameter</DisplayName>
+    <SortName>Diameter</SortName>
+    <Category>Equipment Sizing</Category>
+    <Units>
+      <Unit>mm</Unit>
+      <Unit>cm</Unit>
+      <Unit>in</Unit>
+      <Unit>ft</Unit>
+      <Unit>m</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "mm" AdditionConstant = "0" MultiplicationConstant = "0.001">mm</ConversionUnit>
+      <ConversionUnit Name = "cm" AdditionConstant = "0" MultiplicationConstant = "0.01">cm</ConversionUnit>
+      <ConversionUnit Name = "in" AdditionConstant = "0" MultiplicationConstant = "0.0254">in</ConversionUnit>
+      <ConversionUnit Name = "ft" AdditionConstant = "0" MultiplicationConstant = "0.3048">ft</ConversionUnit>
+      <ConversionUnit Name = "m" AdditionConstant = "0" MultiplicationConstant = "1">m</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.15</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Dimensionless</Type>
+    <DisplayName>Dimensionless</DisplayName>
+    <SortName>Dimensionless</SortName>
+    <Category>Dimensionless</Category>
+    <Units>
+      <Unit></Unit>
+    </Units>
+    <ConversionFactors></ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit></InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>0</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Energy</Type>
+    <DisplayName>Energy</DisplayName>
+    <SortName>Energy</SortName>
+    <Category>Holdup</Category>
+    <Units>
+      <Unit>kJ</Unit>
+      <Unit>J</Unit>
+      <Unit>Btu</Unit>
+      <Unit>MMBtu</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kJ" AdditionConstant = "0" MultiplicationConstant = "1">kJ</ConversionUnit>
+      <ConversionUnit Name = "J" AdditionConstant = "0" MultiplicationConstant = "0.001">J</ConversionUnit>
+      <ConversionUnit Name = "Btu" AdditionConstant = "0" MultiplicationConstant = "1.05506">Btu</ConversionUnit>
+      <ConversionUnit Name = "MMBtu" AdditionConstant = "0" MultiplicationConstant = "1055056">MMBtu</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.001</Default>
+    <Min></Min>
+    <Max></Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mass_Enthalpy</Type>
+    <DisplayName>Mass Enthalpy</DisplayName>
+    <SortName>Enthalpy_Mass</SortName>
+    <Category>Mass Fluid Properties</Category>
+    <Units>
+      <Unit>kJ/kg</Unit>
+      <Unit>Btu/lb</Unit>
+      <Unit>J/kg</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kJ/kg" AdditionConstant = "0" MultiplicationConstant = "1">kJ/kg</ConversionUnit>
+      <ConversionUnit Name = "J/kg" AdditionConstant = "0" MultiplicationConstant = "0.001">J/kg</ConversionUnit>
+      <ConversionUnit Name = "Btu/lb" AdditionConstant = "0" MultiplicationConstant = "2.3254788">Btu/lb</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ/kg</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.001</Default>
+    <Min></Min>
+    <Max></Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mass_Entropy</Type>
+    <DisplayName>Mass Entropy</DisplayName>
+    <SortName>Entropy_Mass</SortName>
+    <Category>Mass Fluid Properties</Category>
+    <Units>
+      <Unit>kJ/kg-K</Unit>
+      <Unit>Btu/lb-F</Unit>
+      <Unit>J/kg-K</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kJ/kg-K" AdditionConstant = "0" MultiplicationConstant = "1">kJ/kg-K</ConversionUnit>
+      <ConversionUnit Name = "Btu/lb-F" AdditionConstant = "0" MultiplicationConstant = "4.1858618">Btu/lb-F</ConversionUnit>
+      <ConversionUnit Name = "J/kg-K" AdditionConstant = "0" MultiplicationConstant = "0.001">J/kg-K</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ/kg-K</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.001</Default>
+    <Min></Min>
+    <Max></Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mole_Enthalpy</Type>
+    <DisplayName>Molar Enthalpy</DisplayName>
+    <SortName>Enthalpy_Mole</SortName>
+    <Category>Molar Fluid Properties</Category>
+    <Units>
+      <Unit>kJ/kmol</Unit>
+      <Unit>Btu/lbmol</Unit>
+      <Unit>J/mol</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kJ/kmol" AdditionConstant = "0" MultiplicationConstant = "1">kJ/kmol</ConversionUnit>
+      <ConversionUnit Name = "Btu/lbmol" AdditionConstant = "0" MultiplicationConstant = "2.3254788">Btu/lbmol</ConversionUnit>
+      <ConversionUnit Name = "J/mol" AdditionConstant = "0" MultiplicationConstant = "1">J/mol</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ/kmol</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.001</Default>
+    <Min></Min>
+    <Max></Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mole_Entropy</Type>
+    <DisplayName>Molar Entropy</DisplayName>
+    <SortName>Entropy_Mole</SortName>
+    <Category>Molar Fluid Properties</Category>
+    <Units>
+      <Unit>kJ/kmol-K</Unit>
+      <Unit>Btu/lbmol-F</Unit>
+      <Unit>J/mol-K</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kJ/kmol-K" AdditionConstant = "0" MultiplicationConstant = "1">kJ/kmol-K</ConversionUnit>
+      <ConversionUnit Name = "Btu/lbmol-F" AdditionConstant = "0" MultiplicationConstant = "4.1858618">Btu/lbmol-F</ConversionUnit>
+      <ConversionUnit Name = "J/mol-K" AdditionConstant = "0" MultiplicationConstant = "1">J/mol-K</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ/kmol-K</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.001</Default>
+    <Min></Min>
+    <Max></Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Flow_Conductance</Type>
+    <DisplayName>Flow Conductance</DisplayName>
+    <SortName>Flow_Conductance</SortName>
+    <Category>Hydraulics</Category>
+    <Units>
+      <Unit>(kg/s)/sqrt(kPa-kg/m3)</Unit>
+      <Unit>(lb/h)/sqrt(psi-lb/ft3)</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "(kg/s)/sqrt(kPa-kg/m3)" AdditionConstant = "0" MultiplicationConstant = "1">(kg/s)/sqrt(kPa-kg/m3)</ConversionUnit>
+      <ConversionUnit Name = "(lb/h)/sqrt(psi-lb/ft3)" AdditionConstant = "0" MultiplicationConstant = "0.000011989290113">(lb/h)/sqrt(psi-lb/ft3)</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>(kg/s)/sqrt(kPa-kg/m3)</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mass_Flow</Type>
+    <DisplayName>Mass Flow</DisplayName>
+    <SortName>Flow_Mass</SortName>
+    <Category>Flow Rates</Category>
+    <Units>
+      <Unit>kg/s</Unit>
+      <Unit>lb/s</Unit>
+      <Unit>kg/h</Unit>
+      <Unit>lb/h</Unit>
+      <Unit>klb/h</Unit>
+      <Unit>t/h</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kg/s" AdditionConstant = "0" MultiplicationConstant = "1">kg/s</ConversionUnit>
+      <ConversionUnit Name = "lb/s" AdditionConstant = "0" MultiplicationConstant = "0.453592">lb/s</ConversionUnit>
+      <ConversionUnit Name = "kg/h" AdditionConstant = "0" MultiplicationConstant = "0.000277777777777777">kg/h</ConversionUnit>
+      <ConversionUnit Name = "lb/h" AdditionConstant = "0" MultiplicationConstant = "0.00012599788">lb/h</ConversionUnit>
+      <ConversionUnit Name = "t/h" AdditionConstant = "0" MultiplicationConstant = "0.277777777777777">t/h</ConversionUnit>
+      <ConversionUnit Name = "klb/h" AdditionConstant = "0" MultiplicationConstant = "0.12599788">klb/h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kg/s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mole_Flow</Type>
+    <DisplayName>Mole Flow</DisplayName>
+    <SortName>Flow_Mole</SortName>
+    <Category>Flow Rates</Category>
+    <Units>
+      <Unit>kmol/s</Unit>
+      <Unit>lbmol/s</Unit>
+      <Unit>kmol/h</Unit>
+      <Unit>lbmol/h</Unit>
+      <Unit>scfm</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kmol/s" AdditionConstant = "0" MultiplicationConstant = "1">kmol/s</ConversionUnit>
+      <ConversionUnit Name = "lbmol/s" AdditionConstant = "0" MultiplicationConstant = "0.453592">lbmol/s</ConversionUnit>
+      <ConversionUnit Name = "kmol/h" AdditionConstant = "0" MultiplicationConstant = "0.000277777777777777">kmol/h</ConversionUnit>
+      <ConversionUnit Name = "lbmol/h" AdditionConstant = "0" MultiplicationConstant = "0.000125997777777777">lbmol/h</ConversionUnit>
+      <ConversionUnit Name = "scfm" AdditionConstant = "0" MultiplicationConstant = "0.00001992168">scfm</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kmol/s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.0555</Default>
+    <Min>0</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Vol_Flow</Type>
+    <DisplayName>Vol Flow</DisplayName>
+    <SortName>Flow_Vol</SortName>
+    <Category>Flow Rates</Category>
+    <Units>
+      <Unit>m3/s</Unit>
+      <Unit>m3/h</Unit>
+      <Unit>gpm</Unit>
+      <Unit>ft3/h</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "m3/s" AdditionConstant = "0" MultiplicationConstant = "1">m3/s</ConversionUnit>
+      <ConversionUnit Name = "m3/h" AdditionConstant = "0" MultiplicationConstant = "0.000277777777777777">m3/h</ConversionUnit>
+      <ConversionUnit Name = "gpm" AdditionConstant = "0" MultiplicationConstant = "0.0000630835">gpm</ConversionUnit>
+      <ConversionUnit Name = "ft3/h" AdditionConstant = "0" MultiplicationConstant = "0.000007865791">ft3/h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m3/s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.001</Default>
+    <Min>0</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Fraction</Type>
+    <DisplayName>Fraction</DisplayName>
+    <SortName>Fraction</SortName>
+    <Category>Dimensionless</Category>
+    <Units>
+      <Unit>fraction</Unit>
+      <Unit>percent</Unit>
+      <Unit>ratio</Unit>
+      <Unit>%</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "fraction" AdditionConstant = "0" MultiplicationConstant = "1">fraction</ConversionUnit>
+      <ConversionUnit Name = "percent" AdditionConstant = "0" MultiplicationConstant = "0.01">percent</ConversionUnit>
+      <ConversionUnit Name = "ratio" AdditionConstant = "0" MultiplicationConstant = "1">ratio</ConversionUnit>
+      <ConversionUnit Name = "%" AdditionConstant = "0" MultiplicationConstant = "0.01">%</ConversionUnit>
+    </ConversionFactors>
+    <Description>Use more specific types in most cases</Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>fraction</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.5</Default>
+    <Min>0</Min>
+    <Max>1</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Specific_Gravity</Type>
+    <DisplayName>Specific Gravity</DisplayName>
+    <SortName>Gravity_Specific</SortName>
+    <Category>Mass Fluid Properties</Category>
+    <Units>
+      <Unit></Unit>
+    </Units>
+    <ConversionFactors></ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit></InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Length</Type>
+    <DisplayName>Length</DisplayName>
+    <SortName>Length</SortName>
+    <Category>Equipment Sizing</Category>
+    <Units>
+      <Unit>mm</Unit>
+      <Unit>cm</Unit>
+      <Unit>in</Unit>
+      <Unit>ft</Unit>
+      <Unit>m</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "mm" AdditionConstant = "0" MultiplicationConstant = "0.001">mm</ConversionUnit>
+      <ConversionUnit Name = "cm" AdditionConstant = "0" MultiplicationConstant = "0.01">cm</ConversionUnit>
+      <ConversionUnit Name = "in" AdditionConstant = "0" MultiplicationConstant = "0.0254">in</ConversionUnit>
+      <ConversionUnit Name = "ft" AdditionConstant = "0" MultiplicationConstant = "0.3048">ft</ConversionUnit>
+      <ConversionUnit Name = "m" AdditionConstant = "0" MultiplicationConstant = "1">m</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>10</Default>
+    <Min>0</Min>
+    <Max>1E20</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mass</Type>
+    <DisplayName>Mass</DisplayName>
+    <SortName>Mass</SortName>
+    <Category>Holdup</Category>
+    <Units>
+      <Unit>kg</Unit>
+      <Unit>lb</Unit>
+      <Unit>t</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kg" AdditionConstant = "0" MultiplicationConstant = "1">kg</ConversionUnit>
+      <ConversionUnit Name = "lb" AdditionConstant = "0" MultiplicationConstant = "0.453592">lb</ConversionUnit>
+      <ConversionUnit Name = "t" AdditionConstant = "0" MultiplicationConstant = "1000">t</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kg</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Metal_Mass</Type>
+    <DisplayName>Metal Mass</DisplayName>
+    <SortName>Mass_Metal</SortName>
+    <Category>Holdup</Category>
+    <Units>
+      <Unit>kg</Unit>
+      <Unit>lb</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kg" AdditionConstant = "0" MultiplicationConstant = "1">kg</ConversionUnit>
+      <ConversionUnit Name = "lb" AdditionConstant = "0" MultiplicationConstant = "0.453592">lb</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kg</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1000</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Moles</Type>
+    <DisplayName>Moles</DisplayName>
+    <SortName>Moles</SortName>
+    <Category>Holdup</Category>
+    <Units>
+      <Unit>kmol</Unit>
+      <Unit>lbmol</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kmol" AdditionConstant = "0" MultiplicationConstant = "1">kmol</ConversionUnit>
+      <ConversionUnit Name = "lbmol" AdditionConstant = "0" MultiplicationConstant = "0.453592">lbmol</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kmol</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.0555</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Pressure</Type>
+    <DisplayName>Pressure</DisplayName>
+    <SortName>Pressure</SortName>
+    <Category>Fluid State</Category>
+    <Units>
+      <Unit>kPa</Unit>
+      <Unit>Pa</Unit>
+      <Unit>bar</Unit>
+      <Unit>kg/cm2</Unit>
+      <Unit>psia</Unit>
+      <Unit>atm</Unit>
+      <Unit>mmHg</Unit>
+      <Unit>inH2O</Unit>
+      <Unit>cmH2O</Unit>
+      <Unit>kPa (gauge)</Unit>
+      <Unit>Pa (gauge)</Unit>
+      <Unit>bar (gauge)</Unit>
+      <Unit>kg/cm2 (gauge)</Unit>
+      <Unit>psig</Unit>
+      <Unit>mmHg (gauge)</Unit>
+      <Unit>inH2O (gauge)</Unit>
+      <Unit>cmH2O (gauge)</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kPa" AdditionConstant = "0" MultiplicationConstant = "1">kPa</ConversionUnit>
+      <ConversionUnit Name = "Pa" AdditionConstant = "0" MultiplicationConstant = "0.001">Pa</ConversionUnit>
+      <ConversionUnit Name = "bar" AdditionConstant = "0" MultiplicationConstant = "100">bar</ConversionUnit>
+      <ConversionUnit Name = "kg/cm2" AdditionConstant = "0" MultiplicationConstant = "98.0665">kg/cm2</ConversionUnit>
+      <ConversionUnit Name = "psia" AdditionConstant = "0" MultiplicationConstant = "6.89476">psia</ConversionUnit>
+      <ConversionUnit Name = "atm" AdditionConstant = "0" MultiplicationConstant = "101.325">atm</ConversionUnit>
+      <ConversionUnit Name = "mmHg" AdditionConstant = "0" MultiplicationConstant = "0.133322368421">mmHg</ConversionUnit>
+      <ConversionUnit Name = "inH2O" AdditionConstant = "0" MultiplicationConstant = "0.248843">inH2O</ConversionUnit>
+      <ConversionUnit Name = "cmH2O" AdditionConstant = "0" MultiplicationConstant = "0.0980665">cmH2O</ConversionUnit>
+      <ConversionUnit Name = "kPa (gauge)" AdditionConstant = "101.325" MultiplicationConstant = "1">kPa (gauge)</ConversionUnit>
+      <ConversionUnit Name = "Pa (gauge)" AdditionConstant = "101325" MultiplicationConstant = "0.001">Pa (gauge)</ConversionUnit>
+      <ConversionUnit Name = "bar (gauge)" AdditionConstant = "1.01325" MultiplicationConstant = "100">bar (gauge)</ConversionUnit>
+      <ConversionUnit Name = "kg/cm2 (gauge)" AdditionConstant = "1.0332274528" MultiplicationConstant = "98.0665">kg/cm2 (gauge)</ConversionUnit>
+      <ConversionUnit Name = "psig" AdditionConstant = "14.6959487755" MultiplicationConstant = "6.89476">psig</ConversionUnit>
+      <ConversionUnit Name = "mmHg (gauge)" AdditionConstant = "760" MultiplicationConstant = "0.133322368421">mmHg (gauge)</ConversionUnit>
+      <ConversionUnit Name = "inH2O (gauge)" AdditionConstant = "407.184449633" MultiplicationConstant = "0.248843">inH2O (gauge)</ConversionUnit>
+      <ConversionUnit Name = "cmH2O (gauge)" AdditionConstant = "1033.2274528" MultiplicationConstant = "0.0980665">cmH2O (gauge)</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kPa</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>101.325</Default>
+    <Min>0.001</Min>
+    <Max>50000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Diff_Pressure</Type>
+    <DisplayName>Diff Pressure</DisplayName>
+    <SortName>Pressure_Difference</SortName>
+    <Category>Hydraulics</Category>
+    <Units>
+      <Unit>kPa</Unit>
+      <Unit>Pa</Unit>
+      <Unit>bar</Unit>
+      <Unit>kg/cm2</Unit>
+      <Unit>psi</Unit>
+      <Unit>atm</Unit>
+      <Unit>mmHg</Unit>
+      <Unit>inH2O</Unit>
+      <Unit>cmH2O</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kPa" AdditionConstant = "0" MultiplicationConstant = "1">kPa</ConversionUnit>
+      <ConversionUnit Name = "Pa" AdditionConstant = "0" MultiplicationConstant = "0.001">Pa</ConversionUnit>
+      <ConversionUnit Name = "bar" AdditionConstant = "0" MultiplicationConstant = "100">bar</ConversionUnit>
+      <ConversionUnit Name = "kg/cm2" AdditionConstant = "0" MultiplicationConstant = "98.0665">kg/cm2</ConversionUnit>
+      <ConversionUnit Name = "psi" AdditionConstant = "0" MultiplicationConstant = "6.89476">psi</ConversionUnit>
+      <ConversionUnit Name = "atm" AdditionConstant = "0" MultiplicationConstant = "101.325">atm</ConversionUnit>
+      <ConversionUnit Name = "mmHg" AdditionConstant = "0" MultiplicationConstant = "0.133322368421">mmHg</ConversionUnit>
+      <ConversionUnit Name = "inH2O" AdditionConstant = "0" MultiplicationConstant = "0.248843">inH2O</ConversionUnit>
+      <ConversionUnit Name = "cmH2O" AdditionConstant = "0" MultiplicationConstant = "0.0980665">cmH2O</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kPa</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>50</Default>
+    <Min>-50000</Min>
+    <Max>50000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Ratio</Type>
+    <DisplayName>Ratio</DisplayName>
+    <SortName>Ratio</SortName>
+    <Category>Dimensionless</Category>
+    <Units>
+      <Unit></Unit>
+    </Units>
+    <ConversionFactors></ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit></InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>1000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Signal</Type>
+    <DisplayName>Signal</DisplayName>
+    <SortName>Signal</SortName>
+    <Category>Controls</Category>
+    <Units>
+      <Unit>fraction</Unit>
+      <Unit>percent</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "fraction" AdditionConstant = "0" MultiplicationConstant = "1">fraction</ConversionUnit>
+      <ConversionUnit Name = "percent" AdditionConstant = "0" MultiplicationConstant = "0.01">percent</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>fraction</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0</Default>
+    <Min>0</Min>
+    <Max>1</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Surface_Tension</Type>
+    <DisplayName>Surface Tension</DisplayName>
+    <SortName>Surface_Tension</SortName>
+    <Category>Transport Properties</Category>
+    <Units>
+      <Unit>g/cm</Unit>
+      <Unit>dyn/cm</Unit>
+      <Unit>N/m</Unit>
+      <Unit>pdl/in</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "g/cm" AdditionConstant = "0" MultiplicationConstant = "0.98066">g/cm</ConversionUnit>
+      <ConversionUnit Name = "dyn/cm" AdditionConstant = "0" MultiplicationConstant = "0.001">dyn/cm</ConversionUnit>
+      <ConversionUnit Name = "N/m" AdditionConstant = "0" MultiplicationConstant = "1">N/m</ConversionUnit>
+      <ConversionUnit Name = "pdl/in" AdditionConstant = "0" MultiplicationConstant = "5.4431">pdl/in</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>N/m</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>7.2</Default>
+    <Min>0</Min>
+    <Max>10</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Temperature</Type>
+    <DisplayName>Temperature</DisplayName>
+    <SortName>Temperature</SortName>
+    <Category>Fluid State</Category>
+    <Units>
+      <Unit>K</Unit>
+      <Unit>F</Unit>
+      <Unit>C</Unit>
+      <Unit>R</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "K" AdditionConstant = "0" MultiplicationConstant = "1">K</ConversionUnit>
+      <ConversionUnit Name = "F" AdditionConstant = "459.67" MultiplicationConstant = "0.5555555555555556">F</ConversionUnit>
+      <ConversionUnit Name = "C" AdditionConstant = "273.15" MultiplicationConstant = "1">C</ConversionUnit>
+      <ConversionUnit Name = "R" AdditionConstant = "0" MultiplicationConstant = "0.5555555555555556">R</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>K</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>298</Default>
+    <Min>10</Min>
+    <Max>3000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Diff_Temperature</Type>
+    <DisplayName>Temperature Difference</DisplayName>
+    <SortName>Temperature_Difference</SortName>
+    <Category>Heat Transfer</Category>
+    <Units>
+      <Unit>K</Unit>
+      <Unit>F</Unit>
+      <Unit>C</Unit>
+      <Unit>R</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "K" AdditionConstant = "0" MultiplicationConstant = "1">K</ConversionUnit>
+      <ConversionUnit Name = "F" AdditionConstant = "0" MultiplicationConstant = "0.5555555555555556">F</ConversionUnit>
+      <ConversionUnit Name = "C" AdditionConstant = "0" MultiplicationConstant = "1">C</ConversionUnit>
+      <ConversionUnit Name = "R" AdditionConstant = "0" MultiplicationConstant = "0.5555555555555556">R</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>K</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>10</Default>
+    <Min>-1000</Min>
+    <Max>1000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Thermal_Conductivity</Type>
+    <DisplayName>Thermal Conductivity</DisplayName>
+    <SortName>Thermal_Conductivity</SortName>
+    <Category>Transport Properties</Category>
+    <Units>
+      <Unit>W/m-K</Unit>
+      <Unit>Btu/h-ft-F</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "W/m-K" AdditionConstant = "0" MultiplicationConstant = "1">W/m-K</ConversionUnit>
+      <ConversionUnit Name = "Btu/h-ft-F" AdditionConstant = "0" MultiplicationConstant = "1.73074">Btu/h-ft-F</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>W/m-K</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.58</Default>
+    <Min>0</Min>
+    <Max>10</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Thickness</Type>
+    <DisplayName>Thickness</DisplayName>
+    <SortName>Thickness</SortName>
+    <Category>Equipment Sizing</Category>
+    <Units>
+      <Unit>mm</Unit>
+      <Unit>cm</Unit>
+      <Unit>in</Unit>
+      <Unit>ft</Unit>
+      <Unit>m</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "mm" AdditionConstant = "0" MultiplicationConstant = "1">mm</ConversionUnit>
+      <ConversionUnit Name = "cm" AdditionConstant = "0" MultiplicationConstant = "10">cm</ConversionUnit>
+      <ConversionUnit Name = "in" AdditionConstant = "0" MultiplicationConstant = "25.4">in</ConversionUnit>
+      <ConversionUnit Name = "ft" AdditionConstant = "0" MultiplicationConstant = "304.8">ft</ConversionUnit>
+      <ConversionUnit Name = "m" AdditionConstant = "0" MultiplicationConstant = "1000">m</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>mm</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0.001</Min>
+    <Max>1000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Time</Type>
+    <DisplayName>Time</DisplayName>
+    <SortName>Time</SortName>
+    <Category>Time</Category>
+    <Units>
+      <Unit>s</Unit>
+      <Unit>min</Unit>
+      <Unit>h</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "s" AdditionConstant = "0" MultiplicationConstant = "1">s</ConversionUnit>
+      <ConversionUnit Name = "min" AdditionConstant = "0" MultiplicationConstant = "60">min</ConversionUnit>
+      <ConversionUnit Name = "h" AdditionConstant = "0" MultiplicationConstant = "3600">h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0</Default>
+    <Min>0</Min>
+    <Max>31556736</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Inverse_Time</Type>
+    <DisplayName>Inverse Time</DisplayName>
+    <SortName>Inverse Time</SortName>
+    <Category>Time</Category>
+    <Units>
+      <Unit>1/s</Unit>
+      <Unit>1/min</Unit>
+      <Unit>1/h</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "1/s" AdditionConstant = "0" MultiplicationConstant = "1">1/s</ConversionUnit>
+      <ConversionUnit Name = "1/min" AdditionConstant = "0" MultiplicationConstant = "0.0166666666666667">1/min</ConversionUnit>
+      <ConversionUnit Name = "1/h" AdditionConstant = "0" MultiplicationConstant = "2.777777777777778e-4">1/h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>1/s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>0</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Velocity</Type>
+    <DisplayName>Velocity</DisplayName>
+    <SortName>Velocity</SortName>
+    <Category>Hydraulics</Category>
+    <Units>
+      <Unit>m/s</Unit>
+      <Unit>ft/s</Unit>
+      <Unit>m/h</Unit>
+      <Unit>ft/h</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "m/s" AdditionConstant = "0" MultiplicationConstant = "1">m/s</ConversionUnit>
+      <ConversionUnit Name = "ft/s" AdditionConstant = "0" MultiplicationConstant = "0.3048">ft/s</ConversionUnit>
+      <ConversionUnit Name = "m/h" AdditionConstant = "0" MultiplicationConstant = "0.000277777777777777">m/h</ConversionUnit>
+      <ConversionUnit Name = "ft/h" AdditionConstant = "0" MultiplicationConstant = "0.00008466667">ft/h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m/s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Viscosity</Type>
+    <DisplayName>Viscosity</DisplayName>
+    <SortName>Viscosity</SortName>
+    <Category>Transport Properties</Category>
+    <Units>
+      <Unit>cP</Unit>
+      <Unit>Pa-s</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "cP" AdditionConstant = "0" MultiplicationConstant = "0.001">cP</ConversionUnit>
+      <ConversionUnit Name = "Pa-s" AdditionConstant = "0" MultiplicationConstant = "1">Pa-s</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>Pa-s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1e-3</Default>
+    <Min>0</Min>
+    <Max>100000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Kinematic_Viscosity</Type>
+    <DisplayName>Kinematic Viscosity</DisplayName>
+    <SortName>Viscosity_Kinematic</SortName>
+    <Category>Transport Properties</Category>
+    <Units>
+      <Unit>ft2/s</Unit>
+      <Unit>in2/s</Unit>
+      <Unit>m2/h</Unit>
+      <Unit>ft2/h</Unit>
+      <Unit>cSt</Unit>
+      <Unit>m2/s</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "ft2/s" AdditionConstant = "0" MultiplicationConstant = "0.0929034">ft2/s</ConversionUnit>
+      <ConversionUnit Name = "in2/s" AdditionConstant = "0" MultiplicationConstant = "0.0006452">in2/s</ConversionUnit>
+      <ConversionUnit Name = "m2/s" AdditionConstant = "0" MultiplicationConstant = "1">m2/s</ConversionUnit>
+      <ConversionUnit Name = "m2/h" AdditionConstant = "0" MultiplicationConstant = "0.000277777777777777">m2/h</ConversionUnit>
+      <ConversionUnit Name = "cSt" AdditionConstant = "0" MultiplicationConstant = "0.000001">cSt</ConversionUnit>
+      <ConversionUnit Name = "ft2/h" AdditionConstant = "0" MultiplicationConstant = "0.0000258064">ft2/h</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m2/s</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.00000091</Default>
+    <Min>0</Min>
+    <Max>0.001</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Volume</Type>
+    <DisplayName>Volume</DisplayName>
+    <SortName>Volume</SortName>
+    <Category>Holdup</Category>
+    <Units>
+      <Unit>m3</Unit>
+      <Unit>l</Unit>
+      <Unit>ft3</Unit>
+      <Unit>gal</Unit>
+      <Unit>bbl</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "m3" AdditionConstant = "0" MultiplicationConstant = "1">m3</ConversionUnit>
+      <ConversionUnit Name = "l" AdditionConstant = "0" MultiplicationConstant = "0.001">l</ConversionUnit>
+      <ConversionUnit Name = "ft3" AdditionConstant = "0" MultiplicationConstant = "0.02831685">ft3</ConversionUnit>
+      <ConversionUnit Name = "gal" AdditionConstant = "0" MultiplicationConstant = "0.003785412">gal</ConversionUnit>
+      <ConversionUnit Name = "bbl" AdditionConstant = "0" MultiplicationConstant = "0.1589873">bbl</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m3</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>0.001</Min>
+    <Max>1000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mole_Volume</Type>
+    <DisplayName>Molar Volume</DisplayName>
+    <SortName>Volume_Mole</SortName>
+    <Category>Molar Fluid Properties</Category>
+    <Units>
+      <Unit>m3/kmol</Unit>
+      <Unit>ft3/lbmol</Unit>
+      <Unit>l/g-mol</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "m3/kmol" AdditionConstant = "0" MultiplicationConstant = "1">m3/kmol</ConversionUnit>
+      <ConversionUnit Name = "ft3/lbmol" AdditionConstant = "0" MultiplicationConstant = "0.0624297665126733">ft3/lbmol</ConversionUnit>
+      <ConversionUnit Name = "l/g-mol" AdditionConstant = "0" MultiplicationConstant = "1">l/g-mol</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>m3/kmol</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>0.018</Default>
+    <Min>0.001</Min>
+    <Max>1.0E6</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mole_Weight</Type>
+    <DisplayName>Molar Weight</DisplayName>
+    <SortName>Mole_Weight</SortName>
+    <Category>Molar Fluid Properties</Category>
+    <Units>
+      <Unit>kg/kmol</Unit>
+      <Unit>lb/lbmol</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kg/kmol" AdditionConstant = "0" MultiplicationConstant = "1">kg/kmol</ConversionUnit>
+      <ConversionUnit Name = "lb/lbmol" AdditionConstant = "0" MultiplicationConstant = "1">lb/lbmol</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kg/kmol</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>18</Default>
+    <Min>1</Min>
+    <Max>200</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mass_Heat_Capacity</Type>
+    <DisplayName>Specific Heat</DisplayName>
+    <SortName>Heat_Mass</SortName>
+    <Category>Mass Fluid Properties</Category>
+    <Units>
+      <Unit>kJ/kg-K</Unit>
+      <Unit>Btu/lb-F</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kJ/kg-K" AdditionConstant = "0" MultiplicationConstant = "1" >kJ/kg-K</ConversionUnit>
+      <ConversionUnit Name = "Btu/lb-F" AdditionConstant = "0" MultiplicationConstant = "4.1858618">Btu/lb-F</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ/kg-K</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>4.19</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Mole_Heat_Capacity</Type>
+    <DisplayName>Molar Heat Capacity</DisplayName>
+    <SortName>Heat_Mole</SortName>
+    <Category>Molar Fluid Properties</Category>
+    <Units>
+      <Unit>kJ/kmol-K</Unit>
+      <Unit>Btu/lbmol-F</Unit>
+      <Unit>J/mol-K</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "kJ/kmol-K" AdditionConstant = "0" MultiplicationConstant = "1">kJ/kmol-K</ConversionUnit>
+      <ConversionUnit Name = "Btu/lbmol-F" AdditionConstant = "0" MultiplicationConstant = "4.1858618">Btu/lbmol-F</ConversionUnit>
+      <ConversionUnit Name = "J/mol-K" AdditionConstant = "0" MultiplicationConstant = "1">J/mol-K</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>kJ/kmol-K</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>75.4</Default>
+    <Min>0.001</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+  <VariableType>
+    <Type>Real</Type>
+    <DisplayName>Real</DisplayName>
+    <SortName>Dimensionless</SortName>
+    <Category>Dimensionless</Category>
+    <Units>
+      <Unit></Unit>
+    </Units>
+    <ConversionFactors></ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit></InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>1</Default>
+    <Min>-1000000</Min>
+    <Max>1000000</Max>
+    <Format></Format>
+  </VariableType>
+<VariableType>
+    <Type>Compressibility</Type>
+    <DisplayName>Compressibility</DisplayName>
+    <SortName>Pressure</SortName>
+    <Category>Hydraulics</Category>
+    <Units>
+      <Unit>1/kPa</Unit>
+      <Unit>1/Pa</Unit>
+      <Unit>1/bar</Unit>
+      <Unit>1/psi</Unit>
+      <Unit>1/atm</Unit>
+    </Units>
+    <ConversionFactors>
+      <ConversionUnit Name = "1/kPa" AdditionConstant = "0" MultiplicationConstant = "1">1/kPa</ConversionUnit>
+      <ConversionUnit Name = "1/Pa" AdditionConstant = "0" MultiplicationConstant = "1000">1/Pa</ConversionUnit>
+      <ConversionUnit Name = "1/bar" AdditionConstant = "0" MultiplicationConstant = "0.01">1/bar</ConversionUnit>
+      <ConversionUnit Name = "1/psi" AdditionConstant = "0" MultiplicationConstant = "0.145038">1/psi</ConversionUnit>
+      <ConversionUnit Name = "1/atm" AdditionConstant = "0" MultiplicationConstant = "0.00986923">1/atm</ConversionUnit>
+    </ConversionFactors>
+    <Description></Description>
+    <DataType>Double</DataType>
+    <Dimension></Dimension>
+    <InternalUnit>1/kPa</InternalUnit>
+    <DisplayUnit></DisplayUnit>
+    <Default>4.15E-7</Default>
+    <Min>1E-9</Min>
+    <Max>1</Max>
+    <Format></Format>
+  </VariableType>
+</VariableTypes>
