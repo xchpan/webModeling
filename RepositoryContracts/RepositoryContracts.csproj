@@ -40,9 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPlantSummaryRepository.cs" />
+    <Compile Include="IVariableTypeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{2d6f4ac0-540a-409b-9eb4-d6e26ee6141f}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModels\ViewModels.csproj">
       <Project>{7c0c3d3e-3927-4bb9-b63f-7ca60190a6d0}</Project>
       <Name>ViewModels</Name>

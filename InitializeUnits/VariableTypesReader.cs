@@ -47,7 +47,7 @@ namespace InitializeUnits
                 variableType.SetMinMaxDefaultValue(min:min, max:max, defaultValue:defaultValue);
 
                 var internalUnitName = variableTypeElement.XPathSelectElement("InternalUnit").Value;
-                variableType.Units = new UnitCollection(Guid.NewGuid(), internalUnitName,
+                variableType.Units = new UnitCollection(internalUnitName,
                     new List<Unit>());
 
                 foreach (var conversionUnitElement in variableTypeElement.XPathSelectElements("ConversionFactors/ConversionUnit"))

@@ -26,6 +26,11 @@ namespace xpan.plantDesign.WebApi.Config
             builder.RegisterType<LibraryService>().As<ILibraryService>().InstancePerRequest();
             builder.RegisterType<PlantSummaryService>().As<IPlantSummaryService>().InstancePerRequest();
 
+            builder.RegisterType<VariableTypeRepository>()
+                .As<IVariableTypeRepository>()
+                .OnActivating(e => e.Instance.Initialize())
+                .SingleInstance();
+
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             return builder.Build();

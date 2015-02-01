@@ -45,6 +45,12 @@
     <Reference Include="LZ4">
       <HintPath>..\packages\lz4net.1.0.3.93\lib\net40-client\LZ4.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="Snappy.NET">
       <HintPath>..\packages\Snappy.NET.1.1.1.8\lib\net45\Snappy.NET.dll</HintPath>
     </Reference>
@@ -59,8 +65,13 @@
   <ItemGroup>
     <Compile Include="PlantSummaryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VariableTypeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{2d6f4ac0-540a-409b-9eb4-d6e26ee6141f}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj">
       <Project>{49aad8ae-c4a9-499b-a9e7-68c3894457e9}</Project>
       <Name>RepositoryContracts</Name>

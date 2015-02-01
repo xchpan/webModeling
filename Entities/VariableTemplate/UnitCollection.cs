@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace xpan.plantDesign.Domain.SharedLibraries.VariableTemplate
 {
-    public class UnitCollection : TemplateBase
+    public class UnitCollection
     {
         private readonly Unit primaryUnit;
 
         private readonly List<Unit> additionalUnits;
 
-        public UnitCollection(Guid id, string primaryUnitName, List<Unit> additionalUnits) : base(id)
+        public UnitCollection(string primaryUnitName, IEnumerable<Unit> additionalUnits)
         {
             this.additionalUnits = additionalUnits.ToList();
             primaryUnit = new Unit(primaryUnitName, 0, 1);
