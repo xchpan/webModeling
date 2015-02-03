@@ -20,9 +20,9 @@
 
 <main>
     <section id="librariesSection" ng-app="libraries" ng-controller="librariesController">
-        <div id="librariesHeader" class="twoEndRow"><h3 class="twoEndLeft">Libraries</h3><div class="twoEndRight centarContainer"><button ng-click="createLibrary()" class="smallButton">+</button></div></div>
+        <div id="librariesHeader"><h3>Libraries <span class="badge" ng-click="createLibrary()">+</span></h3></div>
         <div id="libraryList">
-            <h3 ng-repeat-start="library in libraries"><button ng-click="deleteLibrary(library.Id)">&#x2718</button>{{library.Name}}</h3>
+            <h3 ng-repeat-start="library in libraries">{{library.Name}} <span class="badge" ng-click="deleteLibrary(library.Id)">&#x2718</span></h3>
             <div ng-repeat-end class="librayContainer">
                 <div ng-repeat="item in library.Items" class="libraryItem">
                     <img src="{{item.Icon}}" class="modelTypeIcon" />
