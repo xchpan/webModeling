@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/bootstrap")
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" />
-    @Scripts.Render("~/bundles/modernizr")
+    @*<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet" />*@
+
     @RenderSection("styles", required: false)
 </head>
 <body>
@@ -16,6 +16,8 @@
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/boundles/bootstrap")
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
         @RenderSection("scripts", required: false)
 </body>

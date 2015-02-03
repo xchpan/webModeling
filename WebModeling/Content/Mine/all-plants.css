@@ -78,6 +78,8 @@ img.modelTypeIcon {
 
 .librayContainer {
     display: flex;
+    min-height: 300px;
+    min-width: 200px;
 }
 
 .libraryItem {

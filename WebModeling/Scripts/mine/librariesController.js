@@ -24,6 +24,7 @@
                     $scope.libraries.push(data);
                     $timeout(function () {
                         $("#libraryList").accordion('refresh');
+                        $(".dropdown-toggle").dropdown();
                     });
                 });
             };
