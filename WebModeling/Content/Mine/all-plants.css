@@ -35,9 +35,9 @@ main {
     flex: 1;
 }
 
-#libraries {
+#librariesSection {
     margin: 4px;
-    padding: 5px;
+    padding: 0px;
     border: 1px solid #8888bb;
     border-radius: 7pt;
     background: #ccccff;
@@ -45,6 +45,10 @@ main {
     flex: 1 6 20%;
     -webkit-order: 1;
     order: 1;
+}
+
+#libraryList {
+    padding: 0px;
 }
 
 #flowsheets {
@@ -78,14 +82,18 @@ img.modelTypeIcon {
 
 .librayContainer {
     display: flex;
+    flex-flow: row wrap;
     min-height: 300px;
-    min-width: 200px;
+    width: 100%;
+    max-height: 600px;
 }
 
 .libraryItem {
-    flex: 1;
+    flex: none;
     margin-left: 5px;
     margin-right: 5px;
+    width: 70px;
+    height: 70px;
 }
 
 .twoEndRow {
