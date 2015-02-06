@@ -30,5 +30,26 @@ namespace xpan.plantDesign.WebApi.Controllers
         {
             libraryService.DeleteLibrary(id);
         }
+
+        [Route("api/libraries/{id}/fluid")]
+        [HttpPost]
+        public LibraryItem CreateFluid(Guid id)
+        {
+            return libraryService.CreateFluidInLibrary(id);
+        }
+
+        [Route("api/libraries/{id}/port")]
+        [HttpPost]
+        public LibraryItem CreatePort(Guid id)
+        {
+            return libraryService.CreatePortInLibrary(id);
+        }
+
+        [Route("api/libraries/{id}/Model")]
+        [HttpPost]
+        public LibraryItem CreateModel(Guid id)
+        {
+            return libraryService.CreateModelInLibrary(id);
+        }
     }
 }

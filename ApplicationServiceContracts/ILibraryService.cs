@@ -14,5 +14,11 @@ namespace xpan.plantDesign.ApplicationServices
         Library CreateLibrary();
 
         void DeleteLibrary(Guid id);
+
+        LibraryItem CreateFluidInLibrary(Guid id);
+
+        LibraryItem CreatePortInLibrary(Guid id);
+
+        LibraryItem CreateModelInLibrary(Guid id);
     }
 }

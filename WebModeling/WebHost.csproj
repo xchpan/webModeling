@@ -280,9 +280,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="Images\icons\gas.jpg" />
     <Content Include="Images\icons\liquid.jpg" />
     <Content Include="Images\icons\pipe.jpg" />
+    <Content Include="Images\icons\port.jpg" />
     <Content Include="Images\icons\valve.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

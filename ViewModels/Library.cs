@@ -25,5 +25,10 @@ namespace xpan.plantDesign.ViewModels
         {
             get { return items.AsEnumerable(); }
         }
+
+        public void Add(LibraryItem item)
+        {
+            items.Add(item);
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace xpan.plantDesign.WebHost
         protected void Application_Start()
         {
             HttpConfiguration config = GlobalConfiguration.Configuration;
+            config.MapHttpAttributeRoutes();
             RouteConfig.RegisterRoutes(config.Routes);
             WebApiConfig.Configure(config);
             AutofacWebApi.Initialize(config);
@@ -26,6 +27,8 @@ namespace xpan.plantDesign.WebHost
             MvcRouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            config.EnsureInitialized();
 
             //config.MessageHandlers.Insert(0, new HttpCachingHandler("Accept", "Accept-Charset"));
         }
