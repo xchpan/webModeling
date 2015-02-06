@@ -33,6 +33,9 @@
                 var index = findIndex($scope.libraries, libraryId);
                 librariesService.createFluid(libraryId).success(function (data) {
                     $scope.libraries[index].Items.push(data);
+                    $("#portEditor").modal('hide');
+                    $("#modelEditor").modal('hide');
+                    $("#fluidEditor").modal('show');
                 }).error(function (data, status, headers, config) {
                     alert("Failed to create a fluid.");
                 });
@@ -42,6 +45,9 @@
                 var index = findIndex($scope.libraries, libraryId);
                 librariesService.createPort(libraryId).success(function (data) {
                     $scope.libraries[index].Items.push(data);
+                    $("#modelEditor").modal('hide');
+                    $("#fluidEditor").modal('hide');
+                    $("#portEditor").modal('show');
                 }).error(function (data, status, headers, config) {
                     alert("Failed to create a port.");
                 });
@@ -51,6 +57,9 @@
                 var index = findIndex($scope.libraries, libraryId);
                 librariesService.createModel(libraryId).success(function (data) {
                     $scope.libraries[index].Items.push(data);
+                    $("#fluidEditor").modal('hide');
+                    $("#portEditor").modal('hide');
+                    $("#modelEditor").modal('show');
                 }).error(function (data, status, headers, config) {
                     alert("Failed to create a model.");
                 });

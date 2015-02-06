@@ -12,7 +12,7 @@
     </script>
 }
 @section styles {
-    <link rel="stylesheet" href="~/Content/Mine/all-plants.css"/>
+    <link rel="stylesheet" href="~/Content/Mine/all-plants.css" />
 }
 <header>
     <a href="#" id="showplants">Plants</a>
@@ -29,7 +29,7 @@
                     <div>{{item.Name}}</div>
                 </div>
                 <div class="dropdown" style="max-height: 30px">
-                    
+
                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
                         +
                         <span class="caret"></span>
@@ -39,6 +39,63 @@
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="addPort(library.Id)">Port</a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" ng-click="addModel(library.Id)">Model</a></li>
                     </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="fluidEditor" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Fluid</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to save changes you made to document before closing?</p>
+                        <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="portEditor" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Port</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to save changes you made to document before closing?</p>
+                        <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="modelEditor" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Model</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you want to save changes you made to document before closing?</p>
+                        <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,7 +115,7 @@
                 <tr><th>Name</th><th>Creator</th><th>Created Time</th><th>Description</th><th></th></tr>
             </thead>
             <tr ng-repeat="s in plants">
-                <td><input type="text" ng-model="s.Name" ng-change="updatePlant(s.Id)"/></td>
+                <td><input type="text" ng-model="s.Name" ng-change="updatePlant(s.Id)" /></td>
                 <td>{{s.Creator}}</td>
                 <td>{{s.CreateDatetime}}</td>
                 <td><input type="text" ng-model="s.Description" ng-change="updatePlant(s.Id)" /></td>
