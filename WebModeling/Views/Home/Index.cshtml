@@ -20,9 +20,9 @@
 
 <main>
     <section id="librariesSection" ng-app="libraries" ng-controller="librariesController">
-        <div id="librariesHeader"><h3>Libraries <span class="badge" ng-click="createLibrary()">+</span></h3></div>
+        <div id="librariesHeader"><h3>Libraries <span class="badge pull-right" ng-click="createLibrary()">+</span></h3></div>
         <div id="libraryList">
-            <h3 ng-repeat-start="library in libraries">{{library.Name}} <span class="badge" ng-click="deleteLibrary(library.Id)">&#x2718</span></h3>
+            <h3 ng-repeat-start="library in libraries">{{library.Name}} <span class="badge pull-right" ng-click="deleteLibrary(library.Id)">&#x2718</span></h3>
             <div ng-repeat-end class="librayContainer">
                 <div ng-repeat="item in library.Items" class="libraryItem">
                     <img src="{{item.Icon}}" class="modelTypeIcon" />
@@ -51,8 +51,129 @@
                         <h4 class="modal-title">Fluid</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Do you want to save changes you made to document before closing?</p>
-                        <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="fluidName" class="control-label col-xs-2">Name</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" id="fluidName" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fluidDescription" class="control-label col-xs-2">Description</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" id="fluidDescription" placeholder="Description">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="thermoType" class="control-label col-xs-2">Thermo Type</label>
+                                <div class="col-xs-10">
+                                    <select class="form-control" id="fluidDescription">
+                                        <option>Air</option>
+                                        <option>Steam</option>
+                                        <option>Water</option>
+                                        <option>Compositional</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">Starting Values</h1>
+                            </div>
+                            <div class="panel-body form-horizontal">
+                                <div class="form-group">
+                                    <label for="fluidPressure" class="control-label col-xs-2">Pressure</label>
+                                    <div class="col-xs-9">
+                                        <input type="text" class="form-control" id="fluidPressure" placeholder="Pressure">
+                                    </div>
+                                    <div class="col-xs-1">
+                                        kPa
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fluidTemprature" class="control-label col-xs-2">Temprature</label>
+                                    <div class="col-xs-9">
+                                        <input type="text" class="form-control" id="fluidTemprature" placeholder="Temprature">
+                                    </div>
+                                    <div class="col-xs-1">
+                                        K
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">Methods</h1>
+                            </div>
+                            <div class="panel-body form-horizontal">
+                                <div class="form-group">
+                                    <label for="systemMethod" class="control-label col-xs-2">System</label>
+                                    <div class="col-xs-10">
+                                        <select class="form-control" id="systemMethod">
+                                            <option>Soave-Redlich-Kwong (SRK)</option>
+                                            <option>Peng-Robinson (PR)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phaseMethod" class="control-label col-xs-2">Phase</label>
+                                    <div class="col-xs-10">
+                                        <select class="form-control" id="phaseMethod">
+                                            <option>Vapor</option>
+                                            <option>Liquid</option>
+                                            <option>Vapor/Liquid (VLE)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="liquidDensityMethod" class="control-label col-xs-2">Liquid Density</label>
+                                    <div class="col-xs-10">
+                                        <select class="form-control" id="liquidDensityMethod">
+                                            <option>API</option>
+                                            <option>Use System method</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">Components <span class="badge pull-right" ng-click="addComponent()">+</span></h1>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Status</th>
+                                            <th>Name</th>
+                                            <th>Components</th>
+                                            <th>Starting Composition</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="badge" ng-click="deleteLibrary(library.Id)">&#x2718</span></td>
+                                            <td></td>
+                                            <td>CO2</td>
+                                            <td>Multiple level menu to choose</td>
+                                            <td>1</td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">Icon</h1>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -61,7 +182,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="portEditor" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -70,8 +191,34 @@
                         <h4 class="modal-title">Port</h4>
                     </div>
                     <div class="modal-body">
-                        <p>Do you want to save changes you made to document before closing?</p>
-                        <p class="text-warning"><small>If you don't save, your changes will be lost.</small></p>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label for="portName" class="control-label col-xs-2">Name</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" id="portName" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="portDescription" class="control-label col-xs-2">Description</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" id="portDescription" placeholder="Description">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">Parameters</h1>
+                            </div>
+                            <div class="panel-body">Parameter content…</div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">Variables</h1>
+                            </div>
+                            <div class="panel-body">Variable content…</div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -80,7 +227,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="modelEditor" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
