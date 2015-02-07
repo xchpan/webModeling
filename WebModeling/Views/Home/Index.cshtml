@@ -24,7 +24,7 @@
         <div id="libraryList">
             <h3 ng-repeat-start="library in libraries">{{library.Name}} <span class="badge pull-right" ng-click="deleteLibrary(library.Id)">&#x2718</span></h3>
             <div ng-repeat-end class="librayContainer">
-                <div ng-repeat="item in library.Items" class="libraryItem">
+                <div ng-repeat="item in library.Items" ng-dblclick="editLibraryItem(item.Type)" class="libraryItem">
                     <img src="{{item.Icon}}" class="modelTypeIcon" />
                     <div>{{item.Name}}</div>
                 </div>
@@ -208,14 +208,14 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Parameters</h1>
+                                <h1 class="panel-title">Parameters <span class="badge pull-right" ng-click="addParameter()">+</span></h1>
                             </div>
                             <div class="panel-body">Parameter content…</div>
                         </div>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Variables</h1>
+                                <h1 class="panel-title">Variables <span class="badge pull-right" ng-click="addVariable()">+</span></h1>
                             </div>
                             <div class="panel-body">Variable content…</div>
                         </div>

@@ -33,9 +33,7 @@
                 var index = findIndex($scope.libraries, libraryId);
                 librariesService.createFluid(libraryId).success(function (data) {
                     $scope.libraries[index].Items.push(data);
-                    $("#portEditor").modal('hide');
-                    $("#modelEditor").modal('hide');
-                    $("#fluidEditor").modal('show');
+                    $scope.showFluidEditor();
                 }).error(function (data, status, headers, config) {
                     alert("Failed to create a fluid.");
                 });
@@ -45,9 +43,7 @@
                 var index = findIndex($scope.libraries, libraryId);
                 librariesService.createPort(libraryId).success(function (data) {
                     $scope.libraries[index].Items.push(data);
-                    $("#modelEditor").modal('hide');
-                    $("#fluidEditor").modal('hide');
-                    $("#portEditor").modal('show');
+                    $scope.showPortEditor();
                 }).error(function (data, status, headers, config) {
                     alert("Failed to create a port.");
                 });
@@ -57,12 +53,42 @@
                 var index = findIndex($scope.libraries, libraryId);
                 librariesService.createModel(libraryId).success(function (data) {
                     $scope.libraries[index].Items.push(data);
-                    $("#fluidEditor").modal('hide');
-                    $("#portEditor").modal('hide');
-                    $("#modelEditor").modal('show');
+                    $scope.showModelEditor();
                 }).error(function (data, status, headers, config) {
                     alert("Failed to create a model.");
                 });
             };
-        }
+
+        $scope.editLibraryItem = function(itemType) {
+            switch (itemType) {
+                case "Fluid":
+                    $scope.showFluidEditor();
+                break;
+                case "Port":
+                    $scope.showPortEditor();
+                break;
+                case "Model":
+                    $scope.showModelEditor();
+                break;
+            }
+        };
+
+        $scope.showFluidEditor = function() {
+            $("#portEditor").modal('hide');
+            $("#modelEditor").modal('hide');
+            $("#fluidEditor").modal('show');
+        };
+
+        $scope.showPortEditor = function () {
+            $("#modelEditor").modal('hide');
+            $("#fluidEditor").modal('hide');
+            $("#portEditor").modal('show');
+        };
+
+        $scope.showModelEditor = function () {
+            $("#fluidEditor").modal('hide');
+            $("#portEditor").modal('hide');
+            $("#modelEditor").modal('show');
+        };
+    }
 ]);
