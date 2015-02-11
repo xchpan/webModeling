@@ -81,8 +81,11 @@ namespace xpan.plantDesign.ApplicationServices
             var port = new PortTemplate(Guid.NewGuid())
             {
                 Name = "Fluid Port",
-                Icon = "/images/icons/port.jpg"
+                Icon = "/images/icons/port.jpg",
+                Description = "My prototype port"
             };
+            var variable = port.AddVariable("X", Guid.NewGuid());
+            variable.VariableType = Guid.Empty;
             flareLib.Add(port);
 
             libraries.Add(flareLib);
