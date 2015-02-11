@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using xpan.plantDesign.ApplicationServices;
+using xpan.plantDesign.Domain.SharedLibraries;
+using xpan.plantDesign.Domain.SharedLibraries.FluidTemplate;
 using xpan.plantDesign.ViewModels;
 
 namespace xpan.plantDesign.WebApi.Controllers
@@ -33,21 +35,21 @@ namespace xpan.plantDesign.WebApi.Controllers
 
         [Route("api/libraries/{id}/fluid")]
         [HttpPost]
-        public LibraryItem CreateFluid(Guid id)
+        public FluidType CreateFluid(Guid id)
         {
             return libraryService.CreateFluidInLibrary(id);
         }
 
         [Route("api/libraries/{id}/port")]
         [HttpPost]
-        public LibraryItem CreatePort(Guid id)
+        public PortTemplate CreatePort(Guid id)
         {
             return libraryService.CreatePortInLibrary(id);
         }
 
         [Route("api/libraries/{id}/Model")]
         [HttpPost]
-        public LibraryItem CreateModel(Guid id)
+        public ModelTemplate CreateModel(Guid id)
         {
             return libraryService.CreateModelInLibrary(id);
         }

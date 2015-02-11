@@ -97,6 +97,10 @@
       <Project>{2fd88395-33a7-4b61-a746-000441d482f4}</Project>
       <Name>ApplicationServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{2d6f4ac0-540a-409b-9eb4-d6e26ee6141f}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlantSummaryRepository\Repositories.csproj">
       <Project>{2882e46e-49a1-4523-8ad5-d316db70c815}</Project>
       <Name>Repositories</Name>

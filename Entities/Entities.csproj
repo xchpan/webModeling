@@ -48,6 +48,7 @@
     <Compile Include="FluidTemplate\ThermoTypes.cs" />
     <Compile Include="IHaveParameters.cs" />
     <Compile Include="Library.cs" />
+    <Compile Include="LibraryItem.cs" />
     <Compile Include="ModelTemplate.cs" />
     <Compile Include="ParameterDescription.cs" />
     <Compile Include="PortTemplate.cs" />

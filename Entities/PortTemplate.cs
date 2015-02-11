@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace xpan.plantDesign.Domain.SharedLibraries
 {
-    public class PortTemplate : TemplateBase, IHaveParameters
+    public class PortTemplate : LibraryItem, IHaveParameters
     {
+        private const string PortType = "Port";
+
         private readonly ICollection<ParameterDescription> parameters = new List<ParameterDescription>();
         
         public PortTemplate(Guid id) : base(id)
@@ -37,7 +39,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
 
         public void RenameParameter(string oldName, string newName)
         {
-            if (string.Equals(oldName, newName, StringComparison.Ordinal))
+            if (String.Equals(oldName, newName, StringComparison.Ordinal))
             {
                 throw new ArgumentException("The old name and new name are same");
             }
@@ -82,6 +84,11 @@ namespace xpan.plantDesign.Domain.SharedLibraries
         public IEnumerable<ParameterDescription> Parameters
         {
             get { return parameters.AsEnumerable(); }
+        }
+
+        public override string Type
+        {
+            get { return PortType; }
         }
     }
 }

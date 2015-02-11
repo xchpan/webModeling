@@ -7,8 +7,9 @@ using xpan.plantDesign.Domain.SharedLibraries.VariableTemplate;
 
 namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
 {
-    public class FluidType : TemplateBase
+    public class FluidType : LibraryItem
     {
+        private const string TypeString = "Fluid";
         private readonly List<FluidComponent> components;
 
         public FluidType(Guid id) : base(id)
@@ -22,7 +23,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
 
         public ValueWithUnit StartingTemprature { get; set; }
 
-        public SystemMethods SystemMethod { get; set; }
+        public string SystemMethod { get; set; }
 
         public PhaseMethods PhaseMethod { get; set; }
 
@@ -93,6 +94,9 @@ namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
             get { return components.AsEnumerable(); }
         }
 
-        public string Icon { get; set; }
+        public override string Type
+        {
+            get { return TypeString; }
+        }
     }
 }

@@ -1,36 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using xpan.plantDesign.Domain.SharedLibraries;
+using xpan.plantDesign.Domain.SharedLibraries.FluidTemplate;
+using xpan.plantDesign.Domain.SharedLibraries.VariableTemplate;
 using xpan.plantDesign.ViewModels;
 
 namespace xpan.plantDesign.ApplicationServices
 {
     public class LibraryService : ILibraryService
     {
-        private const string fluidType = "Fluid";
-        private const string portType = "Port";
-        private const string modelType = "Model";
+        private static readonly List<Library> libraries;
 
-        private static readonly List<Library> libraries = new List<Library>()
+        static LibraryService()
         {
-            new Library(name: "Fluids", items:new List<LibraryItem>()
+            libraries = new List<Library>();
+
+            var fluidLib = new Library()
             {
-                new LibraryItem() {Name = "Gas", Type="Fluid", Icon = "/images/icons/gas.jpg"},
-                new LibraryItem() {Name = "Water", Type="Fluid", Icon = "/images/icons/liquid.jpg"}
-            }),
-            new Library(name: "Steam Lib", items:new List<LibraryItem>()
+                Name = "Fluids"
+            };
+            var fluid = new FluidType(Guid.NewGuid())
             {
-                new LibraryItem() {Name = "Source", Type="Model", Icon = "/images/icons/pipe.jpg"},
-                new LibraryItem() {Name = "Sink", Type="Model", Icon = "/images/icons/pipe.jpg"}
-          
-            }),
-            new Library(name: "Flare Lib", items:new List<LibraryItem>()
+                Name = "Gas",
+                Icon = "/images/icons/gas.jpg",
+                Description = string.Empty,
+                PhaseMethod = PhaseMethods.Vapor,
+                SystemMethod = SystemMethods.SRK,
+                ThermoType = ThermoTypes.Air
+            };
+            fluidLib.Add(fluid);
+            fluid = new FluidType(Guid.NewGuid())
             {
-                new LibraryItem() {Name = "Valve", Type="Model", Icon = "/images/icons/valve.jpg"},
-                new LibraryItem() {Name = "Pipe", Type="Model", Icon = "/images/icons/pipe.jpg"},
-                new LibraryItem() {Name = "Fluid Port", Type = "Port", Icon = "/images/icons/port.jpg"}
-            })
-        };
+                Name = "Water",
+                Icon = "/images/icons/liquid.jpg",
+                Description = string.Empty,
+                PhaseMethod = PhaseMethods.Liquid,
+                SystemMethod = SystemMethods.SRK,
+                ThermoType = ThermoTypes.Air
+            };
+            fluidLib.Add(fluid);
+
+            libraries.Add(fluidLib);
+
+            var steamLib = new Library()
+            {
+                Name = "Steam Lib"
+            };
+
+            var model = new ModelTemplate(Guid.NewGuid())
+            {
+                Name = "Source",
+                Icon = "/images/icons/pipe.jpg"
+            };
+            steamLib.Add(model);
+            model = new ModelTemplate(Guid.NewGuid())
+            {
+                Name = "Sink",
+                Icon = "/images/icons/pipe.jpg"
+            };
+            steamLib.Add(model);
+            libraries.Add(steamLib);
+
+            var flareLib = new Library(Guid.NewGuid())
+            {
+                Name = "Flare Lib"
+            };
+            model = new ModelTemplate(Guid.NewGuid())
+            {
+                Name = "Valve",
+                Icon = "/images/icons/valve.jpg",
+            };
+            flareLib.Add(model);
+            model = new ModelTemplate(Guid.NewGuid())
+{
+    Name = "Pipe",
+    Icon = "/images/icons/pipe.jpg",
+};
+            flareLib.Add(model);
+            var port = new PortTemplate(Guid.NewGuid())
+            {
+                Name = "Fluid Port",
+                Icon = "/images/icons/port.jpg"
+            };
+            flareLib.Add(port);
+
+            libraries.Add(flareLib);
+        }
 
         public IEnumerable<Library> GetLibraries()
         {
@@ -39,8 +95,16 @@ namespace xpan.plantDesign.ApplicationServices
 
         public Library CreateLibrary()
         {
-            var name = "Lib " + (libraries.Count + 1);
-            var lib = new Library(name: name, items: Enumerable.Empty<LibraryItem>());
+            int count = libraries.Count + 1;
+            var name = "Lib " + count;
+            while (libraries.FirstOrDefault(l => l.Name == name) != null)
+            {
+                name = "Lib " + (++count);
+            }
+            var lib = new Library(Guid.NewGuid())
+            {
+                Name = name
+            };
             libraries.Add(lib);
             return lib;
         }
@@ -58,47 +122,47 @@ namespace xpan.plantDesign.ApplicationServices
             }
         }
 
-        public LibraryItem CreateFluidInLibrary(Guid id)
+        public FluidType CreateFluidInLibrary(Guid id)
         {
             var lib = FindLibrary(id);
             int i = 1;
             var name = "Fluid " + i;
-            while (lib.Items.FirstOrDefault(item => item.Name == name) != null)
+            while (lib.ContainsFluidName(name))
             {
                 name = "Fluid" + (++i);
             }
 
-            var fluid = new LibraryItem() {Icon = "/images/icons/liquid.jpg", Name = name, Type = fluidType};
+            var fluid = new FluidType(Guid.NewGuid()) { Icon = "/images/icons/liquid.jpg", Name = name };
             lib.Add(fluid);
             return fluid;
         }
 
-        public LibraryItem CreatePortInLibrary(Guid id)
+        public PortTemplate CreatePortInLibrary(Guid id)
         {
             var lib = FindLibrary(id);
             int i = 1;
             var name = "Port " + i;
-            while (lib.Items.FirstOrDefault(item => item.Name == name) != null)
+            while (lib.ContainsPortName(name))
             {
                 name = "Port" + (++i);
             }
 
-            var port = new LibraryItem() {Icon = "/images/icons/port.jpg", Name = name, Type = portType};
+            var port = new PortTemplate(Guid.NewGuid()) { Icon = "/images/icons/port.jpg", Name = name };
             lib.Add(port);
             return port;
         }
 
-        public LibraryItem CreateModelInLibrary(Guid id)
+        public ModelTemplate CreateModelInLibrary(Guid id)
         {
             var lib = FindLibrary(id);
             int i = 1;
             var name = "Model " + i;
-            while (lib.Items.FirstOrDefault(item => item.Name == name) != null)
+            while (lib.ContainsModelName(name))
             {
                 name = "Model" + (++i);
             }
 
-            var model = new LibraryItem() {Icon = "/images/icons/valve.jpg", Name = name, Type = modelType};
+            var model = new ModelTemplate(Guid.NewGuid()) { Icon = "/images/icons/valve.jpg", Name = name };
             lib.Add(model);
             return model;
         }

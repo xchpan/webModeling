@@ -24,7 +24,7 @@
         <div id="libraryList">
             <h3 ng-repeat-start="library in libraries">{{library.Name}} <span class="badge pull-right" ng-click="deleteLibrary(library.Id)">&#x2718</span></h3>
             <div ng-repeat-end class="librayContainer">
-                <div ng-repeat="item in library.Items" ng-dblclick="editLibraryItem(item.Type)" class="libraryItem">
+                <div ng-repeat="item in library.Items" ng-dblclick="editLibraryItem(item)" class="libraryItem">
                     <img src="{{item.Icon}}" class="modelTypeIcon" />
                     <div>{{item.Name}}</div>
                 </div>
@@ -55,13 +55,13 @@
                             <div class="form-group">
                                 <label for="fluidName" class="control-label col-xs-2">Name</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="fluidName" placeholder="Name">
+                                    <input type="text" class="form-control" id="fluidName" placeholder="Name" value="{{currentFluid.Name}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="fluidDescription" class="control-label col-xs-2">Description</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="fluidDescription" placeholder="Description">
+                                    <input type="text" class="form-control" id="fluidDescription" placeholder="Description" value="{{currentFluid.Description}}">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -195,13 +195,13 @@
                             <div class="form-group">
                                 <label for="portName" class="control-label col-xs-2">Name</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="portName" placeholder="Name">
+                                    <input type="text" class="form-control" id="portName" placeholder="Name" value="{{currentPort.Name}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="portDescription" class="control-label col-xs-2">Description</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="portDescription" placeholder="Description">
+                                    <input type="text" class="form-control" id="portDescription" placeholder="Description" value="{{currentPort.Description}}">
                                 </div>
                             </div>
                         </div>
@@ -240,13 +240,13 @@
                             <div class="form-group">
                                 <label for="modelName" class="control-label col-xs-2">Name</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="modelName" placeholder="Name">
+                                    <input type="text" class="form-control" id="modelName" placeholder="Name" value="{{currentModel.Name}}">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="modelDescription" class="control-label col-xs-2">Description</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="modelDescription" placeholder="Description">
+                                    <input type="text" class="form-control" id="modelDescription" placeholder="Description" value="{{currentModel.Description}}">
                                 </div>
                             </div>
                         </div>

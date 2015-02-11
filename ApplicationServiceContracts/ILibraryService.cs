@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using xpan.plantDesign.Domain.SharedLibraries;
+using xpan.plantDesign.Domain.SharedLibraries.FluidTemplate;
 using xpan.plantDesign.ViewModels;
 
 namespace xpan.plantDesign.ApplicationServices
@@ -15,10 +17,10 @@ namespace xpan.plantDesign.ApplicationServices
 
         void DeleteLibrary(Guid id);
 
-        LibraryItem CreateFluidInLibrary(Guid id);
+        FluidType CreateFluidInLibrary(Guid id);
 
-        LibraryItem CreatePortInLibrary(Guid id);
+        PortTemplate CreatePortInLibrary(Guid id);
 
-        LibraryItem CreateModelInLibrary(Guid id);
+        ModelTemplate CreateModelInLibrary(Guid id);
     }
 }

@@ -25,5 +25,58 @@ namespace xpan.plantDesign.Domain.SharedLibraries
         public Guid Id { get { return id; } }
 
         public string Name { get; set; }
+
+        public IEnumerable<LibraryItem> Items
+        {
+            get
+            {
+                return fluidTemplates.OfType<LibraryItem>().Union(portTemplates.OfType<LibraryItem>()).Union(modelTemplates.OfType<LibraryItem>());
+            }
+        }
+
+        public void Add(FluidType fluid)
+        {
+            if (fluidTemplates.FirstOrDefault(f => f.Id == fluid.Id || f.Name == fluid.Name) != null)
+            {
+                throw new ArgumentException("The model id or name already exists.");
+            }
+
+            fluidTemplates.Add(fluid);
+        }
+
+        public void Add(PortTemplate port)
+        {
+            if (portTemplates.FirstOrDefault(p => p.Id == port.Id || p.Name == port.Name) != null)
+            {
+                throw new ArgumentException("The model id or name already exists.");
+            }
+
+            portTemplates.Add(port);
+        }
+
+        public void Add(ModelTemplate model)
+        {
+            if (portTemplates.FirstOrDefault(m => m.Id == model.Id || m.Name == model.Name) != null)
+            {
+                throw new ArgumentException("The model id or name already exists.");
+            }
+
+            modelTemplates.Add(model);
+        }
+
+        public bool ContainsFluidName(string name)
+        {
+            return fluidTemplates.FirstOrDefault(f => f.Name == name) != null;
+        }
+
+        public bool ContainsPortName(string name)
+        {
+            return portTemplates.FirstOrDefault(f => f.Name == name) != null;
+        }
+
+        public bool ContainsModelName(string name)
+        {
+            return modelTemplates.FirstOrDefault(f => f.Name == name) != null;
+        }
     }
 }

@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace xpan.plantDesign.Domain.SharedLibraries
 {
-    class ModelTemplate
+    public class ModelTemplate : LibraryItem
     {
+        private const string ModelType = "Model";
+
+        public ModelTemplate(Guid id) : base(id)
+        {
+        }
+
+        public override string Type
+        {
+            get { return ModelType; }
+        }
     }
 }

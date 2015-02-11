@@ -48,6 +48,10 @@
       <Project>{060c0a86-19bf-4566-9c49-fa3daf1fa29c}</Project>
       <Name>ApplicationServiceContracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{2d6f4ac0-540a-409b-9eb4-d6e26ee6141f}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RepositoryContracts\RepositoryContracts.csproj">
       <Project>{49aad8ae-c4a9-499b-a9e7-68c3894457e9}</Project>
       <Name>RepositoryContracts</Name>
