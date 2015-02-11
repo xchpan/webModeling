@@ -54,7 +54,6 @@
     <Compile Include="PortTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplateBase.cs" />
-    <Compile Include="VariableTemplate\IVariableTypeRepository.cs" />
     <Compile Include="VariableTemplate\Unit.cs" />
     <Compile Include="VariableTemplate\UnitCollection.cs" />
     <Compile Include="VariableTemplate\UnitException.cs" />

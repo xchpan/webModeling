@@ -30,12 +30,18 @@
           return $http.post(creaetUri);
       }
 
+      var doGetAllVariableTypes = function() {
+          var variableTypesUri = uri + "variableTypes";
+          return $http.get(variableTypesUri);
+      }
+
       return {
           getAllLibraries: function () { return doGetLibraries(); },
           deleteLibrary: function (libraryId) { return doDeleteLibrary(libraryId); },
           createLibrary: function () { return doCreateLibrary(); },
           createFluid: function (libraryId) { return doCreateFluid(libraryId); },
           createPort: function (libraryId) { return doCreatePort(libraryId); },
-          createModel: function (libraryId) { return doCreateModel(libraryId); }
+          createModel: function (libraryId) { return doCreateModel(libraryId); },
+          getAllVariableTypes: function () { return doGetAllVariableTypes(); }
       };
   }]);

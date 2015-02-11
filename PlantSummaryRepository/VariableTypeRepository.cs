@@ -75,7 +75,7 @@ namespace xpan.plantDesign.Repository
             BsonClassMap.RegisterClassMap<VariableCategory>(cm =>
             {
                 cm.MapProperty(c => c.VariableTypes);
-                cm.MapCreator(vc => new VariableCategory(vc.Id, vc.Name));
+                cm.MapCreator(vc => new VariableCategory(vc.Id, vc.Name, vc.VariableTypes));
             });
         }
     }

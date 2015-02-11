@@ -12,12 +12,10 @@ namespace xpan.plantDesign.ApplicationServices
     public class PlantSummaryService : IPlantSummaryService
     {
         private readonly IPlantSummaryRepository repository;
-        private readonly IVariableTypeRepository variableTypes;
 
-        public PlantSummaryService(IPlantSummaryRepository repository, IVariableTypeRepository variableTypes)
+        public PlantSummaryService(IPlantSummaryRepository repository)
         {
             this.repository = repository;
-            this.variableTypes = variableTypes;
         }
 
         public IEnumerable<PlantSummary> GetAllPlants()

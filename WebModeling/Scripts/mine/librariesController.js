@@ -7,6 +7,10 @@
                 });
             });
 
+            librariesService.getAllVariableTypes().success(function (data) {
+                $scope.variableTypes = data;
+            });
+
             $scope.currentFluid = {
                 Name: "",
                 Description: ""

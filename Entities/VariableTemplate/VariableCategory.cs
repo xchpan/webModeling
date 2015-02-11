@@ -16,6 +16,12 @@ namespace xpan.plantDesign.Domain.SharedLibraries.VariableTemplate
             variableTypes = new List<VariableType>();
         }
 
+        public VariableCategory(Guid id, string name, IEnumerable<VariableType> variableTypes) : base(id)
+        {
+            Name = name;
+            this.variableTypes = variableTypes.ToList();
+        }
+
         public void Add(VariableType variableType)
         {
             variableTypes.Add(variableType);
