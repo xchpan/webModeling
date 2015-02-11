@@ -184,7 +184,7 @@
         </div>
 
         <div id="portEditor" class="modal fade">
-            <div class="modal-dialog">
+            <div class="modal-dialog" style="width: 1100px">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -217,7 +217,34 @@
                             <div class="panel-heading">
                                 <h1 class="panel-title">Variables <span class="badge pull-right" ng-click="addVariable()">+</span></h1>
                             </div>
-                            <div class="panel-body">Variable content…</div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Require User Provide Value</th>
+                                            <th>Fixed</th>
+                                            <th>Min</th>
+                                            <th>Max</th>
+                                            <th>Default</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="variable in currentPort.Variables">
+                                            <td><span class="badge" ng-click="deletePortVariable(currentPort, variable.name)">&#x2718</span></td>
+                                            <td><input type="text" ng-model="variable.Name" /></td>
+                                            <td>{{variable.VariableType}}</td>
+                                            <td><input type="checkbox" ng-model="variable.RequireUserToProvideInitialValue" /></td>
+                                            <td><input type="checkbox" ng-model="variable.IsFixedValue" /></td>
+                                            <td><input type="text" ng-model="variable.OverridenMin" /></td>
+                                            <td><input type="text" ng-model="variable.OverridenMax" /></td>
+                                            <td><input type="text" ng-model="variable.OverridenDefaultValue" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -250,21 +277,21 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title">Ports <span class="badge pull-right" ng-click="addPort()">+</span></h1>
                             </div>
                             <div class="panel-body">Port content…</div>
                         </div>
-                        
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title">Parameters <span class="badge pull-right" ng-click="addParameter()">+</span></h1>
                             </div>
                             <div class="panel-body">Parameter content…</div>
                         </div>
-                        
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title">Conditions <span class="badge pull-right" ng-click="addCondition()">+</span></h1>
@@ -278,7 +305,7 @@
                             </div>
                             <div class="panel-body">Variable content…</div>
                         </div>
-                        
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title">Sub models <span class="badge pull-right" ng-click="addSubModel()">+</span></h1>
@@ -292,7 +319,7 @@
                             </div>
                             <div class="panel-body">External content…</div>
                         </div>
-                        
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title">Parameter connections <span class="badge pull-right" ng-click="addParameterConnection()">+</span></h1>
@@ -306,7 +333,7 @@
                             </div>
                             <div class="panel-body">Variable sharing content…</div>
                         </div>
-                        
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title">Icon</h1>
