@@ -215,7 +215,7 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Variables <span class="badge pull-right" ng-click="addVariable()">+</span></h1>
+                                <h1 class="panel-title">Variables <span class="badge pull-right" ng-click="addPortVariable(currentPort)">+</span></h1>
                             </div>
                             <div class="panel-body">
                                 <table class="table table-striped">
@@ -233,7 +233,7 @@
                                     </thead>
                                     <tbody>
                                         <tr ng-repeat="variable in currentPort.Variables">
-                                            <td><span class="badge" ng-click="deletePortVariable(currentPort, variable.name)">&#x2718</span></td>
+                                            <td><span class="badge" ng-click="deletePortVariable(currentPort, $index)">&#x2718</span></td>
                                             <td><input type="text" ng-model="variable.Name" /></td>
                                             <td>
                                                 <ul class="nav nav-pills">

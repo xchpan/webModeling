@@ -73,10 +73,10 @@ namespace xpan.plantDesign.ApplicationServices
             };
             flareLib.Add(model);
             model = new ModelTemplate(Guid.NewGuid())
-{
-    Name = "Pipe",
-    Icon = "/images/icons/pipe.jpg",
-};
+            {
+                Name = "Pipe",
+                Icon = "/images/icons/pipe.jpg",
+            };
             flareLib.Add(model);
             var port = new PortTemplate(Guid.NewGuid())
             {

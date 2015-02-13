@@ -113,5 +113,22 @@
                 $("#portEditor").modal('hide');
                 $("#modelEditor").modal('show');
             };
+
+            $scope.addPortVariable = function (port) {
+                var variable = {
+                    IsFixedValue: false,
+                    Name: "Variable " + port.Variables.length,
+                    OverridenDefaultValue: null,
+                    OverridenMax: null,
+                    OverridenMin: null,
+                    RequireUserToProvideInitialValue: false,
+                    VariableType: "some guid"
+                };
+                port.Variables.push(variable);
+            };
+
+            $scope.deletePortVariable = function (port, index) {
+                port.Variables.splice(index, 1);
+            }
         }
 ]);
