@@ -235,7 +235,23 @@
                                         <tr ng-repeat="variable in currentPort.Variables">
                                             <td><span class="badge" ng-click="deletePortVariable(currentPort, variable.name)">&#x2718</span></td>
                                             <td><input type="text" ng-model="variable.Name" /></td>
-                                            <td>{{variable.VariableType}}</td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            XXXX
+                                                        </a>
+                                                        <ul class="dropdown-menu" >
+                                                            <li class="dropdown-submenu" disabled ng-repeat="variableCategory in variableTypes">
+                                                                <a href="#">{{variableCategory.Name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="variableType in variableCategory.VariableTypes"><a href="#">{{variableType.Name}}</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
                                             <td><input type="checkbox" ng-model="variable.RequireUserToProvideInitialValue" /></td>
                                             <td><input type="checkbox" ng-model="variable.IsFixedValue" /></td>
                                             <td><input type="text" ng-model="variable.OverridenMin" /></td>
