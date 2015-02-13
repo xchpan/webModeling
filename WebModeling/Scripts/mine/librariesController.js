@@ -122,13 +122,30 @@
                     OverridenMax: null,
                     OverridenMin: null,
                     RequireUserToProvideInitialValue: false,
-                    VariableType: "some guid"
+                    VariableType: "Real"
                 };
                 port.Variables.push(variable);
             };
 
             $scope.deletePortVariable = function (port, index) {
                 port.Variables.splice(index, 1);
+            };
+
+            $('#portEditor').on('hide.bs.modal', function (e) {
+                var errors = librariesService.validatePort($scope.currentPort);
+                if (errors != null) {
+                    alert("This port template is invalid, please fix it!\n\n" + errors);
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    return false;
+                }
+
+                librariesService.savePort($scope.currentPort);
+                return true;
+            });
+
+            $scope.updatePortVariableType = function(variable, variableTypeName) {
+                variable.VariableType = variableTypeName;
             }
         }
 ]);

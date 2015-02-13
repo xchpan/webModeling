@@ -239,13 +239,13 @@
                                                 <ul class="nav nav-pills">
                                                     <li class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            XXXX
+                                                            {{variable.VariableType}}
                                                         </a>
                                                         <ul class="dropdown-menu" >
                                                             <li class="dropdown-submenu" disabled ng-repeat="variableCategory in variableTypes">
                                                                 <a href="#">{{variableCategory.Name}}</a>
                                                                 <ul class="dropdown-menu">
-                                                                    <li ng-repeat="variableType in variableCategory.VariableTypes"><a href="#">{{variableType.Name}}</a></li>
+                                                                    <li ng-repeat="variableType in variableCategory.VariableTypes"><a href="#" ng-click="updatePortVariableType(variable, variableType.Name)">{{variableType.Name}}</a></li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -254,9 +254,9 @@
                                             </td>
                                             <td><input type="checkbox" ng-model="variable.RequireUserToProvideInitialValue" /></td>
                                             <td><input type="checkbox" ng-model="variable.IsFixedValue" /></td>
-                                            <td><input type="text" ng-model="variable.OverridenMin" /></td>
-                                            <td><input type="text" ng-model="variable.OverridenMax" /></td>
-                                            <td><input type="text" ng-model="variable.OverridenDefaultValue" /></td>
+                                            <td><input type="number" ng-model="variable.OverridenMin" /></td>
+                                            <td><input type="number" ng-model="variable.OverridenMax" /></td>
+                                            <td><input type="number" ng-model="variable.OverridenDefaultValue" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
