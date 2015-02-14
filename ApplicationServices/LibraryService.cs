@@ -161,6 +161,12 @@ namespace xpan.plantDesign.ApplicationServices
             return model;
         }
 
+        public void UpdatePort(Guid libraryId, PortTemplate port)
+        {
+            var library = FindLibrary(libraryId);
+            library.Update(port);
+        }
+
         private Library FindLibrary(Guid id)
         {
             return libraries.FirstOrDefault(l => l.Id == id);

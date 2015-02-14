@@ -78,5 +78,12 @@ namespace xpan.plantDesign.Domain.SharedLibraries
         {
             return modelTemplates.FirstOrDefault(f => f.Name == name) != null;
         }
+
+        public void Update(PortTemplate port)
+        {
+            var existing = portTemplates.First(p => p.Id == port.Id);
+            portTemplates.Remove(existing);
+            portTemplates.Add(port);
+        }
     }
 }

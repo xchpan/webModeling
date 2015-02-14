@@ -55,8 +55,23 @@ namespace xpan.plantDesign.WebApi.Controllers
         [HttpPut]
         public void UpdatePort(Guid id, PortTemplateRequest port)
         {
-            Console.Write("Get a port template to be updated.");
-            //return libraryService.CreatePortInLibrary(id);
+            var portTemplate = new PortTemplate(port.Id)
+            {
+                Description = port.Description,
+                Icon = port.Icon,
+                Name = port.Name
+            };
+
+            foreach (var variable in port.Variables)
+            {
+                var variableDescription = portTemplate.AddVariable(variable.Name,
+                    variableTypeRepository.FindVariableType(variable.VariableTypeName).Id);
+                variableDescription.OverridenMin = variable.OverridenMin;
+                variableDescription.OverridenMax = variable.OverridenMax;
+                variableDescription.OverridenDefaultValue = variable.OverridenDefaultValue;
+            }
+
+            libraryService.UpdatePort(libraryId:id, port:portTemplate);
         }
 
         [Route("api/libraries/{id}/Model")]

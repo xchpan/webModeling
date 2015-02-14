@@ -21,6 +21,20 @@ namespace xpan.plantDesign.Repository
             get { return variableCategories.AsEnumerable(); }
         }
 
+        public VariableType FindVariableType(string typeName)
+        {
+            foreach (var variableCategory in variableCategories)
+            {
+                var type = variableCategory.VariableTypes.FirstOrDefault(v => v.Name == typeName);
+                if (type != null)
+                {
+                    return type;
+                }
+            }
+
+            return null;
+        }
+
         public void Initialize()
         {
             variableCategories = new List<VariableCategory>();

@@ -22,5 +22,7 @@ namespace xpan.plantDesign.ApplicationServices
         PortTemplate CreatePortInLibrary(Guid id);
 
         ModelTemplate CreateModelInLibrary(Guid id);
+
+        void UpdatePort(Guid libraryId, PortTemplate port);
     }
 }

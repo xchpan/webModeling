@@ -10,5 +10,7 @@ namespace xpan.plantDesign.Repository
     public interface IVariableTypeRepository
     {
         IEnumerable<VariableCategory> VariableCategories { get; }
+
+        VariableType FindVariableType(string typeName);
     }
 }
