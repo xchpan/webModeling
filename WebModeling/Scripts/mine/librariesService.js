@@ -59,6 +59,11 @@
             }
         }
 
+        var doSavePort = function(library, port) {
+            var portUri = uri + library.Id + "/port";
+            return $http.put(portUri, port);
+        }
+
         return {
             getAllLibraries: function () { return doGetLibraries(); },
             deleteLibrary: function (libraryId) { return doDeleteLibrary(libraryId); },
@@ -67,6 +72,7 @@
             createPort: function (libraryId) { return doCreatePort(libraryId); },
             createModel: function (libraryId) { return doCreateModel(libraryId); },
             getAllVariableTypes: function () { return doGetAllVariableTypes(); },
-            validatePort : function (port) { return doValidatePort(port); }
+            validatePort: function (port) { return doValidatePort(port); },
+            savePort : function (library, port) { return doSavePort(library, port); }
         };
     }]);

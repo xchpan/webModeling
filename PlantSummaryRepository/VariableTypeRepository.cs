@@ -13,6 +13,7 @@ namespace xpan.plantDesign.Repository
 {
     public class VariableTypeRepository : IVariableTypeRepository
     {
+        private static bool mapped = false;
         private List<VariableCategory> variableCategories;
 
         public IEnumerable<Domain.SharedLibraries.VariableTemplate.VariableCategory> VariableCategories
@@ -43,6 +44,11 @@ namespace xpan.plantDesign.Repository
 
         private void MapEntities()
         {
+            if (mapped)
+            {
+                return;
+            }
+
             BsonClassMap.RegisterClassMap<TemplateBase>(cm =>
             {
                 cm.AutoMap();
@@ -77,6 +83,8 @@ namespace xpan.plantDesign.Repository
                 cm.MapProperty(c => c.VariableTypes);
                 cm.MapCreator(vc => new VariableCategory(vc.Id, vc.Name, vc.VariableTypes));
             });
+
+            mapped = true;
         }
     }
 }

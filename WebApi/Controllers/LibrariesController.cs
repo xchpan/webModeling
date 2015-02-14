@@ -51,6 +51,14 @@ namespace xpan.plantDesign.WebApi.Controllers
             return libraryService.CreatePortInLibrary(id);
         }
 
+        [Route("api/libraries/{id}/port")]
+        [HttpPut]
+        public void UpdatePort(Guid id, PortTemplateRequest port)
+        {
+            Console.Write("Get a port template to be updated.");
+            //return libraryService.CreatePortInLibrary(id);
+        }
+
         [Route("api/libraries/{id}/Model")]
         [HttpPost]
         public ModelTemplate CreateModel(Guid id)

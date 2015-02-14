@@ -24,7 +24,7 @@
         <div id="libraryList">
             <h3 ng-repeat-start="library in libraries">{{library.Name}} <span class="badge pull-right" ng-click="deleteLibrary(library.Id)">&#x2718</span></h3>
             <div ng-repeat-end class="librayContainer">
-                <div ng-repeat="item in library.Items" ng-dblclick="editLibraryItem(item)" class="libraryItem">
+                <div ng-repeat="item in library.Items" ng-dblclick="editLibraryItem(library, item)" class="libraryItem">
                     <img src="{{item.Icon}}" class="modelTypeIcon" />
                     <div>{{item.Name}}</div>
                 </div>
@@ -195,13 +195,13 @@
                             <div class="form-group">
                                 <label for="portName" class="control-label col-xs-2">Name</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="portName" placeholder="Name" value="{{currentPort.Name}}">
+                                    <input type="text" class="form-control" id="portName" placeholder="Name" ng-model="currentPort.Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="portDescription" class="control-label col-xs-2">Description</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="portDescription" placeholder="Description" value="{{currentPort.Description}}">
+                                    <input type="text" class="form-control" id="portDescription" placeholder="Description" ng-model="currentPort.Description">
                                 </div>
                             </div>
                         </div>
@@ -239,7 +239,7 @@
                                                 <ul class="nav nav-pills">
                                                     <li class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            {{variable.VariableType}}
+                                                            {{variable.VariableTypeName}}
                                                         </a>
                                                         <ul class="dropdown-menu" >
                                                             <li class="dropdown-submenu" disabled ng-repeat="variableCategory in variableTypes">
@@ -264,8 +264,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

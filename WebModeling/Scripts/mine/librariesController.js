@@ -62,6 +62,7 @@
                 librariesService.createPort(libraryId).success(function (data) {
                     $scope.libraries[index].Items.push(data);
                     $scope.currentPort = data;
+                    $scope.currentLibrary = $scope.libraries[index];
                     $scope.showPortEditor();
                 }).error(function (data, status, headers, config) {
                     alert("Failed to create a port.");
@@ -79,7 +80,8 @@
                 });
             };
 
-            $scope.editLibraryItem = function (item) {
+            $scope.editLibraryItem = function (library, item) {
+                $scope.currentLibrary = library;
                 switch (item.Type) {
                     case "Fluid":
                         $scope.currentFluid = item;
@@ -122,7 +124,7 @@
                     OverridenMax: null,
                     OverridenMin: null,
                     RequireUserToProvideInitialValue: false,
-                    VariableType: "Real"
+                    VariableTypeName: "Real"
                 };
                 port.Variables.push(variable);
             };
@@ -140,12 +142,15 @@
                     return false;
                 }
 
-                librariesService.savePort($scope.currentPort);
+                librariesService.savePort($scope.currentLibrary, $scope.currentPort).error(function (data, status, headers, config) {
+                    alert("Failed to save the port template, open and close it later to try to save another time.");
+                });
+
                 return true;
             });
 
             $scope.updatePortVariableType = function(variable, variableTypeName) {
-                variable.VariableType = variableTypeName;
+                variable.VariableTypeName = variableTypeName;
             }
         }
 ]);
