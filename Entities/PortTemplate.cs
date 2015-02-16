@@ -33,7 +33,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
                 throw new ArgumentException("The parameter name already exist");
             }
 
-            parameters.Add(new ParameterDescription() {Name = name, ParameterType = parameterType, DefaultValue = defaultValue});
+            //parameters.Add(new ParameterDescription() {Name = name, ParameterType = parameterType, DefaultValue = defaultValue});
         }
 
         public void DeleteParameter(string name)
@@ -76,7 +76,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
             }
 
             parameter.ParameterType = parameterType;
-            parameter.DefaultValue = defaultValue;
+            //parameter.DefaultValue = defaultValue;
         }
 
         public void ChangeParameterDefaultValue(string name, object defaultValue)
@@ -87,7 +87,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
                 throw new ArgumentException("The parameter name doesn't exist.");
             }
 
-            parameter.DefaultValue = defaultValue;
+           // parameter.DefaultValue = defaultValue;
         }
 
         public IEnumerable<ParameterDescription> Parameters

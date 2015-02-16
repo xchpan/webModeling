@@ -48,14 +48,29 @@
 
         var doValidatePort = function (port) {
             var variableNames = [];
-            for (i = 0; i < port.Variables.length; i++) {
+            for (var i = 0; i < port.Variables.length; i++) {
                 variableNames.push(port.Variables[i].Name);
             }
-            var result = doCheckDuplicate(variableNames);
-            if (result.length == 0) {
+            var variableNamesResult = doCheckDuplicate(variableNames);
+
+            var parameterNames = [];
+            for (i = 0; i < port.Parameters.length; i++) {
+                parameterNames.push(port.Parameters[i].Name);
+            }
+            var parameterNamesResult = doCheckDuplicate(parameterNames);
+
+            if (variableNamesResult.length == 0 && parameterNamesResult.length == 0) {
                 return null;
             } else {
-                return "The following array name(s) are duplicated: ".concat(result.join());
+                var result = "The following name(s) are duplicated: ";
+                if (parameterNamesResult.length != 0) {
+                    result = result.concat("\nParameters: ").concat(parameterNamesResult.join());
+                };
+                if (variableNamesResult.length != 0) {
+                    result = result.concat("\Variables: ").concat(variableNamesResult.join());
+                };
+
+                return result;
             }
         }
 

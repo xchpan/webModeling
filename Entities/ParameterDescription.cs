@@ -12,6 +12,11 @@ namespace xpan.plantDesign.Domain.SharedLibraries
 
         public Guid ParameterType { get; set; }
 
-        public object DefaultValue { get; set; }
+        public Guid? DefaultFluid { get; set; }
+
+        public double? OverridenDefaultValue { get; set; }
+        public double? OverridenMin { get; set; }
+        public double? OverridenMax { get; set; }
+
     }
 }

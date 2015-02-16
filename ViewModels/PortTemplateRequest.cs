@@ -12,7 +12,7 @@ namespace xpan.plantDesign.ViewModels
         public string Icon { get; set; }
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public string[] Parameters { get; set; }
+        public ParameterTemplateViewModel[] Parameters { get; set; }
         public string Type { get; set; }
         public VariableTemplateViewModel[] Variables { get; set; }
     }

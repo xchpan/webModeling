@@ -116,6 +116,22 @@
                 $("#modelEditor").modal('show');
             };
 
+            $('#portEditor').on('hide.bs.modal', function (e) {
+                var errors = librariesService.validatePort($scope.currentPort);
+                if (errors != null) {
+                    alert("This port template is invalid, please fix it!\n\n" + errors);
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    return false;
+                }
+
+                librariesService.savePort($scope.currentLibrary, $scope.currentPort).error(function (data, status, headers, config) {
+                    alert("Failed to save the port template, open and close it later to try to save another time.");
+                });
+
+                return true;
+            });
+
             $scope.addPortVariable = function (port) {
                 var variable = {
                     IsFixedValue: false,
@@ -133,24 +149,30 @@
                 port.Variables.splice(index, 1);
             };
 
-            $('#portEditor').on('hide.bs.modal', function (e) {
-                var errors = librariesService.validatePort($scope.currentPort);
-                if (errors != null) {
-                    alert("This port template is invalid, please fix it!\n\n" + errors);
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    return false;
-                }
-
-                librariesService.savePort($scope.currentLibrary, $scope.currentPort).error(function (data, status, headers, config) {
-                    alert("Failed to save the port template, open and close it later to try to save another time.");
-                });
-
-                return true;
-            });
 
             $scope.updatePortVariableType = function(variable, variableTypeName) {
                 variable.VariableTypeName = variableTypeName;
+            }
+
+            $scope.addPortParameter = function (port) {
+                var parameter = {
+                    Name: "Parameter " + port.Parameters.length,
+                    OverridenDefaultValue: null,
+                    OverridenMax: null,
+                    OverridenMin: null,
+                    RequireUserToProvideInitialValue: false,
+                    ParameterTypeName: "Real"
+                };
+                port.Parameters.push(parameter);
+            };
+
+            $scope.deletePortParameter = function (port, index) {
+                port.Parameters.splice(index, 1);
+            };
+
+
+            $scope.updatePortParameterType = function (parameter, parameterTypeName) {
+                parameter.ParameterTypeName = parameterTypeName;
             }
         }
 ]);
