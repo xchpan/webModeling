@@ -35,6 +35,11 @@
             return $http.get(variableTypesUri);
         }
 
+        var doGetAllFluidComponentTypes = function() {
+            var fluidComponentTypesUri = uri + "fluidComponentTypes";
+            return $http.get(fluidComponentTypesUri);
+        }
+
         var doCheckDuplicate = function (arr) {
             var sorted_arr = arr.sort();
             var results = [];
@@ -88,6 +93,7 @@
             createModel: function (libraryId) { return doCreateModel(libraryId); },
             getAllVariableTypes: function () { return doGetAllVariableTypes(); },
             validatePort: function (port) { return doValidatePort(port); },
-            savePort : function (library, port) { return doSavePort(library, port); }
+            savePort: function (library, port) { return doSavePort(library, port); },
+            getAllFluidComponentTypes: function () { return doGetAllFluidComponentTypes(); }
         };
     }]);

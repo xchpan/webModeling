@@ -31,6 +31,11 @@ namespace xpan.plantDesign.WebApi.Config
                 .OnActivating(e => e.Instance.Initialize())
                 .SingleInstance();
 
+            builder.RegisterType<FluidComponentTypeRepository>()
+                .As<IFluidComponentTypeRepository>()
+                .OnActivating(e => e.Instance.Initialize())
+                .SingleInstance();
+
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             return builder.Build();

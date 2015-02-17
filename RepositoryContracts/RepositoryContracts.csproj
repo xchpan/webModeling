@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IFluidComponentTypeRepository.cs" />
     <Compile Include="IPlantSummaryRepository.cs" />
     <Compile Include="IVariableTypeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

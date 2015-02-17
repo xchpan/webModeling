@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FluidComponentTypesViewModel.cs" />
     <Compile Include="ParameterTemplateViewModel.cs" />
     <Compile Include="PortTemplateRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

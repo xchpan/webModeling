@@ -12,8 +12,8 @@ namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
 
         public string Description { get; set; }
 
-        public IEnumerable<string> FirstLevelSearchPaths { get; set; }
+        public IEnumerable<string> Categories { get; set; }
 
-        public IEnumerable<string> SecondLevelSearchPaths { get; set; }
+        public IEnumerable<string> Subcategories { get; set; }
     }
 }

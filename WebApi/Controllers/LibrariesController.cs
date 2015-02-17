@@ -14,11 +14,13 @@ namespace xpan.plantDesign.WebApi.Controllers
     {
         private readonly ILibraryService libraryService;
         private readonly IVariableTypeRepository variableTypeRepository;
+        private readonly IFluidComponentTypeRepository fluidComponentTypeRepository;
 
-        public LibrariesController(ILibraryService libraryService, IVariableTypeRepository variableTypeRepository)
+        public LibrariesController(ILibraryService libraryService, IVariableTypeRepository variableTypeRepository, IFluidComponentTypeRepository fluidComponentTypeRepository)
         {
             this.libraryService = libraryService;
             this.variableTypeRepository = variableTypeRepository;
+            this.fluidComponentTypeRepository = fluidComponentTypeRepository;
         }
 
         public IEnumerable<Library> GetLibraries()
@@ -86,6 +88,19 @@ namespace xpan.plantDesign.WebApi.Controllers
         public IEnumerable<VariableCategory> GetVariableCategories()
         {
             return variableTypeRepository.VariableCategories;
+        }
+
+        [Route("api/libraries/fluidComponentTypes")]
+        [HttpGet]
+        public FluidComponentTypesViewModel GetFluidComponentTypes()
+        {
+            var viewModel = new FluidComponentTypesViewModel();
+            foreach (var componentType in fluidComponentTypeRepository.FluidComponentTypes)
+            {
+                viewModel.AddFluidComponentType(componentType.Categories, componentType.Subcategories, componentType.Name);
+            }
+
+            return viewModel;
         }
     }
 }

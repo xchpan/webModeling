@@ -11,6 +11,10 @@
                 $scope.variableTypes = data;
             });
 
+            librariesService.getAllFluidComponentTypes().success(function (data) {
+                $scope.fluidComponentTypes = data;
+            });
+
             $scope.currentFluid = {
                 Name: "",
                 Description: ""
@@ -150,7 +154,7 @@
             };
 
 
-            $scope.updatePortVariableType = function(variable, variableTypeName) {
+            $scope.updatePortVariableType = function (variable, variableTypeName) {
                 variable.VariableTypeName = variableTypeName;
             }
 

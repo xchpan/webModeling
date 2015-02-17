@@ -43,7 +43,6 @@
     <Compile Include="FluidTemplate\FluidComponent.cs" />
     <Compile Include="FluidTemplate\FluidComponentType.cs" />
     <Compile Include="FluidTemplate\FluidType.cs" />
-    <Compile Include="FluidTemplate\IFluidComponentTypeRepository.cs" />
     <Compile Include="FluidTemplate\PhaseMethods.cs" />
     <Compile Include="FluidTemplate\SystemMethods.cs" />
     <Compile Include="FluidTemplate\ThermoTypes.cs" />

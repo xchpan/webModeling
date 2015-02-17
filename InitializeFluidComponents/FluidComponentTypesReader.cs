@@ -20,14 +20,14 @@ namespace InitializeFluidComponents
             {
                 var name = element.XPathSelectElement("LibraryName").Value;
                 var description = element.XPathSelectElement("FullName").Value;
-                var firstLevelPaths = element.XPathSelectElements("Level1/Level").Select(e => e.Value).ToList();
-                var secondLevelPaths = element.XPathSelectElements("Level2/Level").Select(e => e.Value).ToList();
+                var categories = element.XPathSelectElements("Level1/Level").Select(e => e.Value).ToList();
+                var subcategories = element.XPathSelectElements("Level2/Level").Select(e => e.Value).ToList();
                 types.Add(new FluidComponentType()
                 {
                     Name = name,
                     Description = description,
-                    FirstLevelSearchPaths = firstLevelPaths,
-                    SecondLevelSearchPaths = secondLevelPaths
+                    Categories = categories,
+                    Subcategories = subcategories
                 });
             }
 
