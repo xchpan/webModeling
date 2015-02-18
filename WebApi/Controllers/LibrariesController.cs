@@ -156,7 +156,7 @@ namespace xpan.plantDesign.WebApi.Controllers
             var viewModel = new FluidComponentTypesViewModel();
             foreach (var componentType in fluidComponentTypeRepository.FluidComponentTypes)
             {
-                viewModel.AddFluidComponentType(componentType.Categories, componentType.Subcategories, componentType.Name);
+                viewModel.AddFluidComponentType(componentType.Categories, componentType.Subcategories, componentType.Name, componentType.Description);
             }
 
             return viewModel;

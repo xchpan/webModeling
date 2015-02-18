@@ -13,18 +13,18 @@ namespace xpan.plantDesign.ViewModels
             private readonly string name;
             public string Name { get { return name; }  }
 
-            private List<string> components;
-            public IEnumerable<string> FluidComponents { get { return components.AsEnumerable(); } }
+            private Dictionary<string, string> components;
+            public IEnumerable<KeyValuePair<string, string>> FluidComponents { get { return components.AsEnumerable(); } }
 
             public FluidComponentSubcategory(string name)
             {
                 this.name = name;
-                components = new List<string>();
+                components = new Dictionary<string, string>();
             }
 
-            internal void AddFluidComponentType(string name)
+            internal void AddFluidComponentType(string shortName, string fullName)
             {
-                components.Add(name);
+                components.Add(shortName, fullName);
             }
         }
         public class FluidComponentCategory
@@ -64,7 +64,7 @@ namespace xpan.plantDesign.ViewModels
         }
 
         public void AddFluidComponentType(IEnumerable<string> categoryNames, IEnumerable<string> subcategoryNames,
-            string name)
+            string shortName, string fullName)
         {
             foreach (var categoryName in categoryNames)
             {
@@ -78,7 +78,7 @@ namespace xpan.plantDesign.ViewModels
                 foreach (var subcategoryName in subcategoryNames)
                 {
                     var subcategory = category.FindOrCreateSubcategory(subcategoryName);
-                    subcategory.AddFluidComponentType(name);
+                    subcategory.AddFluidComponentType(shortName, fullName);
                 }
             }
         }
