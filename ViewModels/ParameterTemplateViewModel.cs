@@ -9,7 +9,7 @@ namespace xpan.plantDesign.ViewModels
     public class ParameterTemplateViewModel
     {
         public string Name { get; set; }
-        public string OverridenDefaultValue { get; set; }
+        public double? OverridenDefaultValue { get; set; }
         public double? OverridenMax { get; set; }
         public double? OverridenMin { get; set; }
         public string ParameterTypeName { get; set; }

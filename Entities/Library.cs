@@ -26,12 +26,19 @@ namespace xpan.plantDesign.Domain.SharedLibraries
 
         public string Name { get; set; }
 
-        public IEnumerable<LibraryItem> Items
+        public IEnumerable<FluidType> FluidTemplates
         {
-            get
-            {
-                return fluidTemplates.OfType<LibraryItem>().Union(portTemplates.OfType<LibraryItem>()).Union(modelTemplates.OfType<LibraryItem>());
-            }
+            get { return fluidTemplates.AsEnumerable(); }
+        }
+
+        public IEnumerable<PortTemplate> PortTemplates
+        {
+            get { return portTemplates.AsEnumerable(); }
+        }
+
+        public IEnumerable<ModelTemplate> ModelTemplates
+        {
+            get { return modelTemplates.AsEnumerable(); }
         }
 
         public void Add(FluidType fluid)

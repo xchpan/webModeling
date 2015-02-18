@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using ModelViewModelConverterContracts;
 using xpan.plantDesign.ApplicationServices;
 using xpan.plantDesign.Domain.SharedLibraries;
 using xpan.plantDesign.Domain.SharedLibraries.FluidTemplate;
@@ -15,17 +17,71 @@ namespace xpan.plantDesign.WebApi.Controllers
         private readonly ILibraryService libraryService;
         private readonly IVariableTypeRepository variableTypeRepository;
         private readonly IFluidComponentTypeRepository fluidComponentTypeRepository;
+        private readonly IModelToViewModel modelToViewModelConverter;
 
-        public LibrariesController(ILibraryService libraryService, IVariableTypeRepository variableTypeRepository, IFluidComponentTypeRepository fluidComponentTypeRepository)
+        public LibrariesController(ILibraryService libraryService, IVariableTypeRepository variableTypeRepository, IFluidComponentTypeRepository fluidComponentTypeRepository,
+            IModelToViewModel modelToViewModelConverter)
         {
             this.libraryService = libraryService;
             this.variableTypeRepository = variableTypeRepository;
             this.fluidComponentTypeRepository = fluidComponentTypeRepository;
+            this.modelToViewModelConverter = modelToViewModelConverter;
         }
 
-        public IEnumerable<Library> GetLibraries()
+        public IEnumerable<LibraryViewModel> GetLibraries()
         {
-            return libraryService.GetLibraries();
+            var libraries = libraryService.GetLibraries();
+
+            var viewModels = new List<LibraryViewModel>();
+            foreach (var library in libraries)
+            {
+                var viewModel = new LibraryViewModel
+                {
+                    Id = library.Id,
+                    Name = library.Name
+                };
+                var fluids = GenerateFluidsViewModel(library);
+                var ports = GeneratePortsViewModel(library);
+                var models = GenerateModelsViewModel(library);
+
+                viewModel.Items = fluids.OfType<LibraryItemViewModel>().Union(ports).Union(models);
+                viewModels.Add(viewModel);
+            }
+
+            return viewModels;
+        }
+
+        private List<ModelTemplateViewModel> GenerateModelsViewModel(Library library)
+        {
+            var models = new List<ModelTemplateViewModel>();
+            foreach (var modelTemplate in library.ModelTemplates)
+            {
+                models.Add(modelToViewModelConverter.ToViewModel(modelTemplate));
+            }
+
+            return models;
+        }
+
+        private List<PortTemplateViewModel> GeneratePortsViewModel(Library library)
+        {
+            var ports = new List<PortTemplateViewModel>();
+            foreach (var portTemplate in library.PortTemplates)
+            {
+                var port = modelToViewModelConverter.ToViewModel(portTemplate);
+                ports.Add(port);
+            }
+            return ports;
+        }
+
+        private List<FluidTypeViewModel> GenerateFluidsViewModel(Library library)
+        {
+            var fluids = new List<FluidTypeViewModel>();
+            foreach (var fluidTemplate in library.FluidTemplates)
+            {
+                var fluid = modelToViewModelConverter.ToViewModel(fluidTemplate);
+                fluids.Add(fluid);
+            }
+            return fluids;
         }
 
         [HttpPost]
@@ -41,21 +97,23 @@ namespace xpan.plantDesign.WebApi.Controllers
 
         [Route("api/libraries/{id}/fluid")]
         [HttpPost]
-        public FluidType CreateFluid(Guid id)
+        public FluidTypeViewModel CreateFluid(Guid id)
         {
-            return libraryService.CreateFluidInLibrary(id);
+            var fluid = libraryService.CreateFluidInLibrary(id);
+            return modelToViewModelConverter.ToViewModel(fluid);
         }
 
         [Route("api/libraries/{id}/port")]
         [HttpPost]
-        public PortTemplate CreatePort(Guid id)
+        public PortTemplateViewModel CreatePort(Guid id)
         {
-            return libraryService.CreatePortInLibrary(id);
+            var port = libraryService.CreatePortInLibrary(id);
+            return modelToViewModelConverter.ToViewModel(port);
         }
 
         [Route("api/libraries/{id}/port")]
         [HttpPut]
-        public void UpdatePort(Guid id, PortTemplateRequest port)
+        public void UpdatePort(Guid id, PortTemplateViewModel port)
         {
             var portTemplate = new PortTemplate(port.Id)
             {
@@ -67,7 +125,7 @@ namespace xpan.plantDesign.WebApi.Controllers
             foreach (var variable in port.Variables)
             {
                 var variableDescription = portTemplate.AddVariable(variable.Name,
-                    variableTypeRepository.FindVariableType(variable.VariableTypeName).Id);
+                    variableTypeRepository.FindVariableType(variable.VariableTypeName));
                 variableDescription.OverridenMin = variable.OverridenMin;
                 variableDescription.OverridenMax = variable.OverridenMax;
                 variableDescription.OverridenDefaultValue = variable.OverridenDefaultValue;
@@ -78,9 +136,10 @@ namespace xpan.plantDesign.WebApi.Controllers
 
         [Route("api/libraries/{id}/Model")]
         [HttpPost]
-        public ModelTemplate CreateModel(Guid id)
+        public ModelTemplateViewModel CreateModel(Guid id)
         {
-            return libraryService.CreateModelInLibrary(id);
+            var model = libraryService.CreateModelInLibrary(id);
+            return modelToViewModelConverter.ToViewModel(model);
         }
 
         [Route("api/libraries/variableTypes")]

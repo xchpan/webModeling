@@ -8,15 +8,8 @@ namespace xpan.plantDesign.Domain.SharedLibraries
 {
     public class ModelTemplate : LibraryItem
     {
-        private const string ModelType = "Model";
-
         public ModelTemplate(Guid id) : base(id)
         {
-        }
-
-        public override string Type
-        {
-            get { return ModelType; }
         }
     }
 }

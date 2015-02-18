@@ -101,6 +101,14 @@
       <Project>{2d6f4ac0-540a-409b-9eb4-d6e26ee6141f}</Project>
       <Name>Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModelViewModelConverterContracts\ModelViewModelConverterContracts.csproj">
+      <Project>{64948536-963f-4827-b173-85297a3611f2}</Project>
+      <Name>ModelViewModelConverterContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelViewModelConverters\ModelViewModelConverters.csproj">
+      <Project>{36d884f3-1a21-4a8b-b945-076b7d4af445}</Project>
+      <Name>ModelViewModelConverters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PlantSummaryRepository\Repositories.csproj">
       <Project>{2882e46e-49a1-4523-8ad5-d316db70c815}</Project>
       <Name>Repositories</Name>

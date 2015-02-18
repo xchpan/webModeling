@@ -13,6 +13,5 @@ namespace xpan.plantDesign.Domain.SharedLibraries
         }
 
         public string Icon { get; set; }
-        public abstract string Type { get; }
     }
 }

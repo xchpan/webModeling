@@ -9,25 +9,29 @@ namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
 {
     public class FluidType : LibraryItem
     {
-        private const string TypeString = "Fluid";
+
         private readonly List<FluidComponent> components;
 
         public FluidType(Guid id) : base(id)
         {
             components = new List<FluidComponent>();
+            StartingPressureInkPa = 1000;
+            StartingTempratureInK = 273;
         }
 
         public ThermoTypes ThermoType { get; set; }
 
-        public ValueWithUnit StartingPressure { get; set; }
+        public double StartingPressureInkPa { get; set; }
 
-        public ValueWithUnit StartingTemprature { get; set; }
+        public double StartingTempratureInK { get; set; }
 
         public string SystemMethod { get; set; }
 
         public PhaseMethods PhaseMethod { get; set; }
 
-        public void AddFluidComponent(string name, string componentType, double startingValue)
+        public LiquidDensityMethods LiquidDensityMethod { get; set; }
+
+        public void AddFluidComponent(string name, FluidComponentType componentType, double startingValue)
         {
             if (components.FirstOrDefault(p => p.Name == name) != null)
             {
@@ -68,7 +72,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
             component.Name = newName;
         }
 
-        public void ChangeComponentType(string name, string componentType)
+        public void ChangeComponentType(string name, FluidComponentType componentType)
         {
             var component = components.FirstOrDefault(p => p.Name == name);
             if (component == null)
@@ -92,11 +96,6 @@ namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
 
         public IEnumerable<FluidComponent> Components {
             get { return components.AsEnumerable(); }
-        }
-
-        public override string Type
-        {
-            get { return TypeString; }
         }
     }
 }

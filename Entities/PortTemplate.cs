@@ -4,36 +4,40 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using xpan.plantDesign.Domain.SharedLibraries.FluidTemplate;
+using xpan.plantDesign.Domain.SharedLibraries.VariableTemplate;
 
 namespace xpan.plantDesign.Domain.SharedLibraries
 {
     public class PortTemplate : LibraryItem, IHaveParameters
     {
-        private const string PortType = "Port";
-
         private readonly List<ParameterDescription> parameters;
         private readonly List<VariableDescription> variables;
+        private readonly Dictionary<string, FluidType> fluids;
 
         public PortTemplate(Guid id)
-            : this(id, Enumerable.Empty<ParameterDescription>(), Enumerable.Empty<VariableDescription>())
+            : this(id, Enumerable.Empty<ParameterDescription>(), Enumerable.Empty<VariableDescription>(), new Dictionary<string, FluidType>())
         {
         }
 
         public PortTemplate(Guid id, IEnumerable<ParameterDescription> parameters,
-            IEnumerable<VariableDescription> variables) : base(id)
+            IEnumerable<VariableDescription> variables,
+            Dictionary<string, FluidType> fluids)
+            : base(id)
         {
             this.parameters = parameters.ToList();
             this.variables = variables.ToList();
+            this.fluids = fluids;
         }
 
-        public void AddParameter(string name, Guid parameterType, object defaultValue)
+        public void AddParameter(string name, VariableType parameterType, double? defaultValue)
         {
             if (parameters.FirstOrDefault(p => p.Name == name) != null)
             {
                 throw new ArgumentException("The parameter name already exist");
             }
 
-            //parameters.Add(new ParameterDescription() {Name = name, ParameterType = parameterType, DefaultValue = defaultValue});
+            parameters.Add(new ParameterDescription() {Name = name, ParameterType = parameterType, OverridenDefaultValue = defaultValue});
         }
 
         public void DeleteParameter(string name)
@@ -67,7 +71,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
             parameter.Name = newName;
         }
 
-        public void ChangeParameterType(string name, Guid parameterType, object defaultValue)
+        public void ChangeParameterType(string name, VariableType parameterType, double? defaultValue)
         {
             var parameter = parameters.FirstOrDefault(p => p.Name == name);
             if (parameter == null)
@@ -76,7 +80,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
             }
 
             parameter.ParameterType = parameterType;
-            //parameter.DefaultValue = defaultValue;
+            parameter.OverridenDefaultValue = defaultValue;
         }
 
         public void ChangeParameterDefaultValue(string name, object defaultValue)
@@ -95,7 +99,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
             get { return parameters.AsEnumerable(); }
         }
 
-        public VariableDescription AddVariable(string name, Guid variableType)
+        public VariableDescription AddVariable(string name, VariableType variableType)
         {
             if (variables.FirstOrDefault(v => v.Name == name) != null)
             {
@@ -138,7 +142,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
             variable.Name = newName;
         }
 
-        public void ChangeVariableType(string name, Guid variableType)
+        public void ChangeVariableType(string name, VariableType variableType)
         {
             var variable = variables.FirstOrDefault(p => p.Name == name);
             if (variable == null)
@@ -166,10 +170,9 @@ namespace xpan.plantDesign.Domain.SharedLibraries
             get { return variables.AsEnumerable(); }
         }
 
-
-        public override string Type
+        public Dictionary<string, FluidType>.Enumerator Fluids
         {
-            get { return PortType; }
+            get { return fluids.GetEnumerator(); }
         }
     }
 }

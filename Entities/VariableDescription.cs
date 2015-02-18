@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using xpan.plantDesign.Domain.SharedLibraries.VariableTemplate;
 
 namespace xpan.plantDesign.Domain.SharedLibraries
 {
@@ -10,7 +11,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries
     {
         public string Name { get; set; }
 
-        public Guid VariableType { get; set; }
+        public VariableType VariableType { get; set; }
 
         public double? OverridenMin { get; set; }
 

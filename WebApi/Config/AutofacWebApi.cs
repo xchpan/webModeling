@@ -2,6 +2,8 @@
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using ModelViewModelConverterContracts;
+using ModelViewModelConverters;
 using xpan.plantDesign.ApplicationServices;
 using xpan.plantDesign.Repository;
 
@@ -34,6 +36,10 @@ namespace xpan.plantDesign.WebApi.Config
             builder.RegisterType<FluidComponentTypeRepository>()
                 .As<IFluidComponentTypeRepository>()
                 .OnActivating(e => e.Instance.Initialize())
+                .SingleInstance();
+
+            builder.RegisterType<ModelToViewModel>()
+                .As<IModelToViewModel>()
                 .SingleInstance();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());

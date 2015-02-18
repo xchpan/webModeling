@@ -13,7 +13,7 @@ namespace xpan.plantDesign.Domain.SharedLibraries.FluidTemplate
             StartingComposition = 1.0;
         }
 
-        public string FluidComponentType { get; set; }
+        public FluidComponentType FluidComponentType { get; set; }
 
         public double StartingComposition { get; set; }
     }

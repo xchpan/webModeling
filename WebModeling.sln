@@ -37,6 +37,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitializeUnits", "Initiali
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InitializeFluidComponents", "InitializeFluidComponents\InitializeFluidComponents.csproj", "{D46CE07E-E425-4688-B713-57077C2FFC59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelViewModelConverterContracts", "ModelViewModelConverterContracts\ModelViewModelConverterContracts.csproj", "{64948536-963F-4827-B173-85297A3611F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{2223B8D4-2ED3-4AEB-8140-BCD6EFD6CEE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelViewModelConverters", "ModelViewModelConverters\ModelViewModelConverters.csproj", "{36D884F3-1A21-4A8B-B945-076B7D4AF445}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +97,14 @@ Global
 		{D46CE07E-E425-4688-B713-57077C2FFC59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D46CE07E-E425-4688-B713-57077C2FFC59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D46CE07E-E425-4688-B713-57077C2FFC59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64948536-963F-4827-B173-85297A3611F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64948536-963F-4827-B173-85297A3611F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64948536-963F-4827-B173-85297A3611F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64948536-963F-4827-B173-85297A3611F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D884F3-1A21-4A8B-B945-076B7D4AF445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D884F3-1A21-4A8B-B945-076B7D4AF445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D884F3-1A21-4A8B-B945-076B7D4AF445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D884F3-1A21-4A8B-B945-076B7D4AF445}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,5 +119,7 @@ Global
 		{CA13B0D9-E8FE-427A-A4A4-190DCE5F66B7} = {1B2603ED-FAAF-4ED6-B0A6-F71E1490837B}
 		{325FC430-B2DB-49A6-8EA3-DBA793BCC1C8} = {C210DBAA-5634-4583-A259-825BCE827718}
 		{D46CE07E-E425-4688-B713-57077C2FFC59} = {C210DBAA-5634-4583-A259-825BCE827718}
+		{64948536-963F-4827-B173-85297A3611F2} = {A6ECD72C-60BC-4F6F-8562-D59D4329E0E7}
+		{36D884F3-1A21-4A8B-B945-076B7D4AF445} = {2223B8D4-2ED3-4AEB-8140-BCD6EFD6CEE6}
 	EndGlobalSection
 EndGlobal
