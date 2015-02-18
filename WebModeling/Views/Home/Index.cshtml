@@ -55,19 +55,19 @@
                             <div class="form-group">
                                 <label for="fluidName" class="control-label col-xs-2">Name</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="fluidName" placeholder="Name" value="{{currentFluid.Name}}">
+                                    <input type="text" class="form-control" id="fluidName" placeholder="Name" ng-model="currentFluid.Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="fluidDescription" class="control-label col-xs-2">Description</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="fluidDescription" placeholder="Description" value="{{currentFluid.Description}}">
+                                    <input type="text" class="form-control" id="fluidDescription" placeholder="Description" ng-model="currentFluid.Description">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="thermoType" class="control-label col-xs-2">Thermo Type</label>
                                 <div class="col-xs-10">
-                                    <select class="form-control" id="fluidDescription">
+                                    <select class="form-control" id="fluidDescription" ng-model="currentFluid.ThermoType">
                                         <option>Air</option>
                                         <option>Steam</option>
                                         <option>Water</option>
@@ -85,7 +85,7 @@
                                 <div class="form-group">
                                     <label for="fluidPressure" class="control-label col-xs-2">Pressure</label>
                                     <div class="col-xs-9">
-                                        <input type="text" class="form-control" id="fluidPressure" placeholder="Pressure">
+                                        <input type="number" class="form-control" id="fluidPressure" placeholder="Pressure" ng-model="currentFluid.StartingPressureValue">
                                     </div>
                                     <div class="col-xs-1">
                                         kPa
@@ -94,7 +94,7 @@
                                 <div class="form-group">
                                     <label for="fluidTemprature" class="control-label col-xs-2">Temprature</label>
                                     <div class="col-xs-9">
-                                        <input type="text" class="form-control" id="fluidTemprature" placeholder="Temprature">
+                                        <input type="text" class="form-control" id="fluidTemprature" placeholder="Temprature" ng-model="currentFluid.StartingTemprature">
                                     </div>
                                     <div class="col-xs-1">
                                         K
@@ -111,7 +111,7 @@
                                 <div class="form-group">
                                     <label for="systemMethod" class="control-label col-xs-2">System</label>
                                     <div class="col-xs-10">
-                                        <select class="form-control" id="systemMethod">
+                                        <select class="form-control" id="systemMethod" ng-model="currentFluid.SystemMethod">
                                             <option>Soave-Redlich-Kwong (SRK)</option>
                                             <option>Peng-Robinson (PR)</option>
                                         </select>
@@ -120,7 +120,7 @@
                                 <div class="form-group">
                                     <label for="phaseMethod" class="control-label col-xs-2">Phase</label>
                                     <div class="col-xs-10">
-                                        <select class="form-control" id="phaseMethod">
+                                        <select class="form-control" id="phaseMethod" ng-model="currentFluid.PhaseMethod">
                                             <option>Vapor</option>
                                             <option>Liquid</option>
                                             <option>Vapor/Liquid (VLE)</option>
@@ -130,7 +130,7 @@
                                 <div class="form-group">
                                     <label for="liquidDensityMethod" class="control-label col-xs-2">Liquid Density</label>
                                     <div class="col-xs-10">
-                                        <select class="form-control" id="liquidDensityMethod">
+                                        <select class="form-control" id="liquidDensityMethod" ng-model="currentFluid.LiquidDensityMethod">
                                             <option>API</option>
                                             <option>Use System method</option>
                                         </select>
@@ -141,28 +141,24 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Components <span class="badge pull-right" ng-click="addComponent()">+</span></h1>
+                                <h1 class="panel-title">Components <span class="badge pull-right" ng-click="addFluidComponent(currentFluid)">+</span></h1>
                             </div>
                             <div class="panel-body">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th></th>
-                                            <th>Status</th>
                                             <th>Name</th>
                                             <th>Components</th>
                                             <th>Starting Composition</th>
-                                            <th>Description</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><span class="badge" ng-click="deleteLibrary(library.Id)">&#x2718</span></td>
-                                            <td></td>
-                                            <td>CO2</td>
-                                            <td>Multiple level menu to choose</td>
-                                            <td>1</td>
-                                            <td></td>
+                                        <tr ng-repeat="component in currentFluid.FluidComponents">
+                                            <td><span class="badge" ng-click="deleteFluidComponent(currentFluid, $index)">&#x2718</span></td>
+                                            <td>{{component.ShortName}}</td>
+                                            <td>{{component.FullName}} <span class="caret"></span></td>
+                                            <td><input type="number" ng-model="component.StartingPercentage" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -176,8 +172,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>

@@ -177,6 +177,19 @@
 
             $scope.updatePortParameterType = function (parameter, parameterTypeName) {
                 parameter.ParameterTypeName = parameterTypeName;
-            }
+            };
+
+            $scope.addFluidComponent = function (fluid) {
+                var component = {
+                    ShortName: "H2O",
+                    FullName: "Water",
+                    StartingPercentage: 1.0
+                };
+                fluid.FluidComponents.push(component);
+            };
+
+            $scope.deleteFluidComponent = function (fluid, index) {
+                fluid.FluidComponents.splice(index, 1);
+            };
         }
 ]);
