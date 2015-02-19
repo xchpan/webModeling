@@ -191,5 +191,10 @@
             $scope.deleteFluidComponent = function (fluid, index) {
                 fluid.FluidComponents.splice(index, 1);
             };
+
+            $scope.setFluidComponentType = function(component, shortName, fullName) {
+                component.ShortName = shortName;
+                component.FullName = fullName;
+            }
         }
 ]);

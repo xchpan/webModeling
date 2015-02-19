@@ -151,7 +151,7 @@ namespace xpan.plantDesign.WebApi.Controllers
 
         [Route("api/libraries/fluidComponentTypes")]
         [HttpGet]
-        public FluidComponentTypesViewModel GetFluidComponentTypes()
+        public IEnumerable<FluidComponentTypesViewModel.FluidComponentCategory> GetFluidComponentTypes()
         {
             var viewModel = new FluidComponentTypesViewModel();
             foreach (var componentType in fluidComponentTypeRepository.FluidComponentTypes)
@@ -159,7 +159,7 @@ namespace xpan.plantDesign.WebApi.Controllers
                 viewModel.AddFluidComponentType(componentType.Categories, componentType.Subcategories, componentType.Name, componentType.Description);
             }
 
-            return viewModel;
+            return viewModel.FluidComponentCategories;
         }
     }
 }

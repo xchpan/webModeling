@@ -157,7 +157,30 @@
                                         <tr ng-repeat="component in currentFluid.FluidComponents">
                                             <td><span class="badge" ng-click="deleteFluidComponent(currentFluid, $index)">&#x2718</span></td>
                                             <td>{{component.ShortName}}</td>
-                                            <td>{{component.FullName}} <span class="caret"></span></td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            {{component.FullName}} <span class="caret"></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class="dropdown-submenu" disabled ng-repeat="fluidComponentCategory in fluidComponentTypes">
+                                                                <a href="#">{{fluidComponentCategory.Name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li class="dropdown-submenu" disabled ng-repeat="subcategory in fluidComponentCategory.Subcategories">
+                                                                        <a href="#" >{{subcategory.Name}}</a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li ng-repeat="(key, value) in subcategory.FluidComponents">
+                                                                                <a href="#" ng-click="setFluidComponentType(component, key, value)">{{value}}</a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
                                             <td><input type="number" ng-model="component.StartingPercentage" /></td>
                                         </tr>
                                     </tbody>
