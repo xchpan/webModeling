@@ -103,20 +103,32 @@
             };
 
             $scope.showFluidEditor = function () {
-                $("#portEditor").modal('hide');
-                $("#modelEditor").modal('hide');
+                if ($("#portEditor").data('bs.modal') != null && $("#portEditor").data('bs.modal').isShown) {
+                    $("#portEditor").modal('hide');
+                }
+                if ($("#modelEditor").data('bs.modal') != null && $("#modelEditor").data('bs.modal').isShown) {
+                    $("#modelEditor").modal('hide');
+                }
                 $("#fluidEditor").modal('show');
             };
 
             $scope.showPortEditor = function () {
-                $("#modelEditor").modal('hide');
-                $("#fluidEditor").modal('hide');
+                if ($("#fluidEditor").data('bs.modal') != null && $("#fluidEditor").data('bs.modal').isShown) {
+                    $("#fluidEditor").modal('hide');
+                }
+                if ($("#modelEditor").data('bs.modal') != null && $("#modelEditor").data('bs.modal').isShown) {
+                    $("#modelEditor").modal('hide');
+                }
                 $("#portEditor").modal('show');
             };
 
             $scope.showModelEditor = function () {
-                $("#fluidEditor").modal('hide');
-                $("#portEditor").modal('hide');
+                if ($("#portEditor").data('bs.modal') != null && $("#portEditor").data('bs.modal').isShown) {
+                    $("#portEditor").modal('hide');
+                }
+                if ($("#fluidEditor").data('bs.modal') != null && $("#fluidEditor").data('bs.modal').isShown) {
+                    $("#fluidEditor").modal('hide');
+                }
                 $("#modelEditor").modal('show');
             };
 
