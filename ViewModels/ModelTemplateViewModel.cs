@@ -13,5 +13,7 @@ namespace xpan.plantDesign.ViewModels
         {
             get { return ModelType; }
         }
+
+        public List<ParameterTemplateViewModel> Parameters { get; set; }
     }
 }

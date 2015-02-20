@@ -95,13 +95,29 @@ namespace ModelViewModelConverters
 
         public xpan.plantDesign.ViewModels.ModelTemplateViewModel ToViewModel(xpan.plantDesign.Domain.SharedLibraries.ModelTemplate model)
         {
-            return new ModelTemplateViewModel()
+            var viewModel = new ModelTemplateViewModel()
             {
                 Id = model.Id,
                 Name = model.Name,
                 Description = model.Description,
                 Icon = model.Icon
             };
+            var parameters = new List<ParameterTemplateViewModel>();
+            foreach (var parameterDescription in model.Parameters)
+            {
+                var parameter = new ParameterTemplateViewModel()
+                {
+                    Name = parameterDescription.Name,
+                    ParameterTypeName = parameterDescription.ParameterType.Name,
+                    OverridenDefaultValue = parameterDescription.OverridenDefaultValue,
+                    OverridenMax = parameterDescription.OverridenMax,
+                    OverridenMin = parameterDescription.OverridenMin,
+                    RequireUserToProvideInitialValue = parameterDescription.RequireUserToProvideInitialValue
+                };
+                parameters.Add(parameter);
+            }
+            viewModel.Parameters = parameters;
+            return viewModel;
         }
     }
 }

@@ -331,7 +331,7 @@
         </div>
 
         <div id="modelEditor" class="modal fade">
-            <div class="modal-dialog">
+            <div class="modal-dialog" style="width: 1100px">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -362,9 +362,51 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Parameters <span class="badge pull-right" ng-click="addParameter()">+</span></h1>
+                                <h1 class="panel-title">Parameters <span class="badge pull-right" ng-click="addPortParameter(currentModel)">+</span></h1>
                             </div>
-                            <div class="panel-body">Parameter content…</div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Require User Provide Value</th>
+                                            <th>Min</th>
+                                            <th>Max</th>
+                                            <th>Default</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="parameter in currentModel.Parameters">
+                                            <td><span class="badge" ng-click="deletePortParameter(currentModel, $index)">&#x2718</span></td>
+                                            <td><input type="text" ng-model="parameter.Name" /></td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            {{parameter.ParameterTypeName}}
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#" ng-click="updatePortParameterType(parameter, 'Fluid')">Fluid</a></li>
+                                                            <li class="dropdown-submenu" disabled ng-repeat="variableCategory in variableTypes">
+                                                                <a href="#">{{variableCategory.Name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="variableType in variableCategory.VariableTypes"><a href="#" ng-click="updatePortParameterType(parameter, variableType.Name)">{{variableType.Name}}</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td><input type="checkbox" ng-model="parameter.RequireUserToProvideInitialValue" /></td>
+                                            <td><input type="number" ng-model="parameter.OverridenMin" /></td>
+                                            <td><input type="number" ng-model="parameter.OverridenMax" /></td>
+                                            <td><input type="number" ng-model="parameter.OverridenDefaultValue" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="panel panel-default">
