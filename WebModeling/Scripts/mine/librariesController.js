@@ -8,7 +8,25 @@
                     lib.ports.push(item.Name);
                 }
             });
-            result.push(lib);
+            if (lib.ports.length > 0) {
+                result.push(lib);
+            }
+        });
+        return result;
+    };
+}).filter('getModels', function () {
+    return function (libraries) {
+        var result = [];
+        libraries.forEach(function (library) {
+            var lib = { name: library.Name, models: [] };
+            library.Items.forEach(function (item) {
+                if (item.Type == "Model") {
+                    lib.models.push(item.Name);
+                }
+            });
+            if (lib.models.length > 0) {
+                result.push(lib);
+            }
         });
         return result;
     };
@@ -268,6 +286,22 @@
 
             $scope.updatePortSource = function(port, portType) {
                 port.PortTemplateName = portType;
+            }
+
+            $scope.addSubmodel = function (model) {
+                var submodel = {
+                    Name: "Model " + model.Submodels.length,
+                    ModelTypeName: ""
+                };
+                model.Submodels.push(submodel);
+            }
+
+            $scope.deletePortFromModel = function (model, index) {
+                model.Submodels.splice(index, 1);
+            }
+
+            $scope.updateSubmodelSource = function (submodel, modelType) {
+                submodel.ModelTypeName = modelType;
             }
         }
 ]);

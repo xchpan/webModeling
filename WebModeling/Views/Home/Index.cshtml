@@ -538,10 +538,44 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Sub models <span class="badge pull-right" ng-click="addSubModel()">+</span></h1>
+                                <h1 class="panel-title">Submodels <span class="badge pull-right" ng-click="addSubmodel(currentModel)">+</span></h1>
                             </div>
-                            <div class="panel-body">Sub model content…</div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Source</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="submodel in currentModel.Submodels">
+                                            <td><span class="badge" ng-click="deleteSubmodel(currentModel, $index)">&#x2718</span></td>
+                                            <td></td>
+                                            <td><input type="text" ng-model="submodel.Name" /></td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{submodel.ModelTypeName}} <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class="dropdown-submenu" disabled ng-repeat="library in libraries | getModels">
+                                                                <a href="#">{{library.name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="modelType in library.models"><a href="#" ng-click="updateSubmodelSource(submodel, modelType)">{{modelType}}</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
