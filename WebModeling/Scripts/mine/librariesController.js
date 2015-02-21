@@ -220,5 +220,23 @@
             $scope.deleteCondition = function(model, index) {
                 model.Conditions.splice(index, 1);
             }
+
+            $scope.addModelVariable = function (model) {
+                var variable = {
+                    IsFixedValue: false,
+                    Name: "Variable " + model.Variables.length,
+                    Condition: "",
+                    OverridenDefaultValue: null,
+                    OverridenMax: null,
+                    OverridenMin: null,
+                    RequireUserToProvideInitialValue: false,
+                    VariableTypeName: "Real"
+                };
+                model.Variables.push(variable);
+            }
+
+            $scope.updateVariableCondition = function(variable, conditionName) {
+                variable.Condition = conditionName;
+            }
         }
 ]);

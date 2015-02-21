@@ -168,7 +168,7 @@
                                                                 <a href="#">{{fluidComponentCategory.Name}}</a>
                                                                 <ul class="dropdown-menu">
                                                                     <li class="dropdown-submenu" disabled ng-repeat="subcategory in fluidComponentCategory.Subcategories">
-                                                                        <a href="#" >{{subcategory.Name}}</a>
+                                                                        <a href="#">{{subcategory.Name}}</a>
                                                                         <ul class="dropdown-menu">
                                                                             <li ng-repeat="(key, value) in subcategory.FluidComponents">
                                                                                 <a href="#" ng-click="setFluidComponentType(component, key, value)">{{value}}</a>
@@ -301,7 +301,7 @@
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                                             {{variable.VariableTypeName}}
                                                         </a>
-                                                        <ul class="dropdown-menu" >
+                                                        <ul class="dropdown-menu">
                                                             <li class="dropdown-submenu" disabled ng-repeat="variableCategory in variableTypes">
                                                                 <a href="#">{{variableCategory.Name}}</a>
                                                                 <ul class="dropdown-menu">
@@ -426,7 +426,7 @@
                                         <tr ng-repeat="condition in currentModel.Conditions">
                                             <td><span class="badge" ng-click="deleteCondition(currentModel, $index)">&#x2718</span></td>
                                             <td><input type="text" ng-model="condition.Name" /></td>
-                                            <td><input type="text" ng-model="condition.Formula"/></td>
+                                            <td><input type="text" ng-model="condition.Formula" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -435,10 +435,70 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Variables <span class="badge pull-right" ng-click="addVariable()">+</span></h1>
+                                <h1 class="panel-title">Variables <span class="badge pull-right" ng-click="addModelVariable(currentModel)">+</span></h1>
                             </div>
-                            <div class="panel-body">Variable content…</div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Condition</th>
+                                            <th>Type</th>
+                                            <th>Require User Provide Value</th>
+                                            <th>Fixed</th>
+                                            <th>Min</th>
+                                            <th>Max</th>
+                                            <th>Default</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="variable in currentModel.Variables">
+                                            <td><span class="badge" ng-click="deletePortVariable(currentModel, $index)">&#x2718</span></td>
+                                            <td><input type="text" ng-model="variable.Name" /></td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            {{variable.Condition}} <span class="caret"></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu" >
+                                                            <li><a href="#" ng-click="updateVariableCondition(variable, '')">Unconditional</a></li>
+                                                            <li ng-repeat="condition in currentModel.Conditions">
+                                                                <a href="#" ng-click="updateVariableCondition(variable, condition.Name)">{{condition.Name}}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            {{variable.VariableTypeName}}
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class="dropdown-submenu" disabled ng-repeat="variableCategory in variableTypes">
+                                                                <a href="#">{{variableCategory.Name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="variableType in variableCategory.VariableTypes"><a href="#" ng-click="updatePortVariableType(variable, variableType.Name)">{{variableType.Name}}</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td><input type="checkbox" ng-model="variable.RequireUserToProvideInitialValue" /></td>
+                                            <td><input type="checkbox" ng-model="variable.IsFixedValue" /></td>
+                                            <td><input type="number" ng-model="variable.OverridenMin" /></td>
+                                            <td><input type="number" ng-model="variable.OverridenMax" /></td>
+                                            <td><input type="number" ng-model="variable.OverridenDefaultValue" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
