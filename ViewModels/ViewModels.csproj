@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConditionedVariableTemplateViewModel.cs" />
+    <Compile Include="ConditionTemplateViewModel.cs" />
     <Compile Include="FluidComponentTypesViewModel.cs" />
     <Compile Include="FluidComponentViewModel.cs" />
     <Compile Include="FluidTypeViewModel.cs" />
@@ -48,8 +50,10 @@
     <Compile Include="ModelTemplateViewModel.cs" />
     <Compile Include="ParameterTemplateViewModel.cs" />
     <Compile Include="PortTemplateViewModel.cs" />
+    <Compile Include="PortViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlantSummary.cs" />
+    <Compile Include="SubmodelTemplateViewModel.cs" />
     <Compile Include="VariableTemplateViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

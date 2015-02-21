@@ -14,6 +14,10 @@ namespace xpan.plantDesign.ViewModels
             get { return ModelType; }
         }
 
-        public List<ParameterTemplateViewModel> Parameters { get; set; }
+        public IEnumerable<ParameterTemplateViewModel> Parameters { get; set; }
+        public IEnumerable<PortViewModel> Ports { get; set; }
+        public IEnumerable<ConditionTemplateViewModel> Conditions { get; set; }
+        public IEnumerable<ConditionedVariableTemplateViewModel> Variables { get; set; }
+        public IEnumerable<SubmodelTemplateViewModel> Submodels { get; set; }
     }
 }
