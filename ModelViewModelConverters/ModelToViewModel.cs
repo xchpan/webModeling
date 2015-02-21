@@ -117,6 +117,10 @@ namespace ModelViewModelConverters
                 parameters.Add(parameter);
             }
             viewModel.Parameters = parameters;
+            viewModel.Ports = Enumerable.Empty<PortViewModel>();
+            viewModel.Conditions = Enumerable.Empty<ConditionTemplateViewModel>();
+            viewModel.Variables = Enumerable.Empty<ConditionedVariableTemplateViewModel>();
+            viewModel.Submodels = Enumerable.Empty<SubmodelTemplateViewModel>();
             return viewModel;
         }
     }

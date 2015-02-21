@@ -208,5 +208,17 @@
                 component.ShortName = shortName;
                 component.FullName = fullName;
             }
+
+            $scope.addCondition = function(model) {
+                var condition = {
+                    Name: "Conditioin " + model.Conditions.length,
+                    Formula : "1 = 1"
+                };
+                model.Conditions.push(condition);
+            }
+
+            $scope.deleteCondition = function(model, index) {
+                model.Conditions.splice(index, 1);
+            }
         }
 ]);

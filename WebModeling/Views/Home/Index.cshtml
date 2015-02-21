@@ -411,9 +411,26 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Conditions <span class="badge pull-right" ng-click="addCondition()">+</span></h1>
+                                <h1 class="panel-title">Conditions <span class="badge pull-right" ng-click="addCondition(currentModel)">+</span></h1>
                             </div>
-                            <div class="panel-body">Condition content…</div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Formula</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="condition in currentModel.Conditions">
+                                            <td><span class="badge" ng-click="deleteCondition(currentModel, $index)">&#x2718</span></td>
+                                            <td><input type="text" ng-model="condition.Name" /></td>
+                                            <td><input type="text" ng-model="condition.Formula"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="panel panel-default">
