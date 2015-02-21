@@ -1,4 +1,18 @@
-﻿libraries.controller("librariesController", [
+﻿libraries.filter('getPorts', function () {
+    return function (libraries) {
+        var result = [];
+        libraries.forEach(function (library) {
+            var lib = { name: library.Name, ports: [] };
+            library.Items.forEach(function (item) {
+                if (item.Type == "Port") {
+                    lib.ports.push(item.Name);
+                }
+            });
+            result.push(lib);
+        });
+        return result;
+    };
+}).controller("librariesController", [
         '$scope', '$timeout', 'librariesService', function ($scope, $timeout, librariesService) {
             librariesService.getAllLibraries().success(function (data) {
                 $scope.libraries = data;
@@ -204,20 +218,20 @@
                 fluid.FluidComponents.splice(index, 1);
             };
 
-            $scope.setFluidComponentType = function(component, shortName, fullName) {
+            $scope.setFluidComponentType = function (component, shortName, fullName) {
                 component.ShortName = shortName;
                 component.FullName = fullName;
             }
 
-            $scope.addCondition = function(model) {
+            $scope.addCondition = function (model) {
                 var condition = {
                     Name: "Conditioin " + model.Conditions.length,
-                    Formula : "1 = 1"
+                    Formula: "1 = 1"
                 };
                 model.Conditions.push(condition);
             }
 
-            $scope.deleteCondition = function(model, index) {
+            $scope.deleteCondition = function (model, index) {
                 model.Conditions.splice(index, 1);
             }
 
@@ -235,8 +249,25 @@
                 model.Variables.push(variable);
             }
 
-            $scope.updateVariableCondition = function(variable, conditionName) {
+            $scope.updateVariableCondition = function (variable, conditionName) {
                 variable.Condition = conditionName;
+            }
+
+            $scope.addPortToModel = function(model) {
+                var port = {
+                    Name: "Port " + model.Ports.length,
+                    Direction: "In",
+                    PortTemplateName: ""
+                };
+                model.Ports.push(port);
+            }
+
+            $scope.deletePortFromModel = function(model, index) {
+                model.Ports.splice(index, 1);
+            }
+
+            $scope.updatePortSource = function(port, portType) {
+                port.PortTemplateName = portType;
             }
         }
 ]);

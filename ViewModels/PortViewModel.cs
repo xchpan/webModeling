@@ -9,6 +9,7 @@ namespace xpan.plantDesign.ViewModels
     public class PortViewModel
     {
         public string Name { get; set; }
+        public string Direction { get; set; }
         public string PortTemplateName { get; set; }
         public Guid PortTemplateId { get; set; }
     }

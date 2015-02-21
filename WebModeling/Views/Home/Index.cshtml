@@ -355,9 +355,45 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Ports <span class="badge pull-right" ng-click="addPort()">+</span></h1>
+                                <h1 class="panel-title">Ports <span class="badge pull-right" ng-click="addPortToModel(currentModel)">+</span></h1>
                             </div>
-                            <div class="panel-body">Port content…</div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>Direction</th>
+                                            <th>Source</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="port in currentModel.Ports">
+                                            <td><span class="badge" ng-click="deletePortFromModel(currentModel, $index)">&#x2718</span></td>
+                                            <td><input type="text" ng-model="port.Name" /></td>
+                                            <td><select ng-model="port.Direction">
+                                                    <option>In</option>
+                                                    <option>Out</option>
+                                                </select></td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{port.PortTemplateName}} <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li class="dropdown-submenu" disabled ng-repeat="library in libraries | getPorts">
+                                                                <a href="#">{{library.name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="portType in library.ports"><a href="#" ng-click="updatePortSource(port, portType)">{{portType}}</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="panel panel-default">
@@ -462,7 +498,7 @@
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                                             {{variable.Condition}} <span class="caret"></span>
                                                         </a>
-                                                        <ul class="dropdown-menu" >
+                                                        <ul class="dropdown-menu">
                                                             <li><a href="#" ng-click="updateVariableCondition(variable, '')">Unconditional</a></li>
                                                             <li ng-repeat="condition in currentModel.Conditions">
                                                                 <a href="#" ng-click="updateVariableCondition(variable, condition.Name)">{{condition.Name}}</a>
