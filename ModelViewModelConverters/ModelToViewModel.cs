@@ -121,6 +121,8 @@ namespace ModelViewModelConverters
             viewModel.Conditions = Enumerable.Empty<ConditionTemplateViewModel>();
             viewModel.Variables = Enumerable.Empty<ConditionedVariableTemplateViewModel>();
             viewModel.Submodels = Enumerable.Empty<SubmodelTemplateViewModel>();
+            viewModel.ParameterConnections = Enumerable.Empty<ParameterConnectionViewModel>();
+            viewModel.VariableSharings = Enumerable.Empty<VariableSharingViewModel>();
             return viewModel;
         }
     }

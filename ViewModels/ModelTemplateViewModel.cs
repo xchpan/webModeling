@@ -19,5 +19,7 @@ namespace xpan.plantDesign.ViewModels
         public IEnumerable<ConditionTemplateViewModel> Conditions { get; set; }
         public IEnumerable<ConditionedVariableTemplateViewModel> Variables { get; set; }
         public IEnumerable<SubmodelTemplateViewModel> Submodels { get; set; }
+        public IEnumerable<ParameterConnectionViewModel> ParameterConnections { get; set; }
+        public IEnumerable<VariableSharingViewModel> VariableSharings { get; set; }
     }
 }
