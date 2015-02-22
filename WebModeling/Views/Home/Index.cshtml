@@ -507,9 +507,9 @@
                                                             {{variable.Condition}} <span class="caret"></span>
                                                         </a>
                                                         <ul class="dropdown-menu">
-                                                            <li><a href="#" ng-click="updateVariableCondition(variable, '')">Unconditional</a></li>
+                                                            <li><a href="#" ng-click="updateConditionalObjectCondition(variable, '')">Unconditional</a></li>
                                                             <li ng-repeat="condition in currentModel.Conditions">
-                                                                <a href="#" ng-click="updateVariableCondition(variable, condition.Name)">{{condition.Name}}</a>
+                                                                <a href="#" ng-click="updateConditionalObjectCondition(variable, condition.Name)">{{condition.Name}}</a>
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -554,6 +554,7 @@
                                             <th></th>
                                             <th></th>
                                             <th>Name</th>
+                                            <th>Condition</th>
                                             <th>Source</th>
                                         </tr>
                                     </thead>
@@ -562,6 +563,21 @@
                                             <td><span class="badge" ng-click="deleteSubmodel(currentModel, $index)">&#x2718</span></td>
                                             <td></td>
                                             <td><input type="text" ng-model="submodel.Name" /></td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            {{submodel.Condition}} <span class="caret"></span>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#" ng-click="updateConditionalObjectCondition(submodel, '')">Unconditional</a></li>
+                                                            <li ng-repeat="condition in currentModel.Conditions">
+                                                                <a href="#" ng-click="updateConditionalObjectCondition(submodel, condition.Name)">{{condition.Name}}</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
                                             <td>
                                                 <ul class="nav nav-pills">
                                                     <li class="dropdown">

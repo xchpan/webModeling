@@ -267,8 +267,8 @@
                 model.Variables.push(variable);
             }
 
-            $scope.updateVariableCondition = function (variable, conditionName) {
-                variable.Condition = conditionName;
+            $scope.updateConditionalObjectCondition = function (conditionalObject, conditionName) {
+                conditionalObject.Condition = conditionName;
             }
 
             $scope.addPortToModel = function(model) {
@@ -291,6 +291,7 @@
             $scope.addSubmodel = function (model) {
                 var submodel = {
                     Name: "Model " + model.Submodels.length,
+                    Condition: "",
                     ModelTypeName: ""
                 };
                 model.Submodels.push(submodel);
