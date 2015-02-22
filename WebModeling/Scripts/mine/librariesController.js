@@ -304,5 +304,29 @@
             $scope.updateSubmodelSource = function (submodel, library, modelType) {
                 submodel.ModelTypeName = library + "/" + modelType;
             }
+
+            $scope.addParameterConnection = function(model) {
+                model.ParameterConnections.push({
+                    Id:null,
+                    SourcePath: "",
+                    SinkPath: ""
+                });
+            }
+
+            $scope.deleteParameterConnection = function(model, index) {
+                model.ParameterConnections.splice(index, 1);
+            }
+
+            $scope.addVariableSharing = function(model) {
+                model.VariableSharings.push({
+                    Id: null,
+                    FirstVariablePath: "",
+                    SecondVariablePath: ""
+                });
+            }
+            
+            $scope.deleteVariableSharing = function(model, index) {
+                model.VariableSharings.splice(index, 1);
+            }
         }
 ]);

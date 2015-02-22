@@ -48,12 +48,14 @@
     <Compile Include="LibraryItemViewModel.cs" />
     <Compile Include="LibraryViewModel.cs" />
     <Compile Include="ModelTemplateViewModel.cs" />
+    <Compile Include="ParameterConnectionViewModel.cs" />
     <Compile Include="ParameterTemplateViewModel.cs" />
     <Compile Include="PortTemplateViewModel.cs" />
     <Compile Include="PortViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlantSummary.cs" />
     <Compile Include="SubmodelTemplateViewModel.cs" />
+    <Compile Include="VariableSharingViewModel.cs" />
     <Compile Include="VariableTemplateViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

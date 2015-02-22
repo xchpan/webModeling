@@ -608,16 +608,50 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title"><a data-toggle="collapse" href="#parameterConnectionPanel">Parameter connections </a><span class="badge pull-right" ng-click="addParameterConnection()">+</span></h1>
+                                <h1 class="panel-title"><a data-toggle="collapse" href="#parameterConnectionPanel">Parameter connections </a><span class="badge pull-right" ng-click="addParameterConnection(currentModel)">+</span></h1>
                             </div>
-                            <div id="parameterConnectionPanel" class="panel-body collapse">Parameter connection content…</div>
+                            <div id="parameterConnectionPanel" class="panel-body collapse">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="parameterConnection in currentModel.ParameterConnections">
+                                            <td><span class="badge" ng-click="deleteParameterConnection(currentModel, $index)">&#x2718</span></td>
+                                            <td>{{parameterConnection.SourcePath}} <span class="caret"></span></td>
+                                            <td>{{parameterConnection.SinkPath}} <span class="caret"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title"><a data-toggle="collapse" href="#variableSharingPanel">Variable sharing </a><span class="badge pull-right" ng-click="addVariableSharing()">+</span></h1>
+                                <h1 class="panel-title"><a data-toggle="collapse" href="#variableSharingPanel">Variable sharing </a><span class="badge pull-right" ng-click="addVariableSharing(currentModel)">+</span></h1>
                             </div>
-                            <div id="variableSharingPanel" class="panel-body collapse">Variable sharing content…</div>
+                            <div id="variableSharingPanel" class="panel-body collapse">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Variable 1</th>
+                                            <th>Variable 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="variableSharing in currentModel.VariableSharings">
+                                            <td><span class="badge" ng-click="deleteVariableSharing(currentModel, $index)">&#x2718</span></td>
+                                            <td>{{variableSharing.FirstVariablePath}} <span class="caret"></span></td>
+                                            <td>{{variableSharing.SecondVariablePath}} <span class="caret"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="panel panel-default">
