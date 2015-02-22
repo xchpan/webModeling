@@ -284,8 +284,8 @@
                 model.Ports.splice(index, 1);
             }
 
-            $scope.updatePortSource = function(port, portType) {
-                port.PortTemplateName = portType;
+            $scope.updatePortSource = function(port, library, portType) {
+                port.PortTemplateName = library + "/" + portType;
             }
 
             $scope.addSubmodel = function (model) {
@@ -300,8 +300,8 @@
                 model.Submodels.splice(index, 1);
             }
 
-            $scope.updateSubmodelSource = function (submodel, modelType) {
-                submodel.ModelTypeName = modelType;
+            $scope.updateSubmodelSource = function (submodel, library, modelType) {
+                submodel.ModelTypeName = library + "/" + modelType;
             }
         }
 ]);

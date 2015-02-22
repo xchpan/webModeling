@@ -79,9 +79,9 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Starting Values</h1>
+                                <h1 class="panel-title"><a data-toggle="collapse" href="#fluidStartingValuesPanel">Starting Values</a></h1>
                             </div>
-                            <div class="panel-body form-horizontal">
+                            <div id="fluidStartingValuesPanel" class="panel-body form-horizontal collapse">
                                 <div class="form-group">
                                     <label for="fluidPressure" class="control-label col-xs-2">Pressure</label>
                                     <div class="col-xs-9">
@@ -105,9 +105,9 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Methods</h1>
+                                <h1 class="panel-title"><a data-toggle="collapse" href="#fluidMethodsPanel">Methods</a></h1>
                             </div>
-                            <div class="panel-body form-horizontal">
+                            <div id="fluidMethodsPanel" class="panel-body form-horizontal collapse">
                                 <div class="form-group">
                                     <label for="systemMethod" class="control-label col-xs-2">System</label>
                                     <div class="col-xs-10">
@@ -141,9 +141,9 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Components <span class="badge pull-right" ng-click="addFluidComponent(currentFluid)">+</span></h1>
+                                <h1 class="panel-title"><a data-toggle="collapse" href="#fluidComponentsPanel">Components </a><span class="badge pull-right" ng-click="addFluidComponent(currentFluid)">+</span></h1>
                             </div>
-                            <div class="panel-body">
+                            <div id="fluidComponentsPanel" class="panel-body collapse">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -190,7 +190,10 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Icon</h1>
+                                <h1 class="panel-title"><a data-toggle="collapse" href="#fluidIconPanel">Icon</a></h1>
+                            </div>
+                            <div id="fluidIconPanel" class="panel-body collapse">
+                                Icon content
                             </div>
                         </div>
                     </div>
@@ -226,9 +229,9 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Parameters <span class="badge pull-right" ng-click="addPortParameter(currentPort)">+</span></h1>
+                                <h1 class="panel-title"><a data-toggle="collapse" href="#portParametersPanel">Parameters </a><span class="badge pull-right" ng-click="addPortParameter(currentPort)">+</span></h1>
                             </div>
-                            <div class="panel-body">
+                            <div id="portParametersPanel" class="panel-body collapse">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -275,9 +278,9 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title">Variables <span class="badge pull-right" ng-click="addPortVariable(currentPort)">+</span></h1>
+                                <h1 class="panel-title"><a data-toggle="collapse" href="#portVariablesPanel">Variables </a><span class="badge pull-right" ng-click="addPortVariable(currentPort)">+</span></h1>
                             </div>
-                            <div class="panel-body">
+                            <div id="portVariablesPanel" class="panel-body collapse">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -388,7 +391,7 @@
                                                             <li class="dropdown-submenu" disabled ng-repeat="library in libraries | getPorts">
                                                                 <a href="#">{{library.name}}</a>
                                                                 <ul class="dropdown-menu">
-                                                                    <li ng-repeat="portType in library.ports"><a href="#" ng-click="updatePortSource(port, portType)">{{portType}}</a></li>
+                                                                    <li ng-repeat="portType in library.ports"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{portType}}</a></li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -405,7 +408,7 @@
                             <div class="panel-heading">
                                 <h1 class="panel-title"><a data-toggle="collapse" href="#parameterPanel">Parameters </a><span class="badge pull-right" ng-click="addPortParameter(currentModel)">+</span></h1>
                             </div>
-                            <div id="parameterPanel" class="panel-body">
+                            <div id="parameterPanel" class="panel-body collapse">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -454,7 +457,7 @@
                             <div class="panel-heading">
                                 <h1 class="panel-title"><a data-toggle="collapse" href="#conditionPanel">Conditions </a><span class="badge pull-right" ng-click="addCondition(currentModel)">+</span></h1>
                             </div>
-                            <div id="conditionPanel" class="panel-body">
+                            <div id="conditionPanel" class="panel-body collapse">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -478,7 +481,7 @@
                             <div class="panel-heading">
                                 <h1 class="panel-title"><a data-toggle="collapse" href="#variablePanel">Variables </a><span class="badge pull-right" ng-click="addModelVariable(currentModel)">+</span></h1>
                             </div>
-                            <div id="variablePanel" class="panel-body">
+                            <div id="variablePanel" class="panel-body collapse">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -544,7 +547,7 @@
                             <div class="panel-heading">
                                 <h1 class="panel-title"><a data-toggle="collapse" href="#submodelPanel">Submodels </a><span class="badge pull-right" ng-click="addSubmodel(currentModel)">+</span></h1>
                             </div>
-                            <div id="submodelPanel" class="panel-body">
+                            <div id="submodelPanel" class="panel-body collapse">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -567,7 +570,7 @@
                                                             <li class="dropdown-submenu" disabled ng-repeat="library in libraries | getModels">
                                                                 <a href="#">{{library.name}}</a>
                                                                 <ul class="dropdown-menu">
-                                                                    <li ng-repeat="modelType in library.models"><a href="#" ng-click="updateSubmodelSource(submodel, modelType)">{{modelType}}</a></li>
+                                                                    <li ng-repeat="modelType in library.models"><a href="#" ng-click="updateSubmodelSource(submodel, library.name, modelType)">{{modelType}}</a></li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -584,28 +587,28 @@
                             <div class="panel-heading">
                                 <h1 class="panel-title"><a data-toggle="collapse" href="#externalPanel">Externals </a><span class="badge pull-right" ng-click="addExternals()">+</span></h1>
                             </div>
-                            <div id="externalPanel" class="panel-body">External content…</div>
+                            <div id="externalPanel" class="panel-body collapse">External content…</div>
                         </div>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title"><a data-toggle="collapse" href="#parameterConnectionPanel">Parameter connections </a><span class="badge pull-right" ng-click="addParameterConnection()">+</span></h1>
                             </div>
-                            <div id="parameterConnectionPanel" class="panel-body">Parameter connection content…</div>
+                            <div id="parameterConnectionPanel" class="panel-body collapse">Parameter connection content…</div>
                         </div>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title"><a data-toggle="collapse" href="#variableSharingPanel">Variable sharing </a><span class="badge pull-right" ng-click="addVariableSharing()">+</span></h1>
                             </div>
-                            <div id="variableSharingPanel" class="panel-body">Variable sharing content…</div>
+                            <div id="variableSharingPanel" class="panel-body collapse">Variable sharing content…</div>
                         </div>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title"><a data-toggle="collapse" href="#modelIconPanel">Icon</a></h1>
                             </div>
-                            <div id="modelIconPanel" class="panel-body">Icon content…</div>
+                            <div id="modelIconPanel" class="panel-body collapse">Icon content…</div>
                         </div>
                     </div>
                     <div class="modal-footer">
