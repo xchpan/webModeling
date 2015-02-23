@@ -623,8 +623,38 @@
                                     <tbody>
                                         <tr ng-repeat="parameterConnection in currentModel.ParameterConnections">
                                             <td><span class="badge" ng-click="deleteParameterConnection(currentModel, $index)">&#x2718</span></td>
-                                            <td>{{parameterConnection.SourcePath}} <span class="caret"></span></td>
-                                            <td>{{parameterConnection.SinkPath}} <span class="caret"></span></td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{parameterConnection.SourcePath}} <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li ng-repeat="parameter in currentModel | getSourceParameters">{{parameter}}</li>
+                                                            @*<li class="dropdown-submenu" disabled ng-repeat="library in libraries | getPorts">
+                                                                    <a href="#">{{library.name}}</a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li ng-repeat="portType in library.ports"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{portType}}</a></li>
+                                                                    </ul>
+                                                                </li>*@
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{parameterConnection.SinkPath}} <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li ng-repeat="parameter in currentModel | getSourceParameters">{{parameter}}</li>
+                                                            @*<li class="dropdown-submenu" disabled ng-repeat="library in libraries | getPorts">
+                                                                    <a href="#">{{library.name}}</a>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li ng-repeat="portType in library.ports"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{portType}}</a></li>
+                                                                    </ul>
+                                                                </li>*@
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>

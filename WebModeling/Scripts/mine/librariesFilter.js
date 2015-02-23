@@ -30,4 +30,22 @@
         });
         return result;
     };
+}).filter('getSourceParameters', function() {
+    return function(model, libraries) {
+        var parameters = [];
+        model.Parameters.forEach(function(parameter) {
+            parameters.push(parameter.Name);
+        });
+
+        return parameters;
+    };
+}).filter('getSinkParameters', function() {
+    return function(model, libraries) {
+        var parameters = [];
+        model.Parameters.forEach(function (parameter) {
+            parameters.push(parameter.Name);
+        });
+
+        return parameters;
+    };
 });
