@@ -644,13 +644,13 @@
                                                     <li class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{parameterConnection.SinkPath}} <span class="caret"></span></a>
                                                         <ul class="dropdown-menu">
-                                                            <li ng-repeat="parameter in currentModel | getSinkParameters">{{parameter}}</li>
-                                                            @*<li class="dropdown-submenu" disabled ng-repeat="library in libraries | getPorts">
-                                                                    <a href="#">{{library.name}}</a>
-                                                                    <ul class="dropdown-menu">
-                                                                        <li ng-repeat="portType in library.ports"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{portType}}</a></li>
-                                                                    </ul>
-                                                                </li>*@
+                                                            <li ng-repeat="parameter in currentModel | getSinkParameters : libraries | topLevel">{{parameter}}</li>
+                                                            <li class="dropdown-submenu" disabled ng-repeat="portOrModel in currentModel | getSinkParameters : libraries | childLevel">
+                                                                <a href="#">{{portOrModel.Name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="parameter in portOrModel.Parameters"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{parameter}}</a></li>
+                                                                </ul>
+                                                            </li>
                                                         </ul>
                                                     </li>
                                                 </ul>
