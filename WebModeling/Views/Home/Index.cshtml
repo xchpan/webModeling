@@ -346,13 +346,13 @@
                             <div class="form-group">
                                 <label for="modelName" class="control-label col-xs-2">Name</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="modelName" placeholder="Name" value="{{currentModel.Name}}">
+                                    <input type="text" class="form-control" id="modelName" placeholder="Name" ng-model="currentModel.Name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="modelDescription" class="control-label col-xs-2">Description</label>
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" id="modelDescription" placeholder="Description" value="{{currentModel.Description}}">
+                                    <input type="text" class="form-control" id="modelDescription" placeholder="Description" ng-model="currentModel.Description">
                                 </div>
                             </div>
                         </div>
@@ -677,8 +677,38 @@
                                     <tbody>
                                         <tr ng-repeat="variableSharing in currentModel.VariableSharings">
                                             <td><span class="badge" ng-click="deleteVariableSharing(currentModel, $index)">&#x2718</span></td>
-                                            <td>{{variableSharing.FirstVariablePath}} <span class="caret"></span></td>
-                                            <td>{{variableSharing.SecondVariablePath}} <span class="caret"></span></td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{variableSharing.FirstVariablePath}} <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li ng-repeat="variable in currentModel | getVariables : libraries | topLevel">{{variable}}</li>
+                                                            <li class="dropdown-submenu" disabled ng-repeat="portOrModel in currentModel | getVariables : libraries | childLevel">
+                                                                <a href="#">{{portOrModel.Name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="variable in portOrModel.Variables"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{variable}}</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul class="nav nav-pills">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{variableSharing.SecondVariablePath}} <span class="caret"></span></a>
+                                                        <ul class="dropdown-menu">
+                                                            <li ng-repeat="variable in currentModel | getVariables : libraries | topLevel">{{variable}}</li>
+                                                            <li class="dropdown-submenu" disabled ng-repeat="portOrModel in currentModel | getVariables : libraries | childLevel">
+                                                                <a href="#">{{portOrModel.Name}}</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li ng-repeat="variable in portOrModel.Variables"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{variable}}</a></li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
