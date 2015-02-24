@@ -296,5 +296,29 @@
             $scope.deleteVariableSharing = function(model, index) {
                 model.VariableSharings.splice(index, 1);
             }
+
+            $scope.updateParameterConnectionPath = function(index, parameterConnection, portOrModel, parameter) {
+                var path = portOrModel == null ? parameter : portOrModel.Name + "/" + parameter;
+                switch (index) {
+                    case 0:
+                        parameterConnection.SourcePath = path;
+                        break;
+                    case 1:
+                        parameterConnection.SinkPath = path;
+                        break;
+                }
+            }
+
+            $scope.updateVariableSharingPath = function(index, variableSharing, portOrModel, variable) {
+                var path = portOrModel == null ? variable : portOrModel.Name + "/" + variable;
+                switch(index) {
+                    case 0:
+                        variableSharing.FirstVariablePath = path;
+                        break;
+                    case 1:
+                        variableSharing.SecondVariablePath = path;
+                        break;
+                }
+            }
         }
 ]);
