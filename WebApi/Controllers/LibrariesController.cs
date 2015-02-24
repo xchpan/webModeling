@@ -85,9 +85,21 @@ namespace xpan.plantDesign.WebApi.Controllers
         }
 
         [HttpPost]
-        public Library CreateLibrary()
+        public LibraryViewModel CreateLibrary()
         {
-            return libraryService.CreateLibrary();
+            var library = libraryService.CreateLibrary();
+            var viewModel = new LibraryViewModel
+            {
+                Id = library.Id,
+                Name = library.Name
+            };
+            var fluids = GenerateFluidsViewModel(library);
+            var ports = GeneratePortsViewModel(library);
+            var models = GenerateModelsViewModel(library);
+
+            viewModel.Items = fluids.OfType<LibraryItemViewModel>().Union(ports).Union(models);
+
+            return viewModel;
         }
 
         public void DeleteLibrary(Guid id)
