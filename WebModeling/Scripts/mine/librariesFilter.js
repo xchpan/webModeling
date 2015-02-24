@@ -1,4 +1,32 @@
-﻿librariesFilter.filter('getPorts', function () {
+﻿librariesFilter.factory('libraryFilterUtilities', [function() {
+    var doFillChildren = function(type, name, typeName, libraries) {
+        var instance = { Name: name, Parameters: [] };
+        var templateName = typeName.split("/");
+        var library = null;
+        for (var i = 0; i < libraries.length; i++) {
+            if (libraries[i].Name == templateName[0]) {
+                library = libraries[i];
+                break;
+            }
+        };
+        var childTemplate = null;
+        for (i = 0; i < library.Items.length; i++) {
+            if (library.Items[i].Type == type && library.Items[i].Name == templateName[1]) {
+                childTemplate = library.Items[i];
+                break;
+            }
+        }
+        childTemplate.Parameters.forEach(function(p) {
+            instance.Parameters.push(p.Name);
+        });
+
+        return instance;
+    };
+
+    return {
+        fillChildren: function (type, name, typeName, libraries) { return doFillChildren(type, name, typeName, libraries); }
+    };
+}]).filter('getPorts', function () {
     return function (libraries) {
         var result = [];
         libraries.forEach(function (library) {
@@ -30,31 +58,7 @@
         });
         return result;
     };
-}).filter('getSinkParameters', function() {
-    var fillChild = function(type, name, typeName, libraries) {
-        var instance = { Name: name, Parameters: [] };
-        var templateName = typeName.split("/");
-        var library = null;
-        for (var i = 0; i < libraries.length; i++) {
-            if (libraries[i].Name == templateName[0]) {
-                library = libraries[i];
-                break;
-            }
-        };
-        var childTemplate = null;
-        for (i = 0; i < library.Items.length; i++) {
-            if (library.Items[i].Type == type && library.Items[i].Name == templateName[1]) {
-                childTemplate = library.Items[i];
-                break;
-            }
-        }
-        childTemplate.Parameters.forEach(function (p) {
-            instance.Parameters.push(p.Name);
-        });
-
-        return instance;
-    }
-
+}).filter('getSinkParameters', function (libraryFilterUtilities) {
     return function (model, libraries) {
         var parameters = { TopLevel: [], ChildLevel: [] };
         model.Parameters.forEach(function (parameter) {
@@ -62,42 +66,18 @@
         });
         model.Ports.forEach(function (port) {
             if (port.Direction == "Out") {
-                var portInstance = fillChild("Port", port.Name, port.PortTemplateName, libraries);
+                var portInstance = libraryFilterUtilities.fillChildren("Port", port.Name, port.PortTemplateName, libraries);
                 parameters.ChildLevel.push(portInstance);
             }
         });
         model.Submodels.forEach(function (child) {
-            var portInstance = fillChild("Model", child.Name, child.ModelTypeName, libraries);
+            var portInstance = libraryFilterUtilities.fillChildren("Model", child.Name, child.ModelTypeName, libraries);
             parameters.ChildLevel.push(portInstance);
         });
 
         return parameters;
     };
-}).filter('getSourceParameters', function () {
-    var fillChild = function(type, name, typeName, libraries) {
-        var instance = { Name: name, Parameters: [] };
-        var templateName = typeName.split("/");
-        var library = null;
-        for (var i = 0; i < libraries.length; i++) {
-            if (libraries[i].Name == templateName[0]) {
-                library = libraries[i];
-                break;
-            }
-        };
-        var childTemplate = null;
-        for (i = 0; i < library.Items.length; i++) {
-            if (library.Items[i].Type == type && library.Items[i].Name == templateName[1]) {
-                childTemplate = library.Items[i];
-                break;
-            }
-        }
-        childTemplate.Parameters.forEach(function (p) {
-            instance.Parameters.push(p.Name);
-        });
-
-        return instance;
-    }
-
+}).filter('getSourceParameters', function (libraryFilterUtilities) {
     return function(model, libraries) {
         var parameters = {TopLevel: [], ChildLevel: []};
         model.Parameters.forEach(function (parameter) {
@@ -105,12 +85,12 @@
         });
         model.Ports.forEach(function(port) {
             if (port.Direction == "In") {
-                var portInstance = fillChild("Port", port.Name, port.PortTemplateName, libraries);
+                var portInstance = libraryFilterUtilities.fillChildren("Port", port.Name, port.PortTemplateName, libraries);
                 parameters.ChildLevel.push(portInstance);
             }
         });
         model.Submodels.forEach(function (child) {
-            var portInstance = fillChild("Model", child.Name, child.ModelTypeName, libraries);
+            var portInstance = libraryFilterUtilities.fillChildren("Model", child.Name, child.ModelTypeName, libraries);
                 parameters.ChildLevel.push(portInstance);
         });
 
