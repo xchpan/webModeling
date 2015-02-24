@@ -392,7 +392,7 @@
                                                             <li class="dropdown-submenu" disabled ng-repeat="library in libraries | getPorts">
                                                                 <a href="#">{{library.name}}</a>
                                                                 <ul class="dropdown-menu">
-                                                                    <li ng-repeat="portType in library.ports"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{portType}}</a></li>
+                                                                    <li ng-repeat="portType in library.children"><a href="#" ng-click="updatePortSource(port, library.name, portType)">{{portType}}</a></li>
                                                                 </ul>
                                                             </li>
                                                         </ul>
@@ -587,7 +587,7 @@
                                                             <li class="dropdown-submenu" disabled ng-repeat="library in libraries | getModels">
                                                                 <a href="#">{{library.name}}</a>
                                                                 <ul class="dropdown-menu">
-                                                                    <li ng-repeat="modelType in library.models"><a href="#" ng-click="updateSubmodelSource(submodel, library.name, modelType)">{{modelType}}</a></li>
+                                                                    <li ng-repeat="modelType in library.children"><a href="#" ng-click="updateSubmodelSource(submodel, library.name, modelType)">{{modelType}}</a></li>
                                                                 </ul>
                                                             </li>
                                                         </ul>

@@ -23,40 +23,33 @@
         return instance;
     };
 
+    var doGetHierarchy = function(type, libraries) {
+        var result = [];
+        libraries.forEach(function (library) {
+            var lib = { name: library.Name, children: [] };
+            library.Items.forEach(function (item) {
+                if (item.Type == type) {
+                    lib.children.push(item.Name);
+                }
+            });
+            if (lib.children.length > 0) {
+                result.push(lib);
+            }
+        });
+        return result;
+    }
+
     return {
-        fillChildren: function (type, name, typeName, libraries) { return doFillChildren(type, name, typeName, libraries); }
+        fillChildren: function (type, name, typeName, libraries) { return doFillChildren(type, name, typeName, libraries); },
+        getHierarchy: function (type, libraries) { return doGetHierarchy(type, libraries); }
     };
-}]).filter('getPorts', function () {
+}]).filter('getPorts', function (libraryFilterUtilities) {
     return function (libraries) {
-        var result = [];
-        libraries.forEach(function (library) {
-            var lib = { name: library.Name, ports: [] };
-            library.Items.forEach(function (item) {
-                if (item.Type == "Port") {
-                    lib.ports.push(item.Name);
-                }
-            });
-            if (lib.ports.length > 0) {
-                result.push(lib);
-            }
-        });
-        return result;
+        return libraryFilterUtilities.getHierarchy("Port", libraries);
     };
-}).filter('getModels', function () {
+}).filter('getModels', function (libraryFilterUtilities) {
     return function (libraries) {
-        var result = [];
-        libraries.forEach(function (library) {
-            var lib = { name: library.Name, models: [] };
-            library.Items.forEach(function (item) {
-                if (item.Type == "Model") {
-                    lib.models.push(item.Name);
-                }
-            });
-            if (lib.models.length > 0) {
-                result.push(lib);
-            }
-        });
-        return result;
+        return libraryFilterUtilities.getHierarchy("Model", libraries);
     };
 }).filter('getSinkParameters', function (libraryFilterUtilities) {
     return function (model, libraries) {
