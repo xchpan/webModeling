@@ -18,13 +18,13 @@ namespace xpan.plantDesign.Repository
         public IEnumerable<FluidComponentType> FluidComponentTypes 
         { get { return fluidComponentTypes.AsEnumerable(); } }
 
-        public void Initialize()
+        public void Initialize(string connectionString)
         {
             fluidComponentTypes = new List<FluidComponentType>();
 
             MapEntities();
 
-            var connectionString = "mongodb://192.168.112.129";
+            //var connectionString = "mongodb://192.168.112.129";
             var client = new MongoClient(connectionString);
 
             var server = client.GetServer();

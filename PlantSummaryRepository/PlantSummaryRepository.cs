@@ -17,9 +17,9 @@ namespace xpan.plantDesign.Repository
 
         private readonly Dictionary<Guid, PlantSummary> plants = new Dictionary<Guid, PlantSummary>();
 
-        public PlantSummaryRepository()
+        public PlantSummaryRepository(string ip)
         {
-            var ip = "192.168.112.129";
+            //var ip = "192.168.112.129";
             cluster = Cluster.Builder().AddContactPoint(ip).Build();
             session = cluster.Connect("plant_building");
 

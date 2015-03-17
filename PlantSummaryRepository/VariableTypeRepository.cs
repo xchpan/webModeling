@@ -35,13 +35,13 @@ namespace xpan.plantDesign.Repository
             return null;
         }
 
-        public void Initialize()
+        public void Initialize(string connectionString)
         {
             variableCategories = new List<VariableCategory>();
 
             MapEntities();
 
-            var connectionString = "mongodb://192.168.112.129";
+            //var connectionString = "mongodb://192.168.112.129";
             var client = new MongoClient(connectionString);
 
             var server = client.GetServer();

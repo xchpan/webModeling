@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Configuration;
+using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
@@ -24,18 +25,21 @@ namespace xpan.plantDesign.WebApi.Config
         private static IContainer RegisterServices(ContainerBuilder builder)
         {
             //Services
-            builder.RegisterType<PlantSummaryRepository>().As<IPlantSummaryRepository>().SingleInstance();
+            var cassandraIp = ConfigurationManager.ConnectionStrings["cassandraStore"].ConnectionString;
+            builder.RegisterType<PlantSummaryRepository>().As<IPlantSummaryRepository>().SingleInstance()
+                .WithParameter(new NamedParameter("ip", cassandraIp));
             builder.RegisterType<LibraryService>().As<ILibraryService>().InstancePerRequest();
             builder.RegisterType<PlantSummaryService>().As<IPlantSummaryService>().InstancePerRequest();
 
+            var mongoStore = ConfigurationManager.ConnectionStrings["mongoStore"].ConnectionString;
             builder.RegisterType<VariableTypeRepository>()
                 .As<IVariableTypeRepository>()
-                .OnActivating(e => e.Instance.Initialize())
+                .OnActivating(e => e.Instance.Initialize(mongoStore))
                 .SingleInstance();
 
             builder.RegisterType<FluidComponentTypeRepository>()
                 .As<IFluidComponentTypeRepository>()
-                .OnActivating(e => e.Instance.Initialize())
+                .OnActivating(e => e.Instance.Initialize(mongoStore))
                 .SingleInstance();
 
             builder.RegisterType<ModelToViewModel>()
